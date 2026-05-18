@@ -54,6 +54,18 @@ Python ≥ 3.8 required. No other dependencies.
 
 ---
 
+## Wiki
+
+The project wiki is tracked inside this repository as a git submodule at `wiki/`.
+
+```bash
+git submodule update --init --recursive
+```
+
+The current entry page is `wiki/Home.md`.
+
+---
+
 ## Quick start
 
 ```python
