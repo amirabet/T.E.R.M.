@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "term-mate"
+version         = "0.1.0"
+description     = "T.E.R.M. — Terminal Empathetic Resourceful Mate"
+readme          = "README.md"
+license         = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies    = []
+
+[project.scripts]
+term = "term.daemon:run"
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["term*"]
+
+[tool.setuptools.package-data]
+term = ["animations/*.json"]
