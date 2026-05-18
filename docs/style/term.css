@@ -12,14 +12,24 @@ html {
 	min-height: 100%;
 }
 
-h2 {
-	font-weight: 300
-}
-
 main {
 	height: 100vh;
 	height: 100dvh;
 	color: rgba(255, 255, 255, 0.75);
+}
+
+
+h2 {
+	font-weight: 300
+}
+
+a {
+	text-decoration: none;
+	line-height: 1;
+}
+
+a:hover {
+	animation: blinkTextCursor 500ms infinite normal;
 }
 
 .wrapper {
