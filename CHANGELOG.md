@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased] - 2026-06-02
+
+### Added
+
+- Added a full state management system to T.E.R.M. Studio. A states bar at the top of the editor displays all named animation states as clickable pills. States can be created, renamed (double-click), switched, and deleted without leaving the editor.
+- Added JSON import to the Studio. Any `.json` file that follows the T.E.R.M. animation format (including `term/animations/default.json`) can be loaded, replacing the current state set. Both the per-character object format and the shorthand string format are accepted.
+- Added JSON export to the Studio. All current states are downloaded as `term-states.json`, normalized to the Python runtime color naming convention (`br_cyan`, `br_yellow`, etc.), and ready to pass directly to `TERM(animations="term-states.json")`.
+- Expanded the Expressions face grid from a small set to approximately 50 preset faces organized into semantic groups: Neutral, Happy, Winking, Sad/Tired, Surprised, Dizzy, Angry, Skeptical, Dead, and Misc.
+
+### Changed
+
+- The Studio Quick Actions and Expressions sections are now displayed side by side in a two-column grid instead of stacked vertically.
+- Removed the EDITOR / LIBRARY / EXPORT tab navigation from the Studio. The editor is now shown directly with no tab bar, and the LIBRARY and EXPORT panels have been removed. State export is handled by the new Export JSON button in the States section.
+- Rewrote `wiki/Studio.md` to document the state management workflow, JSON import/export, the expanded expressions panel, color name normalization, and usage of exported files with the Python library.
+
 ## [0.1.0] - 2026-05-18
 
 ### Added
