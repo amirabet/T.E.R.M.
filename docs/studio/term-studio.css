@@ -48,43 +48,6 @@ body {
 	gap: 8px;
 }
 
-/* ─── TABS ─── */
-.tab-row {
-	display: flex;
-	border-bottom: 0.5px solid var(--border);
-	margin-bottom: 10px;
-}
-
-.tab {
-	background: none;
-	border: none;
-	border-bottom: 1.5px solid transparent;
-	padding: 6px 14px;
-	font-family: var(--mono);
-	font-size: 11px;
-	color: var(--text3);
-	cursor: pointer;
-	margin-bottom: -1px;
-	letter-spacing: 0.07em;
-}
-
-.tab:hover {
-	color: var(--text2);
-}
-
-.tab.on {
-	color: var(--text);
-	border-bottom-color: var(--acc);
-}
-
-.tp {
-	display: none;
-}
-
-.tp.on {
-	display: block;
-}
-
 /* ─── SECTIONS ─── */
 .sec {
 	background: var(--bg2);
@@ -599,4 +562,38 @@ header span {
 	pointer-events: none;
 	z-index: 999;
 	white-space: nowrap;
+}
+
+/* ─── STATES BAR ─── */
+.states-bar {
+	display: flex;
+	gap: 3px;
+	flex-wrap: wrap;
+	min-height: 28px;
+	align-items: center;
+}
+
+.scard {
+	background: var(--bg3);
+	border: 0.5px solid var(--border);
+	border-radius: 4px;
+	padding: 3px 11px;
+	font-family: var(--mono);
+	font-size: 10px;
+	color: var(--text3);
+	cursor: pointer;
+	letter-spacing: 0.06em;
+	transition: all 0.1s;
+	user-select: none;
+}
+
+.scard:hover {
+	color: var(--text);
+	border-color: #555;
+}
+
+.scard.on {
+	color: var(--acc);
+	border-color: var(--acc2);
+	background: var(--sel);
 }
