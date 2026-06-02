@@ -28,7 +28,7 @@ bot.stop()
 
 ## Documentation
 
-The full documentation now lives in the wiki submodule under `wiki/` and in the GitHub project wiki.
+The full documentation now lives in the wiki submodule under `wiki/` and in the [GitHub project wiki](https://github.com/amirabet/T.E.R.M./wiki).
 
 - Concepts: `wiki/Concepts.md`
 - Getting started: `wiki/Getting-Started.md`
