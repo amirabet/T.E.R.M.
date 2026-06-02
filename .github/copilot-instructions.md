@@ -67,6 +67,7 @@ bot.set_state("my_custom_state", "Running custom animation")
 ```
 
 **Animation load priority** (highest → lowest):
+
 1. `TERM(animations=...)` / `bot.add_animation(...)`
 2. `./term.json` (per-project, auto-loaded)
 3. `~/.term/animations.json` (user global, auto-loaded)
@@ -81,8 +82,28 @@ bot.set_state("my_custom_state", "Running custom animation")
     "frames": [
       {
         "ms": 200,
-        "face": [{ "char": "^", "fg": "br_cyan", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false }],
-        "msg":  [{ "char": "H", "fg": "white",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false }]
+        "face": [
+          {
+            "char": "^",
+            "fg": "br_cyan",
+            "bg": "",
+            "bold": true,
+            "dim": false,
+            "underline": false,
+            "reverse": false
+          }
+        ],
+        "msg": [
+          {
+            "char": "H",
+            "fg": "white",
+            "bg": "",
+            "bold": false,
+            "dim": false,
+            "underline": false,
+            "reverse": false
+          }
+        ]
       }
     ]
   }
@@ -119,13 +140,13 @@ Examples: `[br_cyan bold]>>[/]`, `[red bg:black]FAIL[/]`, `[dim]...waiting[/]`
 
 ### Message Types (`term/message.py`)
 
-| Function | Description |
-|---|---|
-| `message.plain(text, **style)` | Uniformly styled string |
-| `message.markup(text)` | Inline markup syntax |
+| Function                                  | Description                             |
+| ----------------------------------------- | --------------------------------------- |
+| `message.plain(text, **style)`            | Uniformly styled string                 |
+| `message.markup(text)`                    | Inline markup syntax                    |
 | `message.typewriter(bot, text, delay_ms)` | Types char-by-char in background thread |
-| `message.loader(pct, width, **kw)` | Progress bar `[=====>    ] 67%` |
-| `message.bubble(text)` | Speech bubble `( text )` |
+| `message.loader(pct, width, **kw)`        | Progress bar `[=====>    ] 67%`         |
+| `message.bubble(text)`                    | Speech bubble `( text )`                |
 
 ### Daemon / Cross-Language Protocol (`term/daemon.py`)
 
@@ -157,6 +178,7 @@ Vanilla HTML/CSS/JS — open `term-studio.html` directly in a browser, no build 
 ### Architecture (term-studio.js)
 
 Key globals:
+
 - `stateSet` — `{ stateName: [frame, frame, …] }` — all states being edited
 - `currentState` — name of the state currently shown in the editor
 - `frames` — the live frame array for the current state
@@ -165,6 +187,7 @@ Key globals:
 - `FACES` — ~50 preset face expressions grouped by emotion
 
 Key functions:
+
 - `initDefaultStates()` — bootstraps `stateSet` from `PRESETS`
 - `switchState(name)` — saves current state, loads another
 - `saveCurrentStateToSet()` — flushes `frames` into `stateSet[currentState]`
@@ -181,13 +204,13 @@ Key functions:
 The editor internally uses shortened bright-color names. Export normalizes them to the Python runtime names:
 
 | Editor (internal) | Python (exported) |
-|---|---|
-| `br_cyn` | `br_cyan` |
-| `br_yel` | `br_yellow` |
-| `br_grn` | `br_green` |
-| `br_blu` | `br_blue` |
-| `br_mag` | `br_magenta` |
-| `br_wht` | `br_white` |
+| ----------------- | ----------------- |
+| `br_cyn`          | `br_cyan`         |
+| `br_yel`          | `br_yellow`       |
+| `br_grn`          | `br_green`        |
+| `br_blu`          | `br_blue`         |
+| `br_mag`          | `br_magenta`      |
+| `br_wht`          | `br_white`        |
 
 All other names (`red`, `cyan`, `white`, `black`, `gray`, `dim`, etc.) are identical.
 
@@ -204,15 +227,15 @@ All other names (`red`, `cyan`, `white`, `black`, `gray`, `dim`, etc.) are ident
 
 ## Built-in States
 
-| State | Description |
-|---|---|
-| `boot` | Wakes up; plays once |
-| `idle` | Slow blink, waiting |
-| `think` | Eye scan, analysis |
-| `work` | Tension, processing |
-| `ok` | Relief, success |
-| `error` | Escalating alarm |
-| `speak` | Mouth movement |
+| State   | Description          |
+| ------- | -------------------- |
+| `boot`  | Wakes up; plays once |
+| `idle`  | Slow blink, waiting  |
+| `think` | Eye scan, analysis   |
+| `work`  | Tension, processing  |
+| `ok`    | Relief, success      |
+| `error` | Escalating alarm     |
+| `speak` | Mouth movement       |
 
 ---
 
