@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>>_ T.E.R.M.</title>
+	<link rel="stylesheet" href="./style/term.css" />
+</head>
+
+<body class="crt">
+	<main class="wrapper">
+		<h1>T.E.R.M. ><span class="cursor">_</span>$ </h1>
+		<h2 class="code">Type or click an option:</h2>
+		<ol>
+			<li><span class="code"><a href="studio/term-studio.html" class="lightblue">Studio</a></span></li>
+			<li><span class="code"><a href="#" class="pink">Demo</a></span></li>
+			<li><span class="code"><a href="../wiki/Home.md" class="yellow">Wiki</a></span></li>
+		</ol>
+	</main>
+	<script>
+		const optionLinks = Array.from(document.querySelectorAll("ol li a"));
+
+		document.addEventListener("keydown", (event) => {
+			if (event.ctrlKey || event.altKey || event.metaKey) return;
+
+			const index = Number.parseInt(event.key, 10) - 1;
+			const link = optionLinks[index];
+
+			if (!Number.isInteger(index) || !link || !link.href || link.getAttribute("href") === "#") {
+				return;
+			}
+
+			window.location.href = link.href;
+		});
+	</script>
+</body>
+
+</html>
