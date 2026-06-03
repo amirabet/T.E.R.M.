@@ -45,17 +45,19 @@ from term import TERM
 bot = TERM()                          # starts idle
 bot = TERM(animations="term.json")    # load extra/custom states
 bot.start()                           # begin animation loop
-bot.think("Analyzing...")
-bot.work("Processing...")
-bot.ok("Done!")
-bot.error("Something went wrong")
-bot.speak("Hello!")
+bot.set_msg("Analyzing...")
+bot.think()
+bot.work()
+bot.set_msg("Done!")
+bot.ok()
+bot.error("Something went wrong")      # optional message override
+bot.speak()                             # keeps current message
 bot.say("Typed out char by char", delay_ms=60)   # typewriter
 bot.progress(67, label="Uploading...")
 bot.stop()
 ```
 
-Convenience methods (`idle`, `think`, `work`, `ok`, `error`, `speak`, `boot`) are aliases for `set_state(name, msg)`. All return `self` for chaining.
+Convenience methods (`idle`, `think`, `work`, `ok`, `error`, `speak`, `boot`) are aliases for `set_state(name, msg)`. If `msg` is omitted, they only change state and preserve the current message. All return `self` for chaining.
 
 ### Custom States
 
@@ -168,6 +170,8 @@ bubble <text>
 badge  <ok|error|warn|info> [label]
 quit
 ```
+
+If the optional message is omitted in a state command, only the state changes and the current message is kept.
 
 ---
 

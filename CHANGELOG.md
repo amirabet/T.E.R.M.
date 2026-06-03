@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased] - 2026-06-03
+
+### Changed
+
+- Reframed state handling in the Python runtime so state and message are independent. Calling `set_state(...)` (or shortcut methods like `think()`, `work()`, `ok()`) without a message now preserves the current message instead of falling back to the state's frame message.
+- Updated stdin daemon handling so state commands without a message only switch state and do not modify message content.
+- Updated examples and wiki/API docs to reflect the new independent state/message model.
+
 ## [0.2.0] - 2026-06-02
 
 ### Added

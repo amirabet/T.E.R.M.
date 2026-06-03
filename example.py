@@ -3,7 +3,10 @@ T.E.R.M. — example / smoke test
 Run: python example.py
 """
 
-import sys, os, time
+import os
+import sys
+import time
+
 sys.path.insert(0, os.path.dirname(__file__))
 
 from term import TERM, msg
@@ -15,10 +18,12 @@ bot = TERM()
 bot.start("boot")
 time.sleep(2.2)
 
-bot.think("Analyzing your project...")
+bot.set_msg("Analyzing your project...")
+bot.think()
 time.sleep(1.5)
 
-bot.work("Processing files... (1/4)")
+bot.work()
+bot.set_msg("Processing files... (1/4)")
 time.sleep(0.7)
 bot.set_msg("Processing files... (2/4)")
 time.sleep(0.7)
@@ -27,7 +32,8 @@ time.sleep(0.7)
 bot.set_msg("Processing files... (4/4)")
 time.sleep(0.5)
 
-bot.ok("Completed in 3.2s")
+bot.ok()
+bot.set_msg("Completed in 3.2s")
 time.sleep(1.5)
 bot.stop()
 
@@ -75,7 +81,7 @@ print("── 5. Typewriter effect ──")
 bot = TERM()
 bot.start("speak")
 t = bot.say("Analysis complete. Found 12 files to refactor.", fg="br_blue", delay_ms=55)
-t.join()       # wait for typewriter to finish
+t.join()  # wait for typewriter to finish
 time.sleep(0.5)
 bot.stop()
 
@@ -109,14 +115,17 @@ except Exception:
 print("── 8. Custom animation (shorthand strings) ──")
 
 bot = TERM()
-bot.add_animation("scan", {
-    "frames": [
-        {"ms": 140, "face": "o.-", "msg": "Scanning..."},
-        {"ms": 140, "face": "-o.", "msg": "Scanning..."},
-        {"ms": 140, "face": "-.o", "msg": "Scanning..."},
-        {"ms": 140, "face": "-o.", "msg": "Scanning..."},
-    ]
-})
+bot.add_animation(
+    "scan",
+    {
+        "frames": [
+            {"ms": 140, "face": "o.-", "msg": "Scanning..."},
+            {"ms": 140, "face": "-o.", "msg": "Scanning..."},
+            {"ms": 140, "face": "-.o", "msg": "Scanning..."},
+            {"ms": 140, "face": "-o.", "msg": "Scanning..."},
+        ]
+    },
+)
 bot.start("scan")
 time.sleep(2.0)
 bot.ok("Scan complete — 0 vulnerabilities")

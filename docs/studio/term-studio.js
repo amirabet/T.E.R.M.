@@ -114,6 +114,15 @@ let library = {};
 let stateSet = {};      // { name: [frame, frame, …] }
 let currentState = "";  // name of the state currently being edited
 
+// ─── TEST tab chain runner ──────────────────────────────────
+const MAX_TEST_SCENARIOS = 5;
+let testScenarios = [];
+let testRunToken = 0;
+let testIsRunning = false;
+const TYPEWRITER_CHAR_MS = 60;
+let activeTestScenario = 0;
+let testSel = new Set();
+
 // ═══════════════════════════════════════════════════════════
 //  STYLE HELPERS
 // ═══════════════════════════════════════════════════════════
@@ -170,11 +179,15 @@ function cellANSI(cell) {
 // ═══════════════════════════════════════════════════════════
 function renderStage(f) {
 	f = f || frames[curFrame];
+	const stageFace = document.getElementById("stage-face");
+	if (!stageFace) return;
 	let fh = "";
 	f.face.forEach((c) => {
 		fh += renderStageChar(c);
 	});
-	document.getElementById("stage-face").innerHTML = fh;
+	stageFace.innerHTML = fh;
+	const stageMsg = document.getElementById("stage-msg");
+	if (!stageMsg) return;
 	let mh = "";
 	if (f.msg.length) {
 		mh = '<span style="color:#333">&lt;&nbsp;</span>';
@@ -182,7 +195,7 @@ function renderStage(f) {
 			mh += renderStageChar(c);
 		});
 	}
-	document.getElementById("stage-msg").innerHTML = mh;
+	stageMsg.innerHTML = mh;
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -195,6 +208,7 @@ function renderRow(tgt) {
 	const rowEl = document.getElementById(
 		tgt === "face" ? "face-row" : "msg-row",
 	);
+	if (!rowEl) return;
 	rowEl.innerHTML = "";
 	cells.forEach((cell, i) => {
 		const d = document.createElement("div");
@@ -381,7 +395,7 @@ function toggleSel(tgt, idx, shift) {
 	if (tgt !== target) {
 		selFace.clear();
 		selMsg.clear();
-		setTarget(tgt, document.getElementById("tgt-" + tgt));
+		setTarget(tgt);
 	}
 	const sel = tgt === "face" ? selFace : selMsg;
 	if (!shift) {
@@ -400,7 +414,7 @@ function selectAll(tgt) {
 	const sel = tgt === "face" ? selFace : selMsg;
 	sel.clear();
 	cells.forEach((_, i) => sel.add(i));
-	if (tgt !== target) setTarget(tgt, document.getElementById("tgt-" + tgt));
+	if (tgt !== target) setTarget(tgt);
 	renderAllRows();
 	reflectPalette();
 	renderSelInfo();
@@ -409,17 +423,33 @@ function selectAll(tgt) {
 // ═══════════════════════════════════════════════════════════
 //  TARGET TOGGLE
 // ═══════════════════════════════════════════════════════════
-function setTarget(t, btn) {
+function setTarget(t) {
 	target = t;
-	document.getElementById("tgt-face").classList.toggle("on", t === "face");
-	document.getElementById("tgt-msg").classList.toggle("on", t === "msg");
-	document.getElementById("wrap-face").style.display =
-		t === "face" ? "block" : "none";
-	document.getElementById("wrap-msg").style.display =
-		t === "msg" ? "block" : "none";
+	const wrapFace = document.getElementById("wrap-face");
+	const wrapMsg = document.getElementById("wrap-msg");
+	if (wrapFace) wrapFace.style.display = t === "face" ? "block" : "none";
+	if (wrapMsg) wrapMsg.style.display = t === "msg" ? "block" : "none";
 	renderAllRows();
 	reflectPalette();
 	renderSelInfo();
+}
+
+// ═══════════════════════════════════════════════════════════
+//  TABS
+// ═══════════════════════════════════════════════════════════
+function switchTab(id, btn) {
+	document.querySelectorAll(".tp").forEach((p) => p.classList.remove("on"));
+	document.querySelectorAll(".tab").forEach((b) => b.classList.remove("on"));
+	document.getElementById("tp-" + id).classList.add("on");
+	if (btn) btn.classList.add("on");
+
+	if (id === "face") setTarget("face");
+	if (id === "test") {
+		setTarget("face");
+		renderTestScenarios();
+		renderTestStyleEditor();
+		renderTestStageStatic();
+	}
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -523,6 +553,7 @@ function onFaceInput() {
 	renderAll();
 }
 function onMsgInput() {
+	if (!document.getElementById("msg-in")) return;
 	const val = document.getElementById("msg-in").value || "";
 	const old = frames[curFrame].msg;
 	frames[curFrame].msg = Array.from(val, (c, i) => {
@@ -548,7 +579,8 @@ function selectFrame(i) {
 	const f = frames[i];
 	document.getElementById("face-in").value = f.face.map((c) => c.char).join("");
 	document.getElementById("ms-in").value = f.ms;
-	document.getElementById("msg-in").value = f.msg.map((c) => c.char).join("");
+	const msgIn = document.getElementById("msg-in");
+	if (msgIn) msgIn.value = f.msg.map((c) => c.char).join("");
 	renderAll();
 }
 function addFrame() {
@@ -808,6 +840,7 @@ function switchState(name) {
 	if (playing) togglePlay();
 	selectFrame(0);
 	renderStatesBar();
+	ensureTestScenarioStates();
 }
 
 function addNewState() {
@@ -832,6 +865,7 @@ function deleteCurrentState() {
 	const next = Object.keys(stateSet)[0];
 	currentState = "";
 	switchState(next);
+	ensureTestScenarioStates();
 	toast("Deleted state");
 }
 
@@ -855,6 +889,7 @@ function renderStatesBar() {
 			stateSet[clean] = stateSet[name];
 			delete stateSet[name];
 			if (currentState === name) currentState = clean;
+			remapTestScenarioState(name, clean);
 			renderStatesBar();
 			toast("Renamed \u2192 " + clean);
 		};
@@ -879,6 +914,7 @@ function _cellFromJSON(item) {
 function _framesFromJSON(jsonFrames) {
 	return jsonFrames.map((jf) => ({
 		face: (Array.isArray(jf.face) ? jf.face : Array.from(String(jf.face ?? "._."))).map(_cellFromJSON),
+		// Keep backward compatibility with legacy files that still include frame.msg.
 		msg: (Array.isArray(jf.msg) ? jf.msg : Array.from(String(jf.msg ?? ""))).map(_cellFromJSON),
 		ms: Math.max(40, parseInt(jf.ms) || 300),
 	}));
@@ -895,18 +931,452 @@ function importStatesFromJSON(data) {
 	stateSet = newSet;
 	currentState = "";
 	switchState(Object.keys(stateSet)[0]);
+	ensureTestScenarioStates();
 	toast(`Loaded ${Object.keys(stateSet).length} state(s)`);
+}
+
+// ═══════════════════════════════════════════════════════════
+//  TEST TAB — CHAINED SCENARIOS
+// ═══════════════════════════════════════════════════════════
+function _defaultScenario() {
+	const first = Object.keys(stateSet)[0] || "idle";
+	return {
+		state: first,
+		message: "",
+		mode: "plain",
+		duration: 1800,
+		msgCells: [],
+	};
+}
+
+function _syncScenarioMsgCells(sc) {
+	const text = sc.message || "";
+	const old = Array.isArray(sc.msgCells) ? sc.msgCells : [];
+	sc.msgCells = Array.from(text, (ch, i) => {
+		const oc = cloneCell(i < old.length ? old[i] : mkCell(ch));
+		oc.char = ch;
+		return oc;
+	});
+}
+
+function initTestScenarios() {
+	testScenarios = [_defaultScenario()];
+	activeTestScenario = 0;
+	testSel.clear();
+	renderTestScenarios();
+	renderTestStyleEditor();
+	renderTestStageStatic();
+}
+
+function ensureTestScenarioStates() {
+	const names = Object.keys(stateSet);
+	if (!names.length) return;
+	testScenarios.forEach((sc) => {
+		if (!names.includes(sc.state)) sc.state = names[0];
+		_syncScenarioMsgCells(sc);
+	});
+	renderTestScenarios();
+	renderTestStyleEditor();
+	renderTestStageStatic();
+}
+
+function remapTestScenarioState(oldName, newName) {
+	testScenarios.forEach((sc) => {
+		if (sc.state === oldName) sc.state = newName;
+	});
+	renderTestScenarios();
+	renderTestStyleEditor();
+	renderTestStageStatic();
+}
+
+function addTestScenario() {
+	if (testScenarios.length >= MAX_TEST_SCENARIOS) {
+		toast("Maximum 5 scenarios");
+		return;
+	}
+	testScenarios.push(_defaultScenario());
+	activeTestScenario = testScenarios.length - 1;
+	testSel.clear();
+	renderTestScenarios();
+	renderTestStyleEditor();
+}
+
+function removeTestScenario(i) {
+	if (testScenarios.length <= 1) {
+		toast("Keep at least one scenario");
+		return;
+	}
+	testScenarios.splice(i, 1);
+	activeTestScenario = Math.min(activeTestScenario, testScenarios.length - 1);
+	testSel.clear();
+	renderTestScenarios();
+	renderTestStyleEditor();
+	renderTestStageStatic();
+}
+
+function updateTestScenario(i, key, value) {
+	if (!testScenarios[i]) return;
+	if (key === "duration") {
+		const n = parseInt(value);
+		testScenarios[i].duration = Math.max(200, Number.isNaN(n) ? 1800 : n);
+	} else {
+		testScenarios[i][key] = value;
+		if (key === "message") _syncScenarioMsgCells(testScenarios[i]);
+	}
+	renderTestScenarios();
+	renderTestStyleEditor();
+	renderTestStageStatic();
+}
+
+function renderTestScenarios() {
+	const wrap = document.getElementById("test-scenarios");
+	if (!wrap) return;
+	const stateNames = Object.keys(stateSet);
+	wrap.innerHTML = "";
+
+	testScenarios.forEach((sc, i) => {
+		_syncScenarioMsgCells(sc);
+		const row = document.createElement("div");
+		row.className = "test-scenario-row";
+		const options = stateNames
+			.map((name) => `<option value="${esc(name)}" ${name === sc.state ? "selected" : ""}>${esc(name)}</option>`)
+			.join("");
+		row.innerHTML = `
+			<div class="test-scenario-head">Scenario ${i + 1}</div>
+			<div class="test-scenario-grid">
+				<label>State</label>
+				<select onchange="updateTestScenario(${i}, 'state', this.value)">${options}</select>
+				<label>Message</label>
+				<input type="text" value="${esc(sc.message)}" placeholder="Working on..." oninput="updateTestScenario(${i}, 'message', this.value)">
+				<label>Mode</label>
+				<select onchange="updateTestScenario(${i}, 'mode', this.value)">
+					<option value="plain" ${sc.mode === "plain" ? "selected" : ""}>Plain</option>
+					<option value="typewriter" ${sc.mode === "typewriter" ? "selected" : ""}>Typewriter</option>
+					<option value="loading" ${sc.mode === "loading" ? "selected" : ""}>Loading bar</option>
+				</select>
+				<label>Duration (ms)</label>
+				<input type="number" min="200" step="100" value="${sc.duration}" oninput="updateTestScenario(${i}, 'duration', this.value)">
+			</div>
+			<div class="row" style="margin-top:6px;justify-content:flex-end;">
+				<button class="btn danger" onclick="removeTestScenario(${i})">✕ remove</button>
+			</div>
+		`;
+		wrap.appendChild(row);
+	});
+
+	const count = document.getElementById("test-count");
+	if (count) count.textContent = `${testScenarios.length}/${MAX_TEST_SCENARIOS}`;
+}
+
+function selectTestScenario(index) {
+	activeTestScenario = Math.max(0, Math.min(testScenarios.length - 1, parseInt(index)));
+	testSel.clear();
+	renderTestStyleEditor();
+}
+
+function _getActiveTestScenario() {
+	if (!testScenarios.length) return null;
+	activeTestScenario = Math.max(0, Math.min(activeTestScenario, testScenarios.length - 1));
+	return testScenarios[activeTestScenario];
+}
+
+function onTestMsgInput() {
+	const sc = _getActiveTestScenario();
+	if (!sc) return;
+	const input = document.getElementById("test-msg-in");
+	if (!input) return;
+	sc.message = input.value || "";
+	_syncScenarioMsgCells(sc);
+	testSel.clear();
+	renderTestScenarios();
+	renderTestStyleEditor();
+	renderTestStageStatic();
+}
+
+function renderTestMsgRow() {
+	const rowEl = document.getElementById("test-msg-row");
+	if (!rowEl) return;
+	const sc = _getActiveTestScenario();
+	if (!sc) {
+		rowEl.innerHTML = "";
+		return;
+	}
+	_syncScenarioMsgCells(sc);
+	rowEl.innerHTML = "";
+	sc.msgCells.forEach((cell, i) => {
+		const d = document.createElement("div");
+		d.className = "ccel" + (testSel.has(i) ? " sel" : "");
+		const bg = bgCss(cell.bg);
+		if (bg) d.style.background = bg;
+		const ch = cell.char === " " ? "&nbsp;" : esc(cell.char);
+		d.innerHTML = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
+		d.onclick = (e) => toggleTestSel(i, e.shiftKey);
+		rowEl.appendChild(d);
+	});
+	if (!sc.msgCells.length) {
+		const p = document.createElement("div");
+		p.style.cssText = "font-size:10px;color:var(--text3);padding:2px;";
+		p.textContent = "(empty message)";
+		rowEl.appendChild(p);
+	}
+}
+
+function renderTestSelInfo() {
+	const el = document.getElementById("test-sel-info");
+	if (!el) return;
+	const sc = _getActiveTestScenario();
+	if (!sc || !testSel.size) {
+		el.textContent = "— click a character to select · shift+click = multi —";
+		return;
+	}
+	const chars = [...testSel].map((i) => (sc.msgCells[i] ? sc.msgCells[i].char : "?")).join("");
+	el.textContent = `selected: "${chars}"  (${testSel.size} char${testSel.size > 1 ? "s" : ""})`;
+}
+
+function toggleTestSel(idx, shift) {
+	if (!shift) {
+		testSel.clear();
+		testSel.add(idx);
+	} else {
+		testSel.has(idx) ? testSel.delete(idx) : testSel.add(idx);
+	}
+	renderTestMsgRow();
+	reflectTestPalette();
+	renderTestSelInfo();
+}
+
+function reflectTestPalette() {
+	const sc = _getActiveTestScenario();
+	if (!sc || !testSel.size) {
+		FG.forEach((c) => {
+			const b = document.getElementById("test-fg-" + c.n);
+			if (b) b.classList.remove("on");
+		});
+		BG.forEach((c) => {
+			const b = document.getElementById("test-bg-" + c.n);
+			if (b) b.classList.remove("on");
+		});
+		ATTRS.forEach((a) => {
+			const b = document.getElementById("test-at-" + a.n);
+			if (b) b.classList.remove("on");
+		});
+		return;
+	}
+	const first = sc.msgCells[[...testSel][0]];
+	if (!first) return;
+	FG.forEach((c) => {
+		const b = document.getElementById("test-fg-" + c.n);
+		if (b) b.classList.toggle("on", c.n === first.fg);
+	});
+	BG.forEach((c) => {
+		const b = document.getElementById("test-bg-" + c.n);
+		if (b) b.classList.toggle("on", c.n === first.bg);
+	});
+	ATTRS.forEach((a) => {
+		const b = document.getElementById("test-at-" + a.n);
+		if (b) b.classList.toggle("on", !!first[a.n]);
+	});
+}
+
+function applyTestFg(name) {
+	const sc = _getActiveTestScenario();
+	if (!sc || !testSel.size) {
+		toast("Select message characters first");
+		return;
+	}
+	testSel.forEach((i) => {
+		if (sc.msgCells[i]) sc.msgCells[i].fg = name;
+	});
+	renderTestMsgRow();
+	reflectTestPalette();
+	renderTestStageStatic();
+}
+
+function applyTestBg(name) {
+	const sc = _getActiveTestScenario();
+	if (!sc || !testSel.size) {
+		toast("Select message characters first");
+		return;
+	}
+	testSel.forEach((i) => {
+		if (sc.msgCells[i]) sc.msgCells[i].bg = name;
+	});
+	renderTestMsgRow();
+	reflectTestPalette();
+	renderTestStageStatic();
+}
+
+function applyTestAttr(name) {
+	const sc = _getActiveTestScenario();
+	if (!sc || !testSel.size) {
+		toast("Select message characters first");
+		return;
+	}
+	const first = sc.msgCells[[...testSel][0]];
+	const newVal = !first[name];
+	testSel.forEach((i) => {
+		if (sc.msgCells[i]) sc.msgCells[i][name] = newVal;
+	});
+	renderTestMsgRow();
+	reflectTestPalette();
+	renderTestStageStatic();
+}
+
+function renderTestStyleEditor() {
+	const selector = document.getElementById("test-style-scenario");
+	const input = document.getElementById("test-msg-in");
+	if (!selector || !input) return;
+	selector.innerHTML = "";
+	testScenarios.forEach((sc, i) => {
+		const o = document.createElement("option");
+		o.value = String(i);
+		o.textContent = `${i + 1}: ${sc.state}`;
+		selector.appendChild(o);
+	});
+	if (!testScenarios.length) return;
+	activeTestScenario = Math.max(0, Math.min(activeTestScenario, testScenarios.length - 1));
+	selector.value = String(activeTestScenario);
+	const sc = testScenarios[activeTestScenario];
+	_syncScenarioMsgCells(sc);
+	input.value = sc.message || "";
+	renderTestMsgRow();
+	renderTestSelInfo();
+	reflectTestPalette();
+}
+
+function _stateFrameAtElapsed(stateName, elapsedMs) {
+	const frs = stateSet[stateName] || [];
+	if (!frs.length) return mkFrame("._.", 300, "");
+	const total = frs.reduce((sum, f) => sum + Math.max(40, parseInt(f.ms) || 300), 0);
+	let t = elapsedMs % total;
+	for (const f of frs) {
+		const ms = Math.max(40, parseInt(f.ms) || 300);
+		if (t < ms) return f;
+		t -= ms;
+	}
+	return frs[frs.length - 1];
+}
+
+function _loadingBar(pct, width = 14) {
+	const clamped = Math.max(0, Math.min(100, pct));
+	const pos = Math.floor((clamped / 100) * width);
+	let body = "";
+	for (let i = 0; i < width; i++) {
+		if (i < pos) body += "=";
+		else if (i === pos && clamped < 100) body += ">";
+		else body += " ";
+	}
+	return `[${body}] ${clamped}%`;
+}
+
+function _scenarioMessage(sc, elapsedMs) {
+	const duration = Math.max(200, parseInt(sc.duration) || 1800);
+	const text = sc.message || "";
+	_syncScenarioMsgCells(sc);
+	if (sc.mode === "typewriter") {
+		if (!text.length) return [];
+		const n = Math.min(text.length, Math.floor(Math.max(0, elapsedMs) / TYPEWRITER_CHAR_MS));
+		return sc.msgCells.slice(0, n).map(cloneCell);
+	}
+	if (sc.mode === "loading") {
+		const pct = Math.max(0, Math.min(100, Math.floor((elapsedMs / duration) * 100)));
+		const label = text || "Loading";
+		return Array.from(`${label} ${_loadingBar(pct)}`, (ch) => mkCell(ch));
+	}
+	return sc.msgCells.map(cloneCell);
+}
+
+function renderTestStage(faceCells, msgCells, metaText = "") {
+	const faceEl = document.getElementById("test-stage-face");
+	const msgEl = document.getElementById("test-stage-msg");
+	const metaEl = document.getElementById("test-stage-meta");
+	if (!faceEl || !msgEl || !metaEl) return;
+	faceEl.innerHTML = (faceCells || []).map(renderStageChar).join("");
+	msgEl.innerHTML = (msgCells || []).map(renderStageChar).join("");
+	metaEl.textContent = metaText;
+}
+
+function renderTestStageStatic() {
+	if (!testScenarios.length) return;
+	const sc = testScenarios[0];
+	const frame = _stateFrameAtElapsed(sc.state, 0);
+	const msg = _scenarioMessage(sc, 0);
+	renderTestStage(frame.face, msg, `scenario 1/${testScenarios.length} · ${sc.state}`);
+}
+
+function stopTestChain(reset = true) {
+	testRunToken += 1;
+	testIsRunning = false;
+	const runBtn = document.getElementById("test-run-btn");
+	if (runBtn) runBtn.textContent = "▶ run chain";
+	if (reset) renderTestStageStatic();
+}
+
+function _runSingleScenario(sc, idx, total, token) {
+	return new Promise((resolve) => {
+		const startedAt = performance.now();
+		const duration = Math.max(200, parseInt(sc.duration) || 1800);
+		const tick = () => {
+			if (token !== testRunToken) {
+				resolve();
+				return;
+			}
+			const elapsed = performance.now() - startedAt;
+			const frame = _stateFrameAtElapsed(sc.state, elapsed);
+			const msg = _scenarioMessage(sc, Math.min(elapsed, duration));
+			renderTestStage(
+				frame.face,
+				msg,
+				`scenario ${idx + 1}/${total} · ${sc.state} · ${Math.round(duration)}ms`,
+			);
+			if (elapsed >= duration) {
+				resolve();
+				return;
+			}
+			requestAnimationFrame(tick);
+		};
+		tick();
+	});
+}
+
+async function runTestChain() {
+	if (testIsRunning) {
+		stopTestChain(false);
+		return;
+	}
+	if (!testScenarios.length) {
+		toast("Add at least one scenario");
+		return;
+	}
+	testIsRunning = true;
+	const runBtn = document.getElementById("test-run-btn");
+	if (runBtn) runBtn.textContent = "⏹ running";
+	const token = ++testRunToken;
+	for (let i = 0; i < testScenarios.length; i++) {
+		if (token !== testRunToken) return;
+		await _runSingleScenario(testScenarios[i], i, testScenarios.length, token);
+	}
+	if (token !== testRunToken) return;
+	testIsRunning = false;
+	if (runBtn) runBtn.textContent = "▶ run chain";
 }
 
 function exportStatesToJSON() {
 	saveCurrentStateToSet();
-	const out = { _meta: { version: "2.0", project: "T.E.R.M.", created_with: "T.E.R.M. Studio" } };
+	const out = {
+		_meta: {
+			version: "3.0",
+			project: "T.E.R.M.",
+			created_with: "T.E.R.M. Studio",
+			schema: "state-frames-face-only",
+			note: "message is decoupled from state; define messages in TEST chained scenarios",
+		},
+	};
 	for (const [name, frs] of Object.entries(stateSet)) {
 		out[name] = {
 			frames: frs.map((f) => ({
 				ms: f.ms,
 				face: f.face.map((c) => ({ char: c.char, fg: denormFg(c.fg), bg: denormBg(c.bg), bold: c.bold, dim: c.dim, underline: c.underline, reverse: c.reverse })),
-				msg: f.msg.map((c) => ({ char: c.char, fg: denormFg(c.fg), bg: denormBg(c.bg), bold: c.bold, dim: c.dim, underline: c.underline, reverse: c.reverse })),
 			})),
 		};
 	}
@@ -985,7 +1455,7 @@ function loadFromLib(name) {
 	selFace.clear();
 	selMsg.clear();
 	selectFrame(0);
-	switchTab("editor", document.querySelector(".tab"));
+	switchTab("face", document.getElementById("tab-face"));
 	toast("Loaded: " + name);
 }
 function delFromLib(name) {
@@ -1105,12 +1575,53 @@ function buildUI() {
 		b.onclick = () => setFace(f);
 		fgrid.appendChild(b);
 	});
+
+	// TEST palettes (message per-character styling)
+	const tFg = document.getElementById("test-fg-pal");
+	if (tFg) {
+		FG.forEach((c) => {
+			const d = document.createElement("div");
+			d.className = "sw";
+			d.id = "test-fg-" + c.n;
+			const swBg = c.n === "black" ? "#aaaaaa" : c.n === "default" ? "#2a2a2a" : c.css;
+			d.style.background = swBg;
+			d.innerHTML = `<span style="font-weight:700;color:${c.css};">A</span><span class="sw-tip">${c.lbl}</span>`;
+			d.onclick = () => applyTestFg(c.n);
+			tFg.appendChild(d);
+		});
+	}
+	const tBg = document.getElementById("test-bg-pal");
+	if (tBg) {
+		BG.forEach((c) => {
+			const d = document.createElement("div");
+			d.className = "sw";
+			d.id = "test-bg-" + c.n;
+			d.style.background = c.css === "transparent" ? "#1a1a1a" : c.css;
+			d.style.color = c.css === "transparent" ? "#555" : "#ccc";
+			d.innerHTML = `<span style="font-size:9px;">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
+			d.onclick = () => applyTestBg(c.n);
+			tBg.appendChild(d);
+		});
+	}
+	const tAttr = document.getElementById("test-attr-row");
+	if (tAttr) {
+		ATTRS.forEach((a) => {
+			const b = document.createElement("button");
+			b.className = "attr-btn";
+			b.id = "test-at-" + a.n;
+			b.textContent = a.lbl;
+			b.style.cssText += ";" + a.css;
+			b.onclick = () => applyTestAttr(a.n);
+			tAttr.appendChild(b);
+		});
+	}
 }
 
 // ═══════════════════════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════════════════════
 buildUI();
-setTarget("face", document.getElementById("tgt-face"));
+setTarget("face");
 initDefaultStates();
 switchState("idle");
+initTestScenarios();

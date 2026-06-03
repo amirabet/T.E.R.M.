@@ -29,6 +29,43 @@ body {
 	min-height: 100vh;
 }
 
+/* ─── TABS ─── */
+.tab-row {
+	display: flex;
+	border-bottom: 0.5px solid var(--border);
+	margin: 0 0 10px;
+}
+
+.tab {
+	background: none;
+	border: none;
+	border-bottom: 1.5px solid transparent;
+	padding: 6px 14px;
+	font-family: var(--mono);
+	font-size: 11px;
+	color: var(--text3);
+	cursor: pointer;
+	margin-bottom: -1px;
+	letter-spacing: 0.07em;
+}
+
+.tab:hover {
+	color: var(--text2);
+}
+
+.tab.on {
+	color: var(--text);
+	border-bottom-color: var(--acc);
+}
+
+.tp {
+	display: none;
+}
+
+.tp.on {
+	display: block;
+}
+
 /* ─── LAYOUT ─── */
 .layout {
 	display: grid;
@@ -117,6 +154,99 @@ body {
 	letter-spacing: 0.04em;
 	white-space: pre;
 	color: var(--text2);
+}
+
+/* ─── TEST TAB ─── */
+.test-scenario-row {
+	background: var(--bg3);
+	border: 0.5px solid var(--bord2);
+	border-radius: 6px;
+	padding: 8px;
+	margin-bottom: 7px;
+}
+
+.test-scenario-head {
+	font-size: 10px;
+	letter-spacing: 0.08em;
+	color: var(--text3);
+	text-transform: uppercase;
+	margin-bottom: 6px;
+}
+
+.test-scenario-grid {
+	display: grid;
+	grid-template-columns: 86px 1fr;
+	gap: 6px;
+	align-items: center;
+}
+
+.test-scenario-grid label {
+	font-size: 10px;
+	color: var(--text3);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.test-scenario-grid select,
+.test-scenario-grid input {
+	width: 100%;
+	font-size: 11px;
+	text-align: left;
+	letter-spacing: 0.03em;
+}
+
+#test-stage-wrap {
+	background: #060606;
+	border: 0.5px solid var(--border);
+	border-radius: 8px;
+	padding: 22px 26px;
+	min-height: 110px;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 0;
+	position: relative;
+	box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+#test-stage-wrap::before {
+	content: "● CHAIN PREVIEW";
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	font-size: 8px;
+	letter-spacing: 0.18em;
+	color: var(--text3);
+}
+
+#test-stage-face {
+	font-size: 34px;
+	line-height: 1;
+	letter-spacing: 0.1em;
+	white-space: pre;
+}
+
+#test-stage-msg {
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	white-space: pre;
+	color: var(--text2);
+	line-height: 1;
+	padding-top: 13px;
+	margin-left: 0;
+}
+
+#test-stage-msg:not(:empty)::before {
+	content: "  <  ";
+	color: #333;
+}
+
+#test-stage-meta {
+	font-size: 10px;
+	color: var(--text3);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
 }
 
 /* ─── TARGET TOGGLE ─── */
@@ -532,7 +662,7 @@ header {
 }
 
 header h1 {
-	font-size: 10px;
+	font-size: 18px;
 	letter-spacing: 0.2em;
 	color: var(--text3);
 	text-transform: uppercase;

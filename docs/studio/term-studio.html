@@ -9,17 +9,22 @@
 	<link rel="stylesheet" href="../style/term.css" />
 </head>
 
-<body class="crt_2">
+<body>
 	<main>
 		<div id="toast"></div>
 
-		<header>
+		<header class="crt2">
 			<h1>>_ T.E.R.M. studio <span class="cursor">_</span></h1>
 			<span>per-character color · bg · attrs · animation</span>
 		</header>
 
-		<!-- =================== EDITOR =================== -->
-		<div id="tp-editor">
+		<div class="tab-row">
+			<button class="tab on" id="tab-face" onclick="switchTab('face', this)">FACE</button>
+			<button class="tab" id="tab-test" onclick="switchTab('test', this)">TEST</button>
+		</div>
+
+		<!-- =================== FACE =================== -->
+		<div id="tp-face" class="tp on">
 
 			<!-- STATES MANAGER -->
 			<div class="sec" style="margin-bottom: 8px">
@@ -68,34 +73,16 @@
 
 					<!-- CHARACTER EDITOR -->
 					<div class="sec">
-						<div class="tgt-row">
-							<button class="tgt on" id="tgt-face" onclick="setTarget('face', this)">
-								FACE
-							</button>
-							<button class="tgt" id="tgt-msg" onclick="setTarget('msg', this)">
-								MESSAGE
-							</button>
-						</div>
-
 						<!-- FACE -->
 						<div id="wrap-face">
 							<div class="row" style="margin-bottom: 6px">
-								<input type="text" id="face-in" value="._." maxlength="9" placeholder="o_o"
-									style="width: 110px" oninput="onFaceInput()" />
+								<input type="text" id="face-in" value="._." placeholder="o_o" style="width: 110px"
+									oninput="onFaceInput()" />
 								<span style="font-size: 10px; color: var(--text3)">ms</span>
 								<input type="number" id="ms-in" value="300" min="40" max="3000" step="10"
 									oninput="onMsInput()" />
 							</div>
 							<div class="char-row" id="face-row"></div>
-						</div>
-
-						<!-- MSG -->
-						<div id="wrap-msg" style="display: none">
-							<div class="row" style="margin-bottom: 6px">
-								<input type="text" id="msg-in" value="" placeholder="Working on..." class="msg-in"
-									style="width: 100%" oninput="onMsgInput()" />
-							</div>
-							<div class="char-row" id="msg-row"></div>
 						</div>
 
 						<div class="sel-info" id="sel-info">
@@ -108,7 +95,6 @@
 						<div class="sec">
 							<div class="sh">QUICK ACTIONS</div>
 							<button class="btn block" onclick="selectAll('face')">select all (face)</button>
-							<button class="btn block" onclick="selectAll('msg')">select all (message)</button>
 							<button class="btn block danger" onclick="clearSelStyle()">clear style (sel.)</button>
 							<button class="btn block danger" onclick="clearAllStyles()">clear entire frame</button>
 						</div>
@@ -119,9 +105,8 @@
 					</div>
 
 					<!-- STAGE -->
-					<div id="stage-wrap">
+					<div id="stage-wrap" class="crt2">
 						<div id="stage-face"></div>
-						<div id="stage-msg"></div>
 					</div>
 				</div>
 				<!-- /left -->
@@ -168,7 +153,66 @@
 				<!-- /layout -->
 			</div>
 		</div>
-		<!-- /tp-editor -->
+		<!-- /tp-face -->
+
+		<!-- =================== TEST =================== -->
+		<div id="tp-test" class="tp">
+			<div class="sec" style="margin-bottom: 8px">
+				<div class="sh" style="margin-bottom: 8px">CHAINED SCENARIOS</div>
+				<div style="font-size: 10px; color: var(--text3); margin-bottom: 7px">
+					Configure up to 5 scenarios. Each one has state, message, message mode, and duration.
+					The stage below plays them sequentially.
+				</div>
+				<div id="test-scenarios"></div>
+				<div class="row" style="margin-top: 8px">
+					<button class="btn acc" onclick="addTestScenario()">+ scenario</button>
+					<button class="btn" onclick="runTestChain()" id="test-run-btn">▶ run chain</button>
+					<button class="btn danger" onclick="stopTestChain()">■ stop</button>
+					<div style="flex: 1"></div>
+					<span id="test-count" style="font-size: 10px; color: var(--text3)">1/5</span>
+				</div>
+			</div>
+
+			<div class="sec" style="margin-bottom: 8px">
+				<div class="sh" style="margin-bottom: 8px">MESSAGE STYLE (PER CHARACTER)</div>
+				<div class="row" style="margin-bottom: 6px">
+					<span
+						style="font-size: 10px; color: var(--text3); letter-spacing: 0.06em; text-transform: uppercase;">Scenario</span>
+					<select id="test-style-scenario" onchange="selectTestScenario(this.value)"></select>
+				</div>
+				<div class="row" style="margin-bottom: 6px">
+					<input type="text" id="test-msg-in" value="" placeholder="Working on..." class="msg-in"
+						style="width: 100%" oninput="onTestMsgInput()" />
+				</div>
+				<div class="char-row" id="test-msg-row"></div>
+				<div class="sel-info" id="test-sel-info">
+					— click a character to select · shift+click = multi —
+				</div>
+
+				<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;">
+					<div>
+						<div class="sh" style="margin-bottom: 5px">TEXT COLOR</div>
+						<div class="palette" id="test-fg-pal"></div>
+					</div>
+					<div>
+						<div class="sh" style="margin-bottom: 5px">BACKGROUND</div>
+						<div class="palette" id="test-bg-pal"></div>
+					</div>
+				</div>
+				<div style="margin-top:6px;">
+					<div class="sh" style="margin-bottom: 5px">ATTRIBUTES</div>
+					<div class="attr-row" id="test-attr-row"></div>
+				</div>
+			</div>
+
+			<div id="test-stage-wrap" class="crt2">
+				<div id="test-stage-face"></div>
+				<div id="test-stage-msg"></div>
+
+			</div>
+			<div id="test-stage-meta"></div>
+		</div>
+		<!-- /tp-test -->
 	</main>
 
 	<script src="./term-studio.js"></script>

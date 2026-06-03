@@ -7,14 +7,14 @@ Any language can spawn this and write commands to stdin.
 
 Protocol (one command per line, UTF-8)
 ---------------------------------------
-  think  [message]          switch to think state
-  work   [message]          switch to work state
-  ok     [message]          switch to ok state
-  error  [message]          switch to error state
-  idle   [message]          switch to idle state
-  speak  [message]          switch to speak state
-  boot   [message]          switch to boot state
-  state  <name> [message]   switch to any named state
+    think  [message]          switch to think state (message optional)
+    work   [message]          switch to work state (message optional)
+    ok     [message]          switch to ok state (message optional)
+    error  [message]          switch to error state (message optional)
+    idle   [message]          switch to idle state (message optional)
+    speak  [message]          switch to speak state (message optional)
+    boot   [message]          switch to boot state (message optional)
+    state  <name> [message]   switch to any named state (message optional)
   msg    <text>             update message (plain)
   markup <text>             update message (markup syntax)
   say    <text>             typewriter effect
@@ -27,8 +27,9 @@ Protocol (one command per line, UTF-8)
 Lines starting with # are comments and are ignored.
 """
 
-import sys
 import signal
+import sys
+
 from .bot import TERM
 
 _SHORTCUTS = {"idle", "think", "work", "ok", "error", "speak", "boot"}
@@ -61,11 +62,17 @@ def run(animations=None):
 
             try:
                 if cmd in _SHORTCUTS:
-                    bot.set_state(cmd, args or None)
+                    if args:
+                        bot.set_state(cmd, args)
+                    else:
+                        bot.set_state(cmd)
 
                 elif cmd == "state":
                     parts = args.split(" ", 1)
-                    bot.set_state(parts[0], parts[1] if len(parts) > 1 else None)
+                    if len(parts) > 1:
+                        bot.set_state(parts[0], parts[1])
+                    else:
+                        bot.set_state(parts[0])
 
                 elif cmd == "msg":
                     bot.set_msg(args)
@@ -78,7 +85,7 @@ def run(animations=None):
 
                 elif cmd == "progress":
                     parts = args.split(" ", 1)
-                    pct   = float(parts[0])
+                    pct = float(parts[0])
                     label = parts[1] if len(parts) > 1 else ""
                     bot.progress(pct, label=label)
 
@@ -87,20 +94,22 @@ def run(animations=None):
 
                 elif cmd == "badge":
                     parts = args.split(" ", 1)
-                    kind  = parts[0] or "ok"
+                    kind = parts[0] or "ok"
                     label = parts[1] if len(parts) > 1 else None
                     bot.badge(kind, label)
 
                 elif cmd == "list":
-                    print(", ".join(bot.list_animations()),
-                          file=sys.stderr, flush=True)
+                    print(", ".join(bot.list_animations()), file=sys.stderr, flush=True)
 
                 elif cmd in ("quit", "stop", "exit"):
                     break
 
                 else:
-                    print(f"T.E.R.M.: unknown command '{cmd}'",
-                          file=sys.stderr, flush=True)
+                    print(
+                        f"T.E.R.M.: unknown command '{cmd}'",
+                        file=sys.stderr,
+                        flush=True,
+                    )
 
             except Exception as e:
                 print(f"T.E.R.M. error: {e}", file=sys.stderr, flush=True)

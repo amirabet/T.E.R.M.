@@ -7,15 +7,15 @@ Main public API. The TERM class manages the animation loop and
 exposes state control, message types, and animation management.
 """
 
-import time
 import threading
-from typing import Union
+import time
 from pathlib import Path
+from typing import Union
 
 from . import animations as _anim_module
+from . import message as msg_module
 from . import renderer
 from .richtext import RichText
-from . import message as msg_module
 
 
 class TERM:
@@ -39,18 +39,18 @@ class TERM:
         bot.stop()
     """
 
-    def __init__(self,
-                 animations: Union[dict, str, Path, None] = None,
-                 auto_newline: bool = True):
-        self._anims      = _anim_module.load(animations)
-        self._auto_nl    = auto_newline
-        self._state      = "idle"
-        self._face       : RichText = RichText("._.")
-        self._msg        : RichText = RichText()
-        self._frame_idx  = 0
-        self._running    = False
-        self._thread     = None
-        self._lock       = threading.Lock()
+    def __init__(
+        self, animations: Union[dict, str, Path, None] = None, auto_newline: bool = True
+    ):
+        self._anims = _anim_module.load(animations)
+        self._auto_nl = auto_newline
+        self._state = "idle"
+        self._face: RichText = RichText("._.")
+        self._msg: RichText = RichText()
+        self._frame_idx = 0
+        self._running = False
+        self._thread = None
+        self._lock = threading.Lock()
 
     # ─── STATE CONTROL ──────────────────────────────────────────────────────────
 
@@ -58,22 +58,22 @@ class TERM:
         """
         Switch to a named animation state.
 
-        msg can be:
-          - str          → plain text
-          - RichText     → pre-styled rich text
-          - list         → list of cell dicts (editor format)
-          - None         → use the default message from the animation frame
+                State and message are independent.
+
+                msg can be:
+                    - str          → plain text
+                    - RichText     → pre-styled rich text
+                    - list         → list of cell dicts (editor format)
+                    - None         → keep the current message unchanged
         """
         if state not in self._anims:
             available = ", ".join(_anim_module.list_states(self._anims))
             raise KeyError(f"Unknown state '{state}'. Available: {available}")
         with self._lock:
-            self._state     = state
+            self._state = state
             self._frame_idx = 0
             if msg is not None:
                 self._msg = RichText.coerce(msg)
-            else:
-                self._msg = None   # will use frame default
         return self
 
     def set_msg(self, msg) -> "TERM":
@@ -91,25 +91,68 @@ class TERM:
             self._msg = rich
         return self
 
+    def compose_msg(self, blocks,
+                    default_fg: str = "white",
+                    default_bg: str = "",
+                    default_bold: bool = False,
+                    default_dim: bool = False,
+                    default_underline: bool = False,
+                    default_reverse: bool = False) -> "TERM":
+        """
+        Build and set a rich message from quick blocks.
+
+        See term.message.compose for supported block formats.
+        """
+        rt = msg_module.compose(
+            blocks,
+            default_fg=default_fg,
+            default_bg=default_bg,
+            default_bold=default_bold,
+            default_dim=default_dim,
+            default_underline=default_underline,
+            default_reverse=default_reverse,
+        )
+        return self.set_rich_msg(rt)
+
     # ─── CONVENIENCE SHORTCUTS ──────────────────────────────────────────────────
 
-    def idle(self,  msg=None) -> "TERM": return self.set_state("idle",  msg)
-    def think(self, msg=None) -> "TERM": return self.set_state("think", msg)
-    def work(self,  msg=None) -> "TERM": return self.set_state("work",  msg)
-    def ok(self,    msg=None) -> "TERM": return self.set_state("ok",    msg)
-    def error(self, msg=None) -> "TERM": return self.set_state("error", msg)
-    def speak(self, msg=None) -> "TERM": return self.set_state("speak", msg)
-    def boot(self,  msg=None) -> "TERM": return self.set_state("boot",  msg)
+    def idle(self, msg=None) -> "TERM":
+        return self.set_state("idle", msg)
+
+    def think(self, msg=None) -> "TERM":
+        return self.set_state("think", msg)
+
+    def work(self, msg=None) -> "TERM":
+        return self.set_state("work", msg)
+
+    def ok(self, msg=None) -> "TERM":
+        return self.set_state("ok", msg)
+
+    def error(self, msg=None) -> "TERM":
+        return self.set_state("error", msg)
+
+    def speak(self, msg=None) -> "TERM":
+        return self.set_state("speak", msg)
+
+    def boot(self, msg=None) -> "TERM":
+        return self.set_state("boot", msg)
 
     # ─── RICH MESSAGE SHORTCUTS ─────────────────────────────────────────────────
 
-    def say(self, text: str, delay_ms: int = 60, **style) -> "TERM":
+        def say(self, text: str, delay_ms: int = 60,
+            total_duration_ms: int = None, **style) -> "TERM":
         """
         Type a message character by character (typewriter effect).
         Switches to speak state automatically.
         """
         self.set_state("speak")
-        msg_module.typewriter(self, text, delay_ms=delay_ms, **style)
+        msg_module.typewriter(
+            self,
+            text,
+            delay_ms=delay_ms,
+            total_duration_ms=total_duration_ms,
+            **style,
+        )
         return self
 
     def progress(self, pct: float, label: str = "", **loader_kw) -> "TERM":
@@ -148,7 +191,7 @@ class TERM:
             return self
         self.set_state(state, msg)
         self._running = True
-        self._thread  = threading.Thread(target=self._loop, daemon=True)
+        self._thread = threading.Thread(target=self._loop, daemon=True)
         self._thread.start()
         return self
 
@@ -184,14 +227,14 @@ class TERM:
     def _loop(self) -> None:
         while self._running:
             with self._lock:
-                state     = self._state
-                override  = self._msg
-                idx       = self._frame_idx
+                state = self._state
+                override = self._msg
+                idx = self._frame_idx
 
             frame = _anim_module.get_frame(self._anims, state, idx)
 
             face = frame["face"]
-            msg  = override if override is not None else frame["msg"]
+            msg = override
 
             renderer.write(face=face, msg=msg)
 
@@ -234,6 +277,7 @@ class TERM:
             })
         """
         from . import animations as _am
+
         normalized = _am._normalize_state(definition)
         with self._lock:
             self._anims[name] = normalized
@@ -243,8 +287,7 @@ class TERM:
         """Remove a named animation. Cannot remove the currently active state."""
         with self._lock:
             if name == self._state:
-                raise ValueError(
-                    f"Cannot remove the currently active state '{name}'.")
+                raise ValueError(f"Cannot remove the currently active state '{name}'.")
             self._anims.pop(name, None)
         return self
 

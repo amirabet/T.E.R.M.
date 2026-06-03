@@ -14,23 +14,32 @@ Types
   bubble(text, **kw)            — speech bubble  ( text )
 """
 
-import time
 import threading
-from .richtext import RichText, Cell
-from . import colors as _c
+import time
 
+from . import colors as _c
+from .richtext import Cell, RichText
 
 # ─── PLAIN ──────────────────────────────────────────────────────────────────────
 
-def plain(text: str, fg: str = "", bg: str = "",
-          bold: bool = False, dim: bool = False,
-          underline: bool = False, reverse: bool = False) -> RichText:
+
+def plain(
+    text: str,
+    fg: str = "",
+    bg: str = "",
+    bold: bool = False,
+    dim: bool = False,
+    underline: bool = False,
+    reverse: bool = False,
+) -> RichText:
     """Plain string with a single uniform style."""
-    return RichText(text, fg=fg, bg=bg, bold=bold, dim=dim,
-                    underline=underline, reverse=reverse)
+    return RichText(
+        text, fg=fg, bg=bg, bold=bold, dim=dim, underline=underline, reverse=reverse
+    )
 
 
 # ─── MARKUP ─────────────────────────────────────────────────────────────────────
+
 
 def markup(text: str) -> RichText:
     """
@@ -47,13 +56,116 @@ def markup(text: str) -> RichText:
     return RichText.markup(text)
 
 
+# ─── COMPOSE ───────────────────────────────────────────────────────────────────
+
+
+def compose(
+    blocks,
+    default_fg: str = "white",
+    default_bg: str = "",
+    default_bold: bool = False,
+    default_dim: bool = False,
+    default_underline: bool = False,
+    default_reverse: bool = False,
+) -> RichText:
+    """
+    Compose a rich message from quick blocks.
+
+    Supported block forms
+    ---------------------
+    - str
+      Uses the default style.
+    - tuple(text, fg)
+    - tuple(text, fg, bg)
+    - dict(text=..., fg=..., bg=..., bold=..., dim=..., underline=..., reverse=...)
+    - RichText
+
+    Notes
+    -----
+    - Multi-character strings are appended as one styled block.
+    - This is intended for fast composition of mixed-color messages.
+
+    Example
+    -------
+        rt = compose([
+            (">> ", "br_cyan"),
+            {"text": "BUILD", "fg": "black", "bg": "green", "bold": True},
+            " completed in ",
+            ("2.1s", "br_green"),
+        ], default_fg="gray")
+    """
+    rt = RichText()
+
+    def _add(
+        text,
+        fg=default_fg,
+        bg=default_bg,
+        bold=default_bold,
+        dim=default_dim,
+        underline=default_underline,
+        reverse=default_reverse,
+    ):
+        if text:
+            rt.add(
+                str(text),
+                fg=fg,
+                bg=bg,
+                bold=bold,
+                dim=dim,
+                underline=underline,
+                reverse=reverse,
+            )
+
+    for block in blocks or []:
+        if isinstance(block, RichText):
+            rt = rt + block
+            continue
+
+        if isinstance(block, str):
+            _add(block)
+            continue
+
+        if isinstance(block, tuple):
+            if len(block) == 2:
+                _add(block[0], fg=block[1])
+                continue
+            if len(block) >= 3:
+                _add(block[0], fg=block[1], bg=block[2])
+                continue
+
+        if isinstance(block, dict):
+            _add(
+                block.get("text", ""),
+                fg=block.get("fg", default_fg),
+                bg=block.get("bg", default_bg),
+                bold=bool(block.get("bold", default_bold)),
+                dim=bool(block.get("dim", default_dim)),
+                underline=bool(block.get("underline", default_underline)),
+                reverse=bool(block.get("reverse", default_reverse)),
+            )
+            continue
+
+        raise TypeError(f"Unsupported compose block type: {type(block)}")
+
+    return rt
+
+
 # ─── TYPEWRITER ──────────────────────────────────────────────────────────────────
 
-def typewriter(bot, text, delay_ms: int = 60,
-               fg: str = "", bg: str = "",
-               bold: bool = False, dim: bool = False,
-               underline: bool = False, reverse: bool = False,
-               end_delay_ms: int = 800) -> None:
+
+def typewriter(
+    bot,
+    text,
+    delay_ms: int = 60,
+    fg: str = "",
+    bg: str = "",
+    bold: bool = False,
+    dim: bool = False,
+    underline: bool = False,
+    reverse: bool = False,
+    end_delay_ms: int = 800,
+    total_duration_ms: int = None,
+) -> None:
     """
     Type text character by character directly into the bot's message.
 
@@ -67,20 +179,38 @@ def typewriter(bot, text, delay_ms: int = 60,
     delay_ms     : milliseconds between each character (default 60)
     fg / bg / bold / dim / underline / reverse : style applied to each char
     end_delay_ms : pause at end before returning control
+    total_duration_ms : if provided, keep the fully typed message visible
+                        until this total duration elapses (typing + hold)
 
     Example
     -------
         bot.speak()
         message.typewriter(bot, "Hello! I finished the analysis.", fg="br_blue")
     """
+
     def _type():
+        started = time.time()
         buf = RichText()
         for ch in text:
-            buf.add(ch, fg=fg, bg=bg, bold=bold, dim=dim,
-                    underline=underline, reverse=reverse)
+            buf.add(
+                ch,
+                fg=fg,
+                bg=bg,
+                bold=bold,
+                dim=dim,
+                underline=underline,
+                reverse=reverse,
+            )
             bot.set_rich_msg(buf)
             time.sleep(delay_ms / 1000)
-        time.sleep(end_delay_ms / 1000)
+        if total_duration_ms is not None:
+            total_s = max(0.0, float(total_duration_ms) / 1000.0)
+            elapsed_s = max(0.0, time.time() - started)
+            remaining_s = max(0.0, total_s - elapsed_s)
+            if remaining_s > 0:
+                time.sleep(remaining_s)
+        elif end_delay_ms > 0:
+            time.sleep(end_delay_ms / 1000)
 
     t = threading.Thread(target=_type, daemon=True)
     t.start()
@@ -89,16 +219,19 @@ def typewriter(bot, text, delay_ms: int = 60,
 
 # ─── LOADER ─────────────────────────────────────────────────────────────────────
 
-def loader(pct: float,
-           width:    int  = 12,
-           filled_char: str = "=",
-           empty_char:  str = "-",
-           tip_char:    str = ">",
-           fg_filled: str = "br_green",
-           fg_empty:  str = "gray",
-           fg_pct:    str = "white",
-           show_pct:  bool = True,
-           bold:      bool = False) -> RichText:
+
+def loader(
+    pct: float,
+    width: int = 12,
+    filled_char: str = "=",
+    empty_char: str = "-",
+    tip_char: str = ">",
+    fg_filled: str = "br_green",
+    fg_empty: str = "gray",
+    fg_pct: str = "white",
+    show_pct: bool = True,
+    bold: bool = False,
+) -> RichText:
     """
     Render a progress bar as RichText.
 
@@ -122,7 +255,7 @@ def loader(pct: float,
     """
     pct = max(0.0, min(100.0, float(pct)))
     filled_n = round(pct / 100 * width)
-    empty_n  = width - filled_n
+    empty_n = width - filled_n
 
     rt = RichText()
     rt.add("[", fg=fg_empty, dim=True)
@@ -151,12 +284,15 @@ def loader(pct: float,
 
 # ─── SPEECH BUBBLE ──────────────────────────────────────────────────────────────
 
-def bubble(text: str,
-           fg:       str  = "white",
-           bg:       str  = "",
-           bold:     bool = False,
-           brackets: tuple = ("( ", " )"),
-           fg_bracket: str = "gray") -> RichText:
+
+def bubble(
+    text: str,
+    fg: str = "white",
+    bg: str = "",
+    bold: bool = False,
+    brackets: tuple = ("( ", " )"),
+    fg_bracket: str = "gray",
+) -> RichText:
     """
     Wrap text in a speech bubble.
 
@@ -183,33 +319,42 @@ def bubble(text: str,
 
 # ─── STATUS BADGES ──────────────────────────────────────────────────────────────
 
+
 class badge:
     """Pre-built status badges as RichText."""
 
     @staticmethod
     def ok(label: str = "OK") -> RichText:
-        return (RichText()
-                .add(" ", fg="br_green")
-                .add(label, fg="br_green", bold=True)
-                .add(" ", fg="br_green"))
+        return (
+            RichText()
+            .add(" ", fg="br_green")
+            .add(label, fg="br_green", bold=True)
+            .add(" ", fg="br_green")
+        )
 
     @staticmethod
     def error(label: str = "ERR") -> RichText:
-        return (RichText()
-                .add(" ", fg="white", bg="red")
-                .add(label, fg="white", bg="red", bold=True)
-                .add(" ", fg="white", bg="red"))
+        return (
+            RichText()
+            .add(" ", fg="white", bg="red")
+            .add(label, fg="white", bg="red", bold=True)
+            .add(" ", fg="white", bg="red")
+        )
 
     @staticmethod
     def warn(label: str = "WARN") -> RichText:
-        return (RichText()
-                .add(" ", fg="black", bg="yellow")
-                .add(label, fg="black", bg="yellow", bold=True)
-                .add(" ", fg="black", bg="yellow"))
+        return (
+            RichText()
+            .add(" ", fg="black", bg="yellow")
+            .add(label, fg="black", bg="yellow", bold=True)
+            .add(" ", fg="black", bg="yellow")
+        )
 
     @staticmethod
     def info(label: str = "INFO") -> RichText:
-        return (RichText()
-                .add(" ", fg="white", bg="blue")
-                .add(label, fg="white", bg="blue", bold=True)
-                .add(" ", fg="white", bg="blue"))
+        return (
+            RichText()
+            .add(" ", fg="white", bg="blue")
+            .add(label, fg="white", bg="blue", bold=True)
+            .add(" ", fg="white", bg="blue")
+        )
