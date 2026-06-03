@@ -4,13 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased] - 2026-06-03
+## [Unreleased]
+
+## [0.3.0] - 2026-06-03
+
+### Added
+
+- Added FACE and TEST tabs in T.E.R.M. Studio, with message authoring and playback moved to TEST.
+- Added chained TEST scenarios in Studio (up to 5), each with configurable state, message, mode, and duration, executed sequentially in the stage preview.
+- Added per-character message styling in the Studio TEST tab, including FG, BG, and text attributes.
+- Added a Python quick message composition helper `term.message.compose(...)` for multi-character colored/styled blocks with default style fallbacks.
+- Added `TERM.compose_msg(...)` as a convenience shortcut to compose and set rich messages directly from block definitions.
 
 ### Changed
 
-- Reframed state handling in the Python runtime so state and message are independent. Calling `set_state(...)` (or shortcut methods like `think()`, `work()`, `ok()`) without a message now preserves the current message instead of falling back to the state's frame message.
-- Updated stdin daemon handling so state commands without a message only switch state and do not modify message content.
-- Updated examples and wiki/API docs to reflect the new independent state/message model.
+- Reframed runtime behavior so state and message are independent. Calling `set_state(...)` (or shortcuts like `think()`, `work()`, `ok()`) without a message now preserves the current message.
+- Updated stdin daemon behavior so state commands without a message only switch state and do not modify message content.
+- Updated Python typewriter behavior to support fixed typing speed with optional total hold duration via `total_duration_ms`.
+- Updated Studio TEST typewriter playback to use constant per-character speed.
+- Migrated animation schema to face-only state frames (`msg` removed from exported/default state frames) while keeping legacy `msg` import compatibility.
+- Removed the face input length cap in Studio so face strings are no longer limited to short fixed lengths.
+- Updated wiki/API docs to reflect state/message decoupling, TEST workflow, schema migration, and new Python message composition APIs.
 
 ## [0.2.0] - 2026-06-02
 
