@@ -120,8 +120,6 @@ let testScenarios = [];
 let testRunToken = 0;
 let testIsRunning = false;
 const TYPEWRITER_CHAR_MS = 60;
-let activeTestScenario = 0;
-let testSel = new Set();
 
 // ═══════════════════════════════════════════════════════════
 //  STYLE HELPERS
@@ -447,7 +445,6 @@ function switchTab(id, btn) {
 	if (id === "test") {
 		setTarget("face");
 		renderTestScenarios();
-		renderTestStyleEditor();
 		renderTestStageStatic();
 	}
 }
@@ -946,7 +943,13 @@ function _defaultScenario() {
 		mode: "plain",
 		duration: 1800,
 		msgCells: [],
+		sel: new Set(),
 	};
+}
+
+function _scenarioSel(sc) {
+	if (!(sc.sel instanceof Set)) sc.sel = new Set();
+	return sc.sel;
 }
 
 function _syncScenarioMsgCells(sc) {
@@ -961,10 +964,7 @@ function _syncScenarioMsgCells(sc) {
 
 function initTestScenarios() {
 	testScenarios = [_defaultScenario()];
-	activeTestScenario = 0;
-	testSel.clear();
 	renderTestScenarios();
-	renderTestStyleEditor();
 	renderTestStageStatic();
 }
 
@@ -974,9 +974,9 @@ function ensureTestScenarioStates() {
 	testScenarios.forEach((sc) => {
 		if (!names.includes(sc.state)) sc.state = names[0];
 		_syncScenarioMsgCells(sc);
+		_scenarioSel(sc);
 	});
 	renderTestScenarios();
-	renderTestStyleEditor();
 	renderTestStageStatic();
 }
 
@@ -985,7 +985,6 @@ function remapTestScenarioState(oldName, newName) {
 		if (sc.state === oldName) sc.state = newName;
 	});
 	renderTestScenarios();
-	renderTestStyleEditor();
 	renderTestStageStatic();
 }
 
@@ -995,10 +994,7 @@ function addTestScenario() {
 		return;
 	}
 	testScenarios.push(_defaultScenario());
-	activeTestScenario = testScenarios.length - 1;
-	testSel.clear();
 	renderTestScenarios();
-	renderTestStyleEditor();
 }
 
 function removeTestScenario(i) {
@@ -1007,10 +1003,7 @@ function removeTestScenario(i) {
 		return;
 	}
 	testScenarios.splice(i, 1);
-	activeTestScenario = Math.min(activeTestScenario, testScenarios.length - 1);
-	testSel.clear();
 	renderTestScenarios();
-	renderTestStyleEditor();
 	renderTestStageStatic();
 }
 
@@ -1021,10 +1014,14 @@ function updateTestScenario(i, key, value) {
 		testScenarios[i].duration = Math.max(200, Number.isNaN(n) ? 1800 : n);
 	} else {
 		testScenarios[i][key] = value;
-		if (key === "message") _syncScenarioMsgCells(testScenarios[i]);
+		if (key === "message") {
+			_syncScenarioMsgCells(testScenarios[i]);
+			_scenarioSel(testScenarios[i]).clear();
+			renderTestMsgRow(i);
+			renderTestSelInfo(i);
+			reflectTestPalette(i);
+		}
 	}
-	renderTestScenarios();
-	renderTestStyleEditor();
 	renderTestStageStatic();
 }
 
@@ -1036,6 +1033,7 @@ function renderTestScenarios() {
 
 	testScenarios.forEach((sc, i) => {
 		_syncScenarioMsgCells(sc);
+		_scenarioSel(sc);
 		const row = document.createElement("div");
 		row.className = "test-scenario-row";
 		const options = stateNames
@@ -1057,60 +1055,100 @@ function renderTestScenarios() {
 				<label>Duration (ms)</label>
 				<input type="number" min="200" step="100" value="${sc.duration}" oninput="updateTestScenario(${i}, 'duration', this.value)">
 			</div>
+			<div class="test-scenario-editor">
+				<div class="sh" style="margin: 8px 0 6px">Message Style (Per Character)</div>
+				<div class="char-row" id="test-msg-row-${i}"></div>
+				<div class="sel-info" id="test-sel-info-${i}">— click a character to select · shift+click = multi —</div>
+				<div class="test-scenario-palettes">
+					<div>
+						<div class="sh" style="margin-bottom: 5px">Text Color</div>
+						<div class="palette" id="test-fg-pal-${i}"></div>
+					</div>
+					<div>
+						<div class="sh" style="margin-bottom: 5px">Background</div>
+						<div class="palette" id="test-bg-pal-${i}"></div>
+					</div>
+				</div>
+				<div style="margin-top:6px;">
+					<div class="sh" style="margin-bottom: 5px">Attributes</div>
+					<div class="attr-row" id="test-attr-row-${i}"></div>
+				</div>
+			</div>
 			<div class="row" style="margin-top:6px;justify-content:flex-end;">
 				<button class="btn danger" onclick="removeTestScenario(${i})">✕ remove</button>
 			</div>
 		`;
 		wrap.appendChild(row);
+		renderTestMsgRow(i);
+		buildScenarioPalette(i);
+		renderTestSelInfo(i);
+		reflectTestPalette(i);
 	});
 
 	const count = document.getElementById("test-count");
 	if (count) count.textContent = `${testScenarios.length}/${MAX_TEST_SCENARIOS}`;
 }
 
-function selectTestScenario(index) {
-	activeTestScenario = Math.max(0, Math.min(testScenarios.length - 1, parseInt(index)));
-	testSel.clear();
-	renderTestStyleEditor();
+function buildScenarioPalette(i) {
+	const fgEl = document.getElementById("test-fg-pal-" + i);
+	if (fgEl && !fgEl.childElementCount) {
+		FG.forEach((c) => {
+			const d = document.createElement("div");
+			d.className = "sw";
+			d.id = `test-${i}-fg-${c.n}`;
+			const swBg = c.n === "black" ? "#aaaaaa" : c.n === "default" ? "#2a2a2a" : c.css;
+			d.style.background = swBg;
+			d.innerHTML = `<span style="font-weight:700;color:${c.css};">A</span><span class="sw-tip">${c.lbl}</span>`;
+			d.onclick = () => applyTestFg(i, c.n);
+			fgEl.appendChild(d);
+		});
+	}
+	const bgEl = document.getElementById("test-bg-pal-" + i);
+	if (bgEl && !bgEl.childElementCount) {
+		BG.forEach((c) => {
+			const d = document.createElement("div");
+			d.className = "sw";
+			d.id = `test-${i}-bg-${c.n}`;
+			d.style.background = c.css === "transparent" ? "#1a1a1a" : c.css;
+			d.style.color = c.css === "transparent" ? "#555" : "#ccc";
+			d.innerHTML = `<span style="font-size:9px;">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
+			d.onclick = () => applyTestBg(i, c.n);
+			bgEl.appendChild(d);
+		});
+	}
+	const atEl = document.getElementById("test-attr-row-" + i);
+	if (atEl && !atEl.childElementCount) {
+		ATTRS.forEach((a) => {
+			const b = document.createElement("button");
+			b.className = "attr-btn";
+			b.id = `test-${i}-at-${a.n}`;
+			b.textContent = a.lbl;
+			b.style.cssText += ";" + a.css;
+			b.onclick = () => applyTestAttr(i, a.n);
+			atEl.appendChild(b);
+		});
+	}
 }
 
-function _getActiveTestScenario() {
-	if (!testScenarios.length) return null;
-	activeTestScenario = Math.max(0, Math.min(activeTestScenario, testScenarios.length - 1));
-	return testScenarios[activeTestScenario];
-}
-
-function onTestMsgInput() {
-	const sc = _getActiveTestScenario();
-	if (!sc) return;
-	const input = document.getElementById("test-msg-in");
-	if (!input) return;
-	sc.message = input.value || "";
-	_syncScenarioMsgCells(sc);
-	testSel.clear();
-	renderTestScenarios();
-	renderTestStyleEditor();
-	renderTestStageStatic();
-}
-
-function renderTestMsgRow() {
-	const rowEl = document.getElementById("test-msg-row");
+function renderTestMsgRow(scenarioIdx) {
+	const rowEl = document.getElementById("test-msg-row-" + scenarioIdx);
 	if (!rowEl) return;
-	const sc = _getActiveTestScenario();
+	const sc = testScenarios[scenarioIdx];
 	if (!sc) {
 		rowEl.innerHTML = "";
 		return;
 	}
+	const sel = _scenarioSel(sc);
 	_syncScenarioMsgCells(sc);
 	rowEl.innerHTML = "";
-	sc.msgCells.forEach((cell, i) => {
+	sc.msgCells.forEach((cell, charIdx) => {
 		const d = document.createElement("div");
-		d.className = "ccel" + (testSel.has(i) ? " sel" : "");
+		d.className = "ccel" + (sel.has(charIdx) ? " sel" : "");
 		const bg = bgCss(cell.bg);
 		if (bg) d.style.background = bg;
 		const ch = cell.char === " " ? "&nbsp;" : esc(cell.char);
 		d.innerHTML = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
-		d.onclick = (e) => toggleTestSel(i, e.shiftKey);
+		d.onclick = (e) => toggleTestSel(scenarioIdx, charIdx, e.shiftKey);
 		rowEl.appendChild(d);
 	});
 	if (!sc.msgCells.length) {
@@ -1121,127 +1159,118 @@ function renderTestMsgRow() {
 	}
 }
 
-function renderTestSelInfo() {
-	const el = document.getElementById("test-sel-info");
+function renderTestSelInfo(i) {
+	const el = document.getElementById("test-sel-info-" + i);
 	if (!el) return;
-	const sc = _getActiveTestScenario();
-	if (!sc || !testSel.size) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	const sel = _scenarioSel(sc);
+	if (!sel.size) {
 		el.textContent = "— click a character to select · shift+click = multi —";
 		return;
 	}
-	const chars = [...testSel].map((i) => (sc.msgCells[i] ? sc.msgCells[i].char : "?")).join("");
-	el.textContent = `selected: "${chars}"  (${testSel.size} char${testSel.size > 1 ? "s" : ""})`;
+	const chars = [...sel].map((idx) => (sc.msgCells[idx] ? sc.msgCells[idx].char : "?")).join("");
+	el.textContent = `selected: "${chars}"  (${sel.size} char${sel.size > 1 ? "s" : ""})`;
 }
 
-function toggleTestSel(idx, shift) {
+function toggleTestSel(scenarioIdx, idx, shift) {
+	const sc = testScenarios[scenarioIdx];
+	if (!sc) return;
+	const sel = _scenarioSel(sc);
 	if (!shift) {
-		testSel.clear();
-		testSel.add(idx);
+		sel.clear();
+		sel.add(idx);
 	} else {
-		testSel.has(idx) ? testSel.delete(idx) : testSel.add(idx);
+		sel.has(idx) ? sel.delete(idx) : sel.add(idx);
 	}
-	renderTestMsgRow();
-	reflectTestPalette();
-	renderTestSelInfo();
+	renderTestMsgRow(scenarioIdx);
+	reflectTestPalette(scenarioIdx);
+	renderTestSelInfo(scenarioIdx);
 }
 
-function reflectTestPalette() {
-	const sc = _getActiveTestScenario();
-	if (!sc || !testSel.size) {
+function reflectTestPalette(i) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	const sel = _scenarioSel(sc);
+	if (!sel.size) {
 		FG.forEach((c) => {
-			const b = document.getElementById("test-fg-" + c.n);
+			const b = document.getElementById(`test-${i}-fg-${c.n}`);
 			if (b) b.classList.remove("on");
 		});
 		BG.forEach((c) => {
-			const b = document.getElementById("test-bg-" + c.n);
+			const b = document.getElementById(`test-${i}-bg-${c.n}`);
 			if (b) b.classList.remove("on");
 		});
 		ATTRS.forEach((a) => {
-			const b = document.getElementById("test-at-" + a.n);
+			const b = document.getElementById(`test-${i}-at-${a.n}`);
 			if (b) b.classList.remove("on");
 		});
 		return;
 	}
-	const first = sc.msgCells[[...testSel][0]];
+	const first = sc.msgCells[[...sel][0]];
 	if (!first) return;
 	FG.forEach((c) => {
-		const b = document.getElementById("test-fg-" + c.n);
+		const b = document.getElementById(`test-${i}-fg-${c.n}`);
 		if (b) b.classList.toggle("on", c.n === first.fg);
 	});
 	BG.forEach((c) => {
-		const b = document.getElementById("test-bg-" + c.n);
+		const b = document.getElementById(`test-${i}-bg-${c.n}`);
 		if (b) b.classList.toggle("on", c.n === first.bg);
 	});
 	ATTRS.forEach((a) => {
-		const b = document.getElementById("test-at-" + a.n);
+		const b = document.getElementById(`test-${i}-at-${a.n}`);
 		if (b) b.classList.toggle("on", !!first[a.n]);
 	});
 }
 
-function applyTestFg(name) {
-	const sc = _getActiveTestScenario();
-	if (!sc || !testSel.size) {
+function applyTestFg(i, name) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	const sel = _scenarioSel(sc);
+	if (!sel.size) {
 		toast("Select message characters first");
 		return;
 	}
-	testSel.forEach((i) => {
-		if (sc.msgCells[i]) sc.msgCells[i].fg = name;
+	sel.forEach((idx) => {
+		if (sc.msgCells[idx]) sc.msgCells[idx].fg = name;
 	});
-	renderTestMsgRow();
-	reflectTestPalette();
+	renderTestMsgRow(i);
+	reflectTestPalette(i);
 	renderTestStageStatic();
 }
 
-function applyTestBg(name) {
-	const sc = _getActiveTestScenario();
-	if (!sc || !testSel.size) {
+function applyTestBg(i, name) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	const sel = _scenarioSel(sc);
+	if (!sel.size) {
 		toast("Select message characters first");
 		return;
 	}
-	testSel.forEach((i) => {
-		if (sc.msgCells[i]) sc.msgCells[i].bg = name;
+	sel.forEach((idx) => {
+		if (sc.msgCells[idx]) sc.msgCells[idx].bg = name;
 	});
-	renderTestMsgRow();
-	reflectTestPalette();
+	renderTestMsgRow(i);
+	reflectTestPalette(i);
 	renderTestStageStatic();
 }
 
-function applyTestAttr(name) {
-	const sc = _getActiveTestScenario();
-	if (!sc || !testSel.size) {
+function applyTestAttr(i, name) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	const sel = _scenarioSel(sc);
+	if (!sel.size) {
 		toast("Select message characters first");
 		return;
 	}
-	const first = sc.msgCells[[...testSel][0]];
+	const first = sc.msgCells[[...sel][0]];
 	const newVal = !first[name];
-	testSel.forEach((i) => {
-		if (sc.msgCells[i]) sc.msgCells[i][name] = newVal;
+	sel.forEach((idx) => {
+		if (sc.msgCells[idx]) sc.msgCells[idx][name] = newVal;
 	});
-	renderTestMsgRow();
-	reflectTestPalette();
+	renderTestMsgRow(i);
+	reflectTestPalette(i);
 	renderTestStageStatic();
-}
-
-function renderTestStyleEditor() {
-	const selector = document.getElementById("test-style-scenario");
-	const input = document.getElementById("test-msg-in");
-	if (!selector || !input) return;
-	selector.innerHTML = "";
-	testScenarios.forEach((sc, i) => {
-		const o = document.createElement("option");
-		o.value = String(i);
-		o.textContent = `${i + 1}: ${sc.state}`;
-		selector.appendChild(o);
-	});
-	if (!testScenarios.length) return;
-	activeTestScenario = Math.max(0, Math.min(activeTestScenario, testScenarios.length - 1));
-	selector.value = String(activeTestScenario);
-	const sc = testScenarios[activeTestScenario];
-	_syncScenarioMsgCells(sc);
-	input.value = sc.message || "";
-	renderTestMsgRow();
-	renderTestSelInfo();
-	reflectTestPalette();
 }
 
 function _stateFrameAtElapsed(stateName, elapsedMs) {
@@ -1576,45 +1605,6 @@ function buildUI() {
 		fgrid.appendChild(b);
 	});
 
-	// TEST palettes (message per-character styling)
-	const tFg = document.getElementById("test-fg-pal");
-	if (tFg) {
-		FG.forEach((c) => {
-			const d = document.createElement("div");
-			d.className = "sw";
-			d.id = "test-fg-" + c.n;
-			const swBg = c.n === "black" ? "#aaaaaa" : c.n === "default" ? "#2a2a2a" : c.css;
-			d.style.background = swBg;
-			d.innerHTML = `<span style="font-weight:700;color:${c.css};">A</span><span class="sw-tip">${c.lbl}</span>`;
-			d.onclick = () => applyTestFg(c.n);
-			tFg.appendChild(d);
-		});
-	}
-	const tBg = document.getElementById("test-bg-pal");
-	if (tBg) {
-		BG.forEach((c) => {
-			const d = document.createElement("div");
-			d.className = "sw";
-			d.id = "test-bg-" + c.n;
-			d.style.background = c.css === "transparent" ? "#1a1a1a" : c.css;
-			d.style.color = c.css === "transparent" ? "#555" : "#ccc";
-			d.innerHTML = `<span style="font-size:9px;">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
-			d.onclick = () => applyTestBg(c.n);
-			tBg.appendChild(d);
-		});
-	}
-	const tAttr = document.getElementById("test-attr-row");
-	if (tAttr) {
-		ATTRS.forEach((a) => {
-			const b = document.createElement("button");
-			b.className = "attr-btn";
-			b.id = "test-at-" + a.n;
-			b.textContent = a.lbl;
-			b.style.cssText += ";" + a.css;
-			b.onclick = () => applyTestAttr(a.n);
-			tAttr.appendChild(b);
-		});
-	}
 }
 
 // ═══════════════════════════════════════════════════════════

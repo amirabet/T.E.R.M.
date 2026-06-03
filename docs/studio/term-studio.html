@@ -163,45 +163,13 @@
 					Configure up to 5 scenarios. Each one has state, message, message mode, and duration.
 					The stage below plays them sequentially.
 				</div>
-				<div id="test-scenarios"></div>
+				<div id="test-scenarios" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px"></div>
 				<div class="row" style="margin-top: 8px">
 					<button class="btn acc" onclick="addTestScenario()">+ scenario</button>
 					<button class="btn" onclick="runTestChain()" id="test-run-btn">▶ run chain</button>
 					<button class="btn danger" onclick="stopTestChain()">■ stop</button>
 					<div style="flex: 1"></div>
 					<span id="test-count" style="font-size: 10px; color: var(--text3)">1/5</span>
-				</div>
-			</div>
-
-			<div class="sec" style="margin-bottom: 8px">
-				<div class="sh" style="margin-bottom: 8px">MESSAGE STYLE (PER CHARACTER)</div>
-				<div class="row" style="margin-bottom: 6px">
-					<span
-						style="font-size: 10px; color: var(--text3); letter-spacing: 0.06em; text-transform: uppercase;">Scenario</span>
-					<select id="test-style-scenario" onchange="selectTestScenario(this.value)"></select>
-				</div>
-				<div class="row" style="margin-bottom: 6px">
-					<input type="text" id="test-msg-in" value="" placeholder="Working on..." class="msg-in"
-						style="width: 100%" oninput="onTestMsgInput()" />
-				</div>
-				<div class="char-row" id="test-msg-row"></div>
-				<div class="sel-info" id="test-sel-info">
-					— click a character to select · shift+click = multi —
-				</div>
-
-				<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;">
-					<div>
-						<div class="sh" style="margin-bottom: 5px">TEXT COLOR</div>
-						<div class="palette" id="test-fg-pal"></div>
-					</div>
-					<div>
-						<div class="sh" style="margin-bottom: 5px">BACKGROUND</div>
-						<div class="palette" id="test-bg-pal"></div>
-					</div>
-				</div>
-				<div style="margin-top:6px;">
-					<div class="sh" style="margin-bottom: 5px">ATTRIBUTES</div>
-					<div class="attr-row" id="test-attr-row"></div>
 				</div>
 			</div>
 
@@ -223,6 +191,5 @@
 <!-- 
 - Frame with 0 duration = infinite
 - Fix empty chars rendering
-- Scenarios text hide default text box
-- Scenarios improve dropdowns
+- Solve loading bar
 -->
