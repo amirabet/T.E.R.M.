@@ -1022,7 +1022,7 @@ function updateTestScenario(i, key, value) {
 			reflectTestPalette(i);
 		}
 	}
-	renderTestStageStatic();
+	renderTestStageStatic(i);
 }
 
 function renderTestScenarios() {
@@ -1236,7 +1236,7 @@ function applyTestFg(i, name) {
 	});
 	renderTestMsgRow(i);
 	reflectTestPalette(i);
-	renderTestStageStatic();
+	renderTestStageStatic(i);
 }
 
 function applyTestBg(i, name) {
@@ -1252,7 +1252,7 @@ function applyTestBg(i, name) {
 	});
 	renderTestMsgRow(i);
 	reflectTestPalette(i);
-	renderTestStageStatic();
+	renderTestStageStatic(i);
 }
 
 function applyTestAttr(i, name) {
@@ -1270,11 +1270,18 @@ function applyTestAttr(i, name) {
 	});
 	renderTestMsgRow(i);
 	reflectTestPalette(i);
-	renderTestStageStatic();
+	renderTestStageStatic(i);
+}
+
+function _framesForState(stateName) {
+	if (stateName === currentState && Array.isArray(frames) && frames.length) {
+		return frames;
+	}
+	return stateSet[stateName] || [];
 }
 
 function _stateFrameAtElapsed(stateName, elapsedMs) {
-	const frs = stateSet[stateName] || [];
+	const frs = _framesForState(stateName);
 	if (!frs.length) return mkFrame("._.", 300, "");
 	const total = frs.reduce((sum, f) => sum + Math.max(40, parseInt(f.ms) || 300), 0);
 	let t = elapsedMs % total;
@@ -1325,12 +1332,13 @@ function renderTestStage(faceCells, msgCells, metaText = "") {
 	metaEl.textContent = metaText;
 }
 
-function renderTestStageStatic() {
+function renderTestStageStatic(scenarioIdx = 0) {
 	if (!testScenarios.length) return;
-	const sc = testScenarios[0];
+	const idx = Math.max(0, Math.min(testScenarios.length - 1, parseInt(scenarioIdx, 10) || 0));
+	const sc = testScenarios[idx];
 	const frame = _stateFrameAtElapsed(sc.state, 0);
 	const msg = _scenarioMessage(sc, 0);
-	renderTestStage(frame.face, msg, `scenario 1/${testScenarios.length} · ${sc.state}`);
+	renderTestStage(frame.face, msg, `scenario ${idx + 1}/${testScenarios.length} · ${sc.state}`);
 }
 
 function stopTestChain(reset = true) {
