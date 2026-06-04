@@ -238,10 +238,24 @@ class TERM:
 
             renderer.write(face=face, msg=msg)
 
+            frame_ms = max(0, int(frame["ms"]))
+
+            if frame_ms == 0:
+                # 0ms is a stop sentinel: hold this frame until state changes or stop() is called.
+                with self._lock:
+                    held_state = state
+                    held_msg = override
+                while self._running:
+                    with self._lock:
+                        if self._state != held_state or self._msg is not held_msg:
+                            break
+                    time.sleep(0.05)
+                continue
+
             with self._lock:
                 self._frame_idx += 1
 
-            time.sleep(frame["ms"] / 1000)
+            time.sleep(frame_ms / 1000)
 
     # ─── ANIMATION MANAGEMENT ───────────────────────────────────────────────────
 

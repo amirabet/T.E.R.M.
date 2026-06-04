@@ -75,6 +75,19 @@ const denormBg = (v) => Object.prototype.hasOwnProperty.call(_BG_EXPORT, v) ? _B
 // ═══════════════════════════════════════════════════════════
 //  DATA MODEL
 // ═══════════════════════════════════════════════════════════
+const DEFAULT_FRAME_MS = 300;
+const MIN_FRAME_MS = 0;
+const MAX_FRAME_MS = 10000;
+const FRAME_MS_STEP = 100;
+
+function parseFrameMs(raw, opts = {}) {
+	const n = Number.parseInt(raw, 10);
+	if (Number.isNaN(n)) return DEFAULT_FRAME_MS;
+	const clamped = Math.max(MIN_FRAME_MS, Math.min(MAX_FRAME_MS, n));
+	if (opts.snap === true) return Math.round(clamped / FRAME_MS_STEP) * FRAME_MS_STEP;
+	return clamped;
+}
+
 // cell: { char, fg, bg, bold, dim, underline, reverse }
 const mkCell = (ch) => ({
 	char: ch,
@@ -88,7 +101,7 @@ const mkCell = (ch) => ({
 const mkFrame = (face, ms, msg) => ({
 	face: Array.from(face || "._.", (c) => mkCell(c)),
 	msg: Array.from(msg || "", (c) => mkCell(c)),
-	ms: ms || 300,
+	ms: parseFrameMs(ms),
 });
 const cloneCell = (c) => ({ ...c });
 const cloneFrame = (f) => ({
@@ -562,7 +575,10 @@ function onMsgInput() {
 	renderAll();
 }
 function onMsInput() {
-	frames[curFrame].ms = parseInt(document.getElementById("ms-in").value) || 300;
+	const input = document.getElementById("ms-in");
+	const ms = parseFrameMs(input.value, { snap: true });
+	frames[curFrame].ms = ms;
+	input.value = ms;
 	renderFrames();
 }
 
@@ -575,7 +591,7 @@ function selectFrame(i) {
 	selMsg.clear();
 	const f = frames[i];
 	document.getElementById("face-in").value = f.face.map((c) => c.char).join("");
-	document.getElementById("ms-in").value = f.ms;
+	document.getElementById("ms-in").value = parseFrameMs(f.ms);
 	const msgIn = document.getElementById("msg-in");
 	if (msgIn) msgIn.value = f.msg.map((c) => c.char).join("");
 	renderAll();
@@ -616,7 +632,15 @@ function togglePlay() {
 }
 function sched() {
 	if (!playing) return;
-	const ms = Math.max(30, Math.round(frames[curFrame].ms * speedMul));
+	const frameMs = parseFrameMs(frames[curFrame].ms, { snap: false });
+	if (frameMs === 0) {
+		playing = false;
+		const b = document.getElementById("play-btn");
+		b.textContent = "▶";
+		b.classList.remove("on");
+		return;
+	}
+	const ms = Math.max(30, Math.round(frameMs * speedMul));
 	playTimer = setTimeout(() => {
 		selectFrame((curFrame + 1) % frames.length);
 		sched();
@@ -738,7 +762,7 @@ function addNewState() {
 	const name = raw.replace(/\s+/g, "_").toLowerCase();
 	if (stateSet[name]) { toast("State already exists: " + name); return; }
 	saveCurrentStateToSet();
-	stateSet[name] = [mkFrame("._.", 300, "")];
+	stateSet[name] = [mkFrame("._.", DEFAULT_FRAME_MS, "")];
 	inp.value = "";
 	currentState = ""; // prevent overwriting old state on switch
 	switchState(name);
@@ -804,7 +828,7 @@ function _framesFromJSON(jsonFrames) {
 		face: (Array.isArray(jf[K_FACE]) ? jf[K_FACE] : Array.isArray(jf.face) ? jf.face : Array.from(String(jf[K_FACE] ?? jf.face ?? "._."))).map(_cellFromJSON),
 		// Keep backward compatibility with legacy files that still include frame.msg.
 		msg: (Array.isArray(jf.msg) ? jf.msg : Array.from(String(jf.msg ?? ""))).map(_cellFromJSON),
-		ms: Math.max(40, parseInt(jf.ms) || 300),
+		ms: parseFrameMs(jf.ms),
 	}));
 }
 
@@ -1174,15 +1198,29 @@ function _framesForState(stateName) {
 
 function _stateFrameAtElapsed(stateName, elapsedMs) {
 	const frs = _framesForState(stateName);
-	if (!frs.length) return mkFrame("._.", 300, "");
-	const total = frs.reduce((sum, f) => sum + Math.max(40, parseInt(f.ms) || 300), 0);
-	let t = elapsedMs % total;
-	for (const f of frs) {
-		const ms = Math.max(40, parseInt(f.ms) || 300);
-		if (t < ms) return f;
-		t -= ms;
+	if (!frs.length) return mkFrame("._.", DEFAULT_FRAME_MS, "");
+
+	const parsed = frs.map((f) => ({ frame: f, ms: parseFrameMs(f.ms, { snap: false }) }));
+	const stopIdx = parsed.findIndex((it) => it.ms === 0);
+
+	if (stopIdx !== -1) {
+		let t = Math.max(0, elapsedMs);
+		for (let i = 0; i < stopIdx; i++) {
+			const ms = parsed[i].ms;
+			if (t < ms) return parsed[i].frame;
+			t -= ms;
+		}
+		return parsed[stopIdx].frame;
 	}
-	return frs[frs.length - 1];
+
+	const total = parsed.reduce((sum, it) => sum + it.ms, 0);
+	if (total <= 0) return parsed[parsed.length - 1].frame;
+	let t = Math.max(0, elapsedMs) % total;
+	for (const it of parsed) {
+		if (t < it.ms) return it.frame;
+		t -= it.ms;
+	}
+	return parsed[parsed.length - 1].frame;
 }
 
 function _loadingBar(pct, width = 14) {

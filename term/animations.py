@@ -22,6 +22,9 @@ _PACKAGE_DIR = Path(__file__).parent
 _DEFAULT_FILE = _PACKAGE_DIR / "animations" / "default.json"
 _USER_GLOBAL = Path.home() / ".term" / "animations.json"
 _USER_LOCAL = Path.cwd() / "term.json"
+DEFAULT_FRAME_MS = 300
+MIN_FRAME_MS = 0
+MAX_FRAME_MS = 10000
 
 # ─── JSON LOADING ───────────────────────────────────────────────────────────────
 
@@ -91,11 +94,19 @@ def _normalize_richtext(value) -> RichText:
     return RichText()
 
 
+def _normalize_ms(raw) -> int:
+    try:
+        ms = int(raw)
+    except (TypeError, ValueError):
+        ms = DEFAULT_FRAME_MS
+    return max(MIN_FRAME_MS, min(MAX_FRAME_MS, ms))
+
+
 def _normalize_frame(raw: dict) -> dict:
     """Normalize one animation frame to internal format."""
     face = _normalize_richtext(raw.get("fa", raw.get("face", "._.")))
     msg = _normalize_richtext(raw.get("msg", ""))
-    ms = max(40, int(raw.get("ms", 300)))
+    ms = _normalize_ms(raw.get("ms", DEFAULT_FRAME_MS))
     return {"face": face, "msg": msg, "ms": ms}
 
 

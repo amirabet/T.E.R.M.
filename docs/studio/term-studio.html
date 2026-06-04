@@ -79,8 +79,8 @@
 								<input type="text" id="face-in" value="._." placeholder="o_o" style="width: 110px"
 									oninput="onFaceInput()" />
 								<span style="font-size: 10px; color: var(--text3)">ms</span>
-								<input type="number" id="ms-in" value="300" min="40" max="3000" step="10"
-									oninput="onMsInput()" />
+								<input type="number" id="ms-in" min="0" max="10000" value="300" step="100"
+									oninput="onMsInput()" /><small>0 for infinite duration</small>
 							</div>
 							<div class="char-row" id="face-row"></div>
 						</div>
