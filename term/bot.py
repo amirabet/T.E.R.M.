@@ -139,7 +139,7 @@ class TERM:
 
     # ─── RICH MESSAGE SHORTCUTS ─────────────────────────────────────────────────
 
-        def say(self, text: str, delay_ms: int = 60,
+    def say(self, text: str, delay_ms: int = 60,
             total_duration_ms: int = None, **style) -> "TERM":
         """
         Type a message character by character (typewriter effect).
