@@ -695,6 +695,27 @@ const K_BOLD = "bo";
 const K_DIM = "di";
 const K_UNDERLINE = "un";
 const K_REVERSE = "rv";
+const REQUIRED_STATES = ["idle", "think", "work", "ok", "error", "speak", "boot"];
+
+function mkEmptyFrame() {
+	return {
+		face: [],
+		msg: [],
+		ms: DEFAULT_FRAME_MS,
+	};
+}
+
+function ensureRequiredStates(setObj) {
+	const missing = [];
+	for (const name of REQUIRED_STATES) {
+		const framesForState = setObj[name];
+		if (!Array.isArray(framesForState) || !framesForState.length) {
+			setObj[name] = [mkEmptyFrame()];
+			missing.push(name);
+		}
+	}
+	return missing;
+}
 
 function _stateSetFromPresetJSON(data) {
 	if (!data || typeof data !== "object") return {};
@@ -730,12 +751,16 @@ async function initDefaultStates() {
 	const loaded = await _loadPresetStateSetFromFile();
 	if (loaded) {
 		stateSet = loaded;
-		return;
+	} else {
+		stateSet = {
+			idle: [mkFrame("._.", 500, "")],
+		};
 	}
 
-	stateSet = {
-		idle: [mkFrame("._.", 500, "")],
-	};
+	const missing = ensureRequiredStates(stateSet);
+	if (missing.length) {
+		toast(`Missing required states were added: ${missing.join(", ")}`);
+	}
 }
 
 function saveCurrentStateToSet() {
@@ -772,6 +797,10 @@ function addNewState() {
 function deleteCurrentState() {
 	const keys = Object.keys(stateSet);
 	if (keys.length <= 1) { toast("Cannot delete the last state"); return; }
+	if (REQUIRED_STATES.includes(currentState)) {
+		toast(`Cannot delete required state: ${currentState}`);
+		return;
+	}
 	if (!window.confirm(`Delete state "${currentState}"?`)) return;
 	delete stateSet[currentState];
 	const next = Object.keys(stateSet)[0];
@@ -841,10 +870,15 @@ function importStatesFromJSON(data) {
 		newSet[name] = _framesFromJSON(sFrames);
 	}
 	if (!Object.keys(newSet).length) { toast("No valid states found in JSON"); return; }
+	const missing = ensureRequiredStates(newSet);
 	stateSet = newSet;
 	currentState = "";
 	switchState(Object.keys(stateSet)[0]);
 	ensureTestScenarioStates();
+	if (missing.length) {
+		toast(`Loaded ${Object.keys(stateSet).length} state(s). Added missing required states: ${missing.join(", ")}`);
+		return;
+	}
 	toast(`Loaded ${Object.keys(stateSet).length} state(s)`);
 }
 

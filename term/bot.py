@@ -67,8 +67,12 @@ class TERM:
                     - None         → keep the current message unchanged
         """
         if state not in self._anims:
-            available = ", ".join(_anim_module.list_states(self._anims))
-            raise KeyError(f"Unknown state '{state}'. Available: {available}")
+            if "idle" in self._anims:
+                state = "idle"
+            elif self._anims:
+                state = next(iter(self._anims))
+            else:
+                raise KeyError("No animations loaded.")
         with self._lock:
             self._state = state
             self._frame_idx = 0
@@ -91,13 +95,16 @@ class TERM:
             self._msg = rich
         return self
 
-    def compose_msg(self, blocks,
-                    default_fg: str = "white",
-                    default_bg: str = "",
-                    default_bold: bool = False,
-                    default_dim: bool = False,
-                    default_underline: bool = False,
-                    default_reverse: bool = False) -> "TERM":
+    def compose_msg(
+        self,
+        blocks,
+        default_fg: str = "white",
+        default_bg: str = "",
+        default_bold: bool = False,
+        default_dim: bool = False,
+        default_underline: bool = False,
+        default_reverse: bool = False,
+    ) -> "TERM":
         """
         Build and set a rich message from quick blocks.
 
@@ -135,17 +142,18 @@ class TERM:
         return self.set_state("speak", msg)
 
     def boot(self, msg=None) -> "TERM":
-        return self.set_state("boot", msg)
+        # Kept for compatibility. Studio defaults do not define a dedicated boot state.
+        return self.set_state("idle", msg)
 
     # ─── RICH MESSAGE SHORTCUTS ─────────────────────────────────────────────────
 
-    def say(self, text: str, delay_ms: int = 60,
-            total_duration_ms: int = None, **style) -> "TERM":
+    def say(
+        self, text: str, delay_ms: int = 60, total_duration_ms: int = None, **style
+    ) -> "TERM":
         """
         Type a message character by character (typewriter effect).
-        Switches to speak state automatically.
+        Keeps the current animation state.
         """
-        self.set_state("speak")
         msg_module.typewriter(
             self,
             text,
@@ -185,7 +193,7 @@ class TERM:
 
     # ─── LIFECYCLE ──────────────────────────────────────────────────────────────
 
-    def start(self, state: str = "boot", msg=None) -> "TERM":
+    def start(self, state: str = "idle", msg=None) -> "TERM":
         """Start the animation loop in a background thread (non-blocking)."""
         if self._running:
             return self
