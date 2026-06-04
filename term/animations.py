@@ -10,19 +10,21 @@ Priority (highest → lowest):
   4. term/animations/default.json (built-in)
 """
 
-import json
 import copy
+import json
 import warnings
 from pathlib import Path
 from typing import Union
-from .richtext import RichText, Cell
 
-_PACKAGE_DIR  = Path(__file__).parent
+from .richtext import Cell, RichText
+
+_PACKAGE_DIR = Path(__file__).parent
 _DEFAULT_FILE = _PACKAGE_DIR / "animations" / "default.json"
-_USER_GLOBAL  = Path.home() / ".term" / "animations.json"
-_USER_LOCAL   = Path.cwd() / "term.json"
+_USER_GLOBAL = Path.home() / ".term" / "animations.json"
+_USER_LOCAL = Path.cwd() / "term.json"
 
 # ─── JSON LOADING ───────────────────────────────────────────────────────────────
+
 
 def _load_json(path: Path) -> dict:
     if not path.exists():
@@ -36,19 +38,39 @@ def _load_json(path: Path) -> dict:
         warnings.warn(f"T.E.R.M.: could not load {path}: {e}")
         return {}
 
+
 def _deep_merge(base: dict, override: dict) -> dict:
     merged = copy.deepcopy(base)
     for k, v in override.items():
         merged[k] = v
     return merged
 
+
 # ─── NORMALIZATION ──────────────────────────────────────────────────────────────
+
 
 def _normalize_cell(raw) -> Cell:
     """Accept a cell dict or a plain char string."""
     if isinstance(raw, str):
         return Cell(char=raw)
+    if isinstance(raw, dict):
+        if "ch" in raw and "char" not in raw:
+            raw = dict(raw)
+            raw["char"] = raw.get("ch")
+        if "bo" in raw and "bold" not in raw:
+            raw = dict(raw)
+            raw["bold"] = raw.get("bo")
+        if "di" in raw and "dim" not in raw:
+            raw = dict(raw)
+            raw["dim"] = raw.get("di")
+        if "un" in raw and "underline" not in raw:
+            raw = dict(raw)
+            raw["underline"] = raw.get("un")
+        if "rv" in raw and "reverse" not in raw:
+            raw = dict(raw)
+            raw["reverse"] = raw.get("rv")
     return Cell.from_dict(raw)
+
 
 def _normalize_richtext(value) -> RichText:
     """
@@ -68,21 +90,25 @@ def _normalize_richtext(value) -> RichText:
         return rt
     return RichText()
 
+
 def _normalize_frame(raw: dict) -> dict:
     """Normalize one animation frame to internal format."""
-    face = _normalize_richtext(raw.get("face", "._."))
-    msg  = _normalize_richtext(raw.get("msg",  ""))
-    ms   = max(40, int(raw.get("ms", 300)))
+    face = _normalize_richtext(raw.get("fa", raw.get("face", "._.")))
+    msg = _normalize_richtext(raw.get("msg", ""))
+    ms = max(40, int(raw.get("ms", 300)))
     return {"face": face, "msg": msg, "ms": ms}
+
 
 def _normalize_state(raw: dict) -> dict:
     """Normalize one animation state."""
-    frames = [_normalize_frame(f) for f in raw.get("frames", [])]
+    frames = [_normalize_frame(f) for f in raw.get("fr", raw.get("frames", []))]
     if not frames:
         raise ValueError("Animation state must have at least one frame.")
     return {"frames": frames}
 
+
 # ─── PUBLIC API ─────────────────────────────────────────────────────────────────
+
 
 def load(extra: Union[dict, str, Path, None] = None) -> dict:
     """
@@ -119,8 +145,10 @@ def load(extra: Union[dict, str, Path, None] = None) -> dict:
 
     return result
 
+
 def list_states(animations: dict) -> list:
     return sorted(animations.keys())
+
 
 def get_frame(animations: dict, state: str, index: int) -> dict:
     frames = animations[state]["frames"]

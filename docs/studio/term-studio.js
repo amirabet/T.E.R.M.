@@ -663,164 +663,55 @@ function setFace(str) {
 // ═══════════════════════════════════════════════════════════
 //  PRESETS
 // ═══════════════════════════════════════════════════════════
-const PRESETS = {
-	idle: [
-		{
-			face: "._.",
-			ms: 600,
-			fFg: "gray",
-			mFg: "gray",
-			dim: true,
-			msg: "Esperando...",
-		},
-		{
-			face: ". .",
-			ms: 900,
-			fFg: "gray",
-			mFg: "gray",
-			dim: true,
-			msg: "Esperando...",
-		},
-		{
-			face: "._.",
-			ms: 600,
-			fFg: "gray",
-			mFg: "gray",
-			dim: true,
-			msg: "Esperando...",
-		},
-	],
-	think: [
-		{ face: "o..", ms: 120, fFg: "br_cyn", mFg: "gray", msg: "Analizando..." },
-		{ face: ".o.", ms: 120, fFg: "cyan", mFg: "gray", msg: "Analizando..." },
-		{ face: "..o", ms: 120, fFg: "br_cyn", mFg: "gray", msg: "Analizando..." },
-		{ face: ".o.", ms: 120, fFg: "cyan", mFg: "gray", msg: "Analizando..." },
-	],
-	work: [
-		{ face: "-_-", ms: 80, fFg: "yellow", mFg: "gray", msg: "Working on..." },
-		{ face: ">_-", ms: 80, fFg: "br_yel", mFg: "gray", msg: "Working on..." },
-		{
-			face: ">_<",
-			ms: 160,
-			fFg: "br_yel",
-			mFg: "gray",
-			bold: true,
-			msg: "Working on...",
-		},
-		{ face: "-_<", ms: 80, fFg: "yellow", mFg: "gray", msg: "Working on..." },
-		{ face: "-_-", ms: 200, fFg: "yellow", mFg: "gray", msg: "Working on..." },
-	],
-	ok: [
-		{ face: "o_o", ms: 100, fFg: "green", mFg: "gray", msg: "Done!" },
-		{ face: "^_o", ms: 100, fFg: "br_grn", mFg: "gray", msg: "Done!" },
-		{
-			face: "^_^",
-			ms: 200,
-			fFg: "br_grn",
-			mFg: "br_grn",
-			bold: true,
-			bg: "green",
-			msg: "Done!",
-		},
-		{
-			face: "^v^",
-			ms: 300,
-			fFg: "br_grn",
-			mFg: "br_grn",
-			bold: true,
-			msg: "Done!",
-		},
-		{ face: "^_^", ms: 500, fFg: "green", mFg: "gray", msg: "Done!" },
-	],
-	error: [
-		{ face: "o_o", ms: 60, fFg: "default", mFg: "gray", msg: "Error: timeout" },
-		{ face: "o_O", ms: 60, fFg: "yellow", mFg: "gray", msg: "Error: timeout" },
-		{
-			face: "O_O",
-			ms: 80,
-			fFg: "br_yel",
-			mFg: "gray",
-			bold: true,
-			msg: "Error: timeout",
-		},
-		{
-			face: "@_@",
-			ms: 80,
-			fFg: "br_red",
-			mFg: "gray",
-			bold: true,
-			msg: "Error: timeout",
-		},
-		{
-			face: "x_x",
-			ms: 200,
-			fFg: "white",
-			mFg: "br_red",
-			bold: true,
-			bg: "red",
-			msg: "Error: timeout",
-		},
-		{
-			face: "x_x",
-			ms: 200,
-			fFg: "br_red",
-			mFg: "br_red",
-			msg: "Error: timeout",
-		},
-		{
-			face: "x_x",
-			ms: 600,
-			fFg: "red",
-			mFg: "gray",
-			dim: true,
-			msg: "Error: timeout",
-		},
-	],
-	speak: [
-		{ face: "^-^", ms: 120, fFg: "blue", mFg: "gray", msg: "Respondiendo..." },
-		{
-			face: "^o^",
-			ms: 200,
-			fFg: "br_blu",
-			mFg: "gray",
-			msg: "Respondiendo...",
-		},
-		{ face: "^-^", ms: 120, fFg: "blue", mFg: "gray", msg: "Respondiendo..." },
-		{
-			face: "^u^",
-			ms: 200,
-			fFg: "br_blu",
-			mFg: "gray",
-			bold: true,
-			msg: "Respondiendo...",
-		},
-	],
-};
+const PRESETS_JSON_PATH = "./term-studio-presets.json";
+const K_FRAMES = "fr";
+const K_FACE = "fa";
+const K_CHAR = "ch";
+const K_BOLD = "bo";
+const K_DIM = "di";
+const K_UNDERLINE = "un";
+const K_REVERSE = "rv";
+
+function _stateSetFromPresetJSON(data) {
+	if (!data || typeof data !== "object") return {};
+	const src = data._meta ? Object.fromEntries(Object.entries(data).filter(([k]) => k !== "_meta")) : data;
+	const out = {};
+	for (const [name, sd] of Object.entries(src)) {
+		const sFrames = sd && (sd[K_FRAMES] ?? sd.frames);
+		if (!Array.isArray(sFrames) || !sFrames.length) continue;
+		out[name] = _framesFromJSON(sFrames);
+	}
+	return out;
+}
+
+async function _loadPresetStateSetFromFile() {
+	try {
+		const res = await fetch(PRESETS_JSON_PATH, { cache: "no-store" });
+		if (!res.ok) throw new Error(`HTTP ${res.status}`);
+		const data = await res.json();
+		const loaded = _stateSetFromPresetJSON(data);
+		if (!Object.keys(loaded).length) throw new Error("No valid states in presets JSON");
+		return loaded;
+	} catch (err) {
+		console.warn("Preset JSON load failed, using minimal fallback state:", err);
+		return null;
+	}
+}
 
 // ═══════════════════════════════════════════════════════════
 //  STATE SET MANAGEMENT
 // ═══════════════════════════════════════════════════════════
 
-function initDefaultStates() {
-	// Bootstrap stateSet from built-in PRESETS so the editor starts with
-	// useful defaults. Users can import their own JSON to replace these.
-	stateSet = {};
-	Object.entries(PRESETS).forEach(([name, arr]) => {
-		stateSet[name] = arr.map((pr) => {
-			const f = mkFrame(pr.face, pr.ms, pr.msg || "");
-			f.face.forEach((c) => {
-				c.fg = pr.fFg || "default";
-				if (pr.bold) c.bold = true;
-				if (pr.dim) c.dim = true;
-				if (pr.bg) c.bg = pr.bg;
-			});
-			f.msg.forEach((c) => {
-				c.fg = pr.mFg || "default";
-				if (pr.bold) c.bold = true;
-			});
-			return f;
-		});
-	});
+async function initDefaultStates() {
+	const loaded = await _loadPresetStateSetFromFile();
+	if (loaded) {
+		stateSet = loaded;
+		return;
+	}
+
+	stateSet = {
+		idle: [mkFrame("._.", 500, "")],
+	};
 }
 
 function saveCurrentStateToSet() {
@@ -898,19 +789,19 @@ function renderStatesBar() {
 
 function _cellFromJSON(item) {
 	if (typeof item === "string") return mkCell(item);
-	const c = mkCell(item.char ?? " ");
+	const c = mkCell(item[K_CHAR] ?? item.char ?? " ");
 	c.fg = normFg(item.fg ?? "");
 	c.bg = normBg(item.bg ?? "");
-	c.bold = !!item.bold;
-	c.dim = !!item.dim;
-	c.underline = !!item.underline;
-	c.reverse = !!item.reverse;
+	c.bold = !!(item[K_BOLD] ?? item.bold);
+	c.dim = !!(item[K_DIM] ?? item.dim);
+	c.underline = !!(item[K_UNDERLINE] ?? item.underline);
+	c.reverse = !!(item[K_REVERSE] ?? item.reverse);
 	return c;
 }
 
 function _framesFromJSON(jsonFrames) {
 	return jsonFrames.map((jf) => ({
-		face: (Array.isArray(jf.face) ? jf.face : Array.from(String(jf.face ?? "._."))).map(_cellFromJSON),
+		face: (Array.isArray(jf[K_FACE]) ? jf[K_FACE] : Array.isArray(jf.face) ? jf.face : Array.from(String(jf[K_FACE] ?? jf.face ?? "._."))).map(_cellFromJSON),
 		// Keep backward compatibility with legacy files that still include frame.msg.
 		msg: (Array.isArray(jf.msg) ? jf.msg : Array.from(String(jf.msg ?? ""))).map(_cellFromJSON),
 		ms: Math.max(40, parseInt(jf.ms) || 300),
@@ -921,8 +812,9 @@ function importStatesFromJSON(data) {
 	if (data._meta) { data = Object.assign({}, data); delete data._meta; }
 	const newSet = {};
 	for (const [name, sd] of Object.entries(data)) {
-		if (!sd || !Array.isArray(sd.frames) || !sd.frames.length) continue;
-		newSet[name] = _framesFromJSON(sd.frames);
+		const sFrames = sd && (sd[K_FRAMES] ?? sd.frames);
+		if (!Array.isArray(sFrames) || !sFrames.length) continue;
+		newSet[name] = _framesFromJSON(sFrames);
 	}
 	if (!Object.keys(newSet).length) { toast("No valid states found in JSON"); return; }
 	stateSet = newSet;
@@ -1400,20 +1292,12 @@ async function runTestChain() {
 
 function exportStatesToJSON() {
 	saveCurrentStateToSet();
-	const out = {
-		_meta: {
-			version: "3.0",
-			project: "T.E.R.M.",
-			created_with: "T.E.R.M. Studio",
-			schema: "state-frames-face-only",
-			note: "message is decoupled from state; define messages in TEST chained scenarios",
-		},
-	};
+	const out = {};
 	for (const [name, frs] of Object.entries(stateSet)) {
 		out[name] = {
-			frames: frs.map((f) => ({
+			[K_FRAMES]: frs.map((f) => ({
 				ms: f.ms,
-				face: f.face.map((c) => ({ char: c.char, fg: denormFg(c.fg), bg: denormBg(c.bg), bold: c.bold, dim: c.dim, underline: c.underline, reverse: c.reverse })),
+				[K_FACE]: f.face.map((c) => ({ [K_CHAR]: c.char, fg: denormFg(c.fg), bg: denormBg(c.bg), [K_BOLD]: c.bold, [K_DIM]: c.dim, [K_UNDERLINE]: c.underline, [K_REVERSE]: c.reverse })),
 			})),
 		};
 	}
@@ -1620,6 +1504,17 @@ function buildUI() {
 // ═══════════════════════════════════════════════════════════
 buildUI();
 setTarget("face");
-initDefaultStates();
-switchState("idle");
-initTestScenarios();
+
+async function initStudio() {
+	await initDefaultStates();
+	const first = stateSet.idle ? "idle" : Object.keys(stateSet)[0];
+	if (!first) {
+		stateSet = { idle: [mkFrame("._.", 500, "")] };
+		switchState("idle");
+	} else {
+		switchState(first);
+	}
+	initTestScenarios();
+}
+
+initStudio();

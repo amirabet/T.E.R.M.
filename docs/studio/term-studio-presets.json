@@ -1,0 +1,1776 @@
+﻿{
+	"idle": {
+		"fr": [
+			{
+				"ms": 500,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "",
+						"bg": "cyan",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "",
+						"bg": "cyan",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 2000,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "",
+						"bg": "cyan",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 800,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 2000,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "",
+						"bg": "cyan",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "",
+						"bg": "cyan",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 1000,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 1000,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "v",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 500,
+				"fa": [
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_white",
+						"bg": "br_cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": " ",
+						"fg": "br_white",
+						"bg": "cyan",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			}
+		]
+	},
+	"speak": {
+		"fr": [
+			{
+				"ms": 120,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "br_blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 120,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "blue",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "br_blue",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "u",
+						"fg": "br_blue",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_blue",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			}
+		]
+	},
+	"think": {
+		"fr": [
+			{
+				"ms": 120,
+				"fa": [
+					{
+						"ch": "o",
+						"fg": "br_cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ".",
+						"fg": "br_cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ".",
+						"fg": "br_cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 120,
+				"fa": [
+					{
+						"ch": ".",
+						"fg": "cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ".",
+						"fg": "cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 120,
+				"fa": [
+					{
+						"ch": ".",
+						"fg": "br_cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ".",
+						"fg": "br_cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 120,
+				"fa": [
+					{
+						"ch": ".",
+						"fg": "cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ".",
+						"fg": "cyan",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			}
+		]
+	},
+	"work": {
+		"fr": [
+			{
+				"ms": 80,
+				"fa": [
+					{
+						"ch": "-",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 80,
+				"fa": [
+					{
+						"ch": "\u003e",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 160,
+				"fa": [
+					{
+						"ch": "\u003e",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "\u003c",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 80,
+				"fa": [
+					{
+						"ch": "-",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "\u003c",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": "-",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "-",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			}
+		]
+	},
+	"ok": {
+		"fr": [
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": "o",
+						"fg": "green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 100,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "br_green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "br_green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "br_green",
+						"bg": "green",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_green",
+						"bg": "green",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_green",
+						"bg": "green",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 300,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "br_green",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "v",
+						"fg": "br_green",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "br_green",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 500,
+				"fa": [
+					{
+						"ch": "^",
+						"fg": "green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "green",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			}
+		]
+	},
+	"error": {
+		"fr": [
+			{
+				"ms": 60,
+				"fa": [
+					{
+						"ch": "o",
+						"fg": "",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "o",
+						"fg": "",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 60,
+				"fa": [
+					{
+						"ch": "o",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "O",
+						"fg": "yellow",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 80,
+				"fa": [
+					{
+						"ch": "O",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "O",
+						"fg": "br_yellow",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 80,
+				"fa": [
+					{
+						"ch": "@",
+						"fg": "br_red",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_red",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "@",
+						"fg": "br_red",
+						"bg": "",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": "x",
+						"fg": "white",
+						"bg": "red",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "white",
+						"bg": "red",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "x",
+						"fg": "white",
+						"bg": "red",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 200,
+				"fa": [
+					{
+						"ch": "x",
+						"fg": "br_red",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "br_red",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "x",
+						"fg": "br_red",
+						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 600,
+				"fa": [
+					{
+						"ch": "x",
+						"fg": "red",
+						"bg": "",
+						"bo": false,
+						"di": true,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "red",
+						"bg": "",
+						"bo": false,
+						"di": true,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "x",
+						"fg": "red",
+						"bg": "",
+						"bo": false,
+						"di": true,
+						"un": false,
+						"rv": false
+					}
+				]
+			}
+		]
+	}
+}
