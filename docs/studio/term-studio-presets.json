@@ -1947,7 +1947,7 @@
 					{
 						"ch": " ",
 						"fg": "",
-						"bg": "",
+						"bg": "cyan",
 						"bo": false,
 						"di": false,
 						"un": false,
@@ -4801,169 +4801,6 @@
 				"ms": 2000,
 				"fa": [
 					{
-						"ch": "~",
-						"fg": "gray",
-						"bg": "black",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "~",
-						"fg": "gray",
-						"bg": "black",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "(",
-						"fg": "gray",
-						"bg": "black",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "^",
-						"fg": "gray",
-						"bg": "black",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": ".",
-						"fg": "gray",
-						"bg": "black",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "_",
-						"fg": "gray",
-						"bg": "black",
-						"bo": false,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": ".",
-						"fg": "gray",
-						"bg": "black",
-						"bo": false,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "^",
-						"fg": "gray",
-						"bg": "black",
-						"bo": false,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": ")",
-						"fg": "gray",
-						"bg": "black",
-						"bo": false,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "~",
-						"fg": "gray",
-						"bg": "black",
-						"bo": false,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "~",
-						"fg": "gray",
-						"bg": "black",
-						"bo": false,
-						"di": false,
-						"un": false,
-						"rv": false
-					}
-				]
-			},
-			{
-				"ms": 2000,
-				"fa": [
-					{
-						"ch": "(",
-						"fg": "black",
-						"bg": "br_magenta",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "/",
-						"fg": "black",
-						"bg": "br_magenta",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "/",
-						"fg": "black",
-						"bg": "br_magenta",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "_",
-						"fg": "black",
-						"bg": "br_magenta",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": "^",
-						"fg": "black",
-						"bg": "br_magenta",
-						"bo": true,
-						"di": false,
-						"un": false,
-						"rv": false
-					},
-					{
-						"ch": ")",
-						"fg": "black",
-						"bg": "br_magenta",
-						"bo": false,
-						"di": false,
-						"un": false,
-						"rv": false
-					}
-				]
-			},
-			{
-				"ms": 2000,
-				"fa": [
-					{
 						"ch": "@",
 						"fg": "cyan",
 						"bg": "",
@@ -4985,6 +4822,169 @@
 						"ch": "@",
 						"fg": "cyan",
 						"bg": "",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 2000,
+				"fa": [
+					{
+						"ch": "(",
+						"fg": "black",
+						"bg": "br_magenta",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "/",
+						"fg": "black",
+						"bg": "br_magenta",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "/",
+						"fg": "black",
+						"bg": "br_magenta",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "black",
+						"bg": "br_magenta",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "black",
+						"bg": "br_magenta",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ")",
+						"fg": "black",
+						"bg": "br_magenta",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					}
+				]
+			},
+			{
+				"ms": 2000,
+				"fa": [
+					{
+						"ch": "~",
+						"fg": "gray",
+						"bg": "black",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "~",
+						"fg": "gray",
+						"bg": "black",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "(",
+						"fg": "gray",
+						"bg": "black",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "gray",
+						"bg": "black",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ".",
+						"fg": "gray",
+						"bg": "black",
+						"bo": true,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "_",
+						"fg": "gray",
+						"bg": "black",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ".",
+						"fg": "gray",
+						"bg": "black",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "^",
+						"fg": "gray",
+						"bg": "black",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": ")",
+						"fg": "gray",
+						"bg": "black",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "~",
+						"fg": "gray",
+						"bg": "black",
+						"bo": false,
+						"di": false,
+						"un": false,
+						"rv": false
+					},
+					{
+						"ch": "~",
+						"fg": "gray",
+						"bg": "black",
 						"bo": false,
 						"di": false,
 						"un": false,
