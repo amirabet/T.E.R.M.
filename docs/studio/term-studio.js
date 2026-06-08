@@ -157,14 +157,15 @@ function cellFgStyle(cell) {
 // Stage preview: each char wrapped in a BG span + inner FG span
 function renderStageChar(cell) {
 	const bg = bgCss(cell.bg);
-	const ch = cell.char === " " ? "&nbsp;" : esc(cell.char);
+	const isSpace = cell.char === " " || cell.char === "\u00a0" || cell.char === "&nbsp;";
+	const ch = isSpace ? "&nbsp;" : esc(cell.char);
 	const inner = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
 	if (!bg) return inner;
 	// space needs min-width so BG is visible; others get a small padding
 	const spaceStyle =
-		cell.char === " "
-			? `display:inline-block;min-width:0.55ch;background:${bg};`
-			: `background:${bg};padding:0 2px;border-radius:2px;`;
+		isSpace
+			? `background:${bg};min-width:1ch;`
+			: `background:${bg};padding:0 2px;`;
 	return `<span style="${spaceStyle}">${inner}</span>`;
 }
 // Legacy alias (used in renderFrames / renderLib previews)
@@ -228,7 +229,8 @@ function renderRow(tgt) {
 		const bg = bgCss(cell.bg);
 		if (bg) d.style.background = bg;
 		// FG + attrs go on the inner span only
-		const ch = cell.char === " " ? "&nbsp;" : esc(cell.char);
+		const isSpace = cell.char === " " || cell.char === "\u00a0" || cell.char === "&nbsp;";
+		const ch = isSpace ? "&nbsp;" : esc(cell.char);
 		d.innerHTML = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
 		d.onclick = (e) => toggleSel(tgt, i, e.shiftKey);
 		rowEl.appendChild(d);
@@ -613,6 +615,12 @@ function delFrame() {
 }
 function stepFrame(d) {
 	selectFrame((curFrame + d + frames.length) % frames.length);
+}
+function goFirstFrame() {
+	selectFrame(0);
+}
+function goLastFrame() {
+	selectFrame(frames.length - 1);
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1096,7 +1104,8 @@ function renderTestMsgRow(scenarioIdx) {
 		d.className = "ccel" + (sel.has(charIdx) ? " sel" : "");
 		const bg = bgCss(cell.bg);
 		if (bg) d.style.background = bg;
-		const ch = cell.char === " " ? "&nbsp;" : esc(cell.char);
+		const isSpace = cell.char === " " || cell.char === "\u00a0" || cell.char === "&nbsp;";
+		const ch = isSpace ? "&nbsp;" : esc(cell.char);
 		d.innerHTML = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
 		d.onclick = (e) => toggleTestSel(scenarioIdx, charIdx, e.shiftKey);
 		rowEl.appendChild(d);
