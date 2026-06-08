@@ -382,7 +382,7 @@ function renderSelInfo() {
 	const sel = [...(target === "face" ? selFace : selMsg)];
 	const el = document.getElementById("sel-info");
 	if (!sel.length) {
-		el.textContent = "— click a character to select · shift+click = multi —";
+		el.textContent = "— click a character to select | shift+click = multiselection";
 		return;
 	}
 	const chars = sel.map((i) => (cells[i] ? cells[i].char : "?")).join("");
@@ -998,12 +998,15 @@ function renderTestScenarios() {
 			.map((name) => `<option value="${esc(name)}" ${name === sc.state ? "selected" : ""}>${esc(name)}</option>`)
 			.join("");
 		row.innerHTML = `
-			<div class="test-scenario-head">Scenario ${i + 1}</div>
+			<div class="test-scenario-head">
+				<span>Scenario ${i + 1}</span>
+				<button class="btn danger" onclick="removeTestScenario(${i})">✕ remove</button>
+			</div>
 			<div class="test-scenario-grid">
 				<label>State</label>
 				<select onchange="updateTestScenario(${i}, 'state', this.value)">${options}</select>
 				<label>Message</label>
-				<input type="text" value="${esc(sc.message)}" placeholder="Working on..." oninput="updateTestScenario(${i}, 'message', this.value)">
+				<input type="text" value="${esc(sc.message)}" placeholder="Type message here..." oninput="updateTestScenario(${i}, 'message', this.value)">
 				<label>Mode</label>
 				<select onchange="updateTestScenario(${i}, 'mode', this.value)">
 					<option value="plain" ${sc.mode === "plain" ? "selected" : ""}>Plain</option>
@@ -1016,7 +1019,12 @@ function renderTestScenarios() {
 			<div class="test-scenario-editor">
 				<div class="sh" style="margin: 8px 0 6px">Message Style (Per Character)</div>
 				<div class="char-row" id="test-msg-row-${i}"></div>
-				<div class="sel-info" id="test-sel-info-${i}">— click a character to select · shift+click = multi —</div>
+				<div class="sel-info" id="test-sel-info-${i}">— click a character to select | shift+click = multi-selection</div>
+				<div style="display: flex; gap: 6px;">
+					<button class="btn" onclick="selectAllTest(${i})">select all</button>
+					<button class="btn danger" onclick="clearTestSelStyle(${i})">clear selected</button>
+					<button class="btn danger" onclick="clearAllTestStyles(${i})">clear all</button>
+				</div>
 				<div class="test-scenario-palettes">
 					<div>
 						<div class="sh" style="margin-bottom: 5px">Text Color</div>
@@ -1031,9 +1039,6 @@ function renderTestScenarios() {
 					<div class="sh" style="margin-bottom: 5px">Attributes</div>
 					<div class="attr-row" id="test-attr-row-${i}"></div>
 				</div>
-			</div>
-			<div class="row" style="margin-top:6px;justify-content:flex-end;">
-				<button class="btn danger" onclick="removeTestScenario(${i})">✕ remove</button>
 			</div>
 		`;
 		wrap.appendChild(row);
@@ -1180,6 +1185,54 @@ function reflectTestPalette(i) {
 		const b = document.getElementById(`test-${i}-at-${a.n}`);
 		if (b) b.classList.toggle("on", !!first[a.n]);
 	});
+}
+
+function selectAllTest(i) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	_syncScenarioMsgCells(sc);
+	const sel = _scenarioSel(sc);
+	sel.clear();
+	sc.msgCells.forEach((_, idx) => sel.add(idx));
+	renderTestMsgRow(i);
+	reflectTestPalette(i);
+	renderTestSelInfo(i);
+}
+
+function clearTestSelStyle(i) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	const sel = _scenarioSel(sc);
+	if (!sel.size) { toast("Select message characters first"); return; }
+	sel.forEach((idx) => {
+		if (sc.msgCells[idx]) {
+			sc.msgCells[idx].fg = "default";
+			sc.msgCells[idx].bg = "none";
+			sc.msgCells[idx].bold = false;
+			sc.msgCells[idx].dim = false;
+			sc.msgCells[idx].underline = false;
+			sc.msgCells[idx].reverse = false;
+		}
+	});
+	renderTestMsgRow(i);
+	reflectTestPalette(i);
+	renderTestStageStatic(i);
+}
+
+function clearAllTestStyles(i) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	sc.msgCells.forEach((c) => {
+		c.fg = "default";
+		c.bg = "none";
+		c.bold = false;
+		c.dim = false;
+		c.underline = false;
+		c.reverse = false;
+	});
+	renderTestMsgRow(i);
+	reflectTestPalette(i);
+	renderTestStageStatic(i);
 }
 
 function applyTestFg(i, name) {
