@@ -57,7 +57,7 @@ def run(animations=None):
     try:
         for raw in sys.stdin:
             cmd, args = _parse(raw)
-            if cmd is None:
+            if cmd is None or args is None:
                 continue
 
             try:
@@ -96,7 +96,7 @@ def run(animations=None):
                     parts = args.split(" ", 1)
                     kind = parts[0] or "ok"
                     label = parts[1] if len(parts) > 1 else None
-                    bot.badge(kind, label)
+                    bot.badge(kind) if label is None else bot.badge(kind, label)
 
                 elif cmd == "list":
                     print(", ".join(bot.list_animations()), file=sys.stderr, flush=True)
