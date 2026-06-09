@@ -176,8 +176,10 @@
 					<button class="btn acc" onclick="runTestChain()" id="test-run-btn">▶ run chain</button>
 					<button class="btn " onclick="stopTestChain()">|◀ rewind</button>
 					<div style="flex: 1"></div>
-					<span id="test-count" style="font-size: 10px; color: var(--text3)">1/5</span>
-					<button class="btn acc" onclick="addTestScenario()">+ Add scenario</button>
+					<span id="test-count" style="font-size: 10px; color: var(--text3)">1/5</span> <button class="btn"
+						onclick="downloadAllScenariosPy()"
+						title="Download all scenarios as a single Python file">&#8595; all .py</button> <button
+						class="btn acc" onclick="addTestScenario()">+ Add scenario</button>
 				</div>
 				<div id="test-scenarios" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px"></div>
 

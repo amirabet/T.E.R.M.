@@ -1663,6 +1663,47 @@ function downloadScenarioPy(i) {
 	toast(`Downloaded ${fname}`);
 }
 
+function downloadAllScenariosPy() {
+	if (!testScenarios.length) return;
+	const sections = testScenarios.map((sc, i) => {
+		_syncScenarioMsgCells(sc);
+		return scenarioToPython(sc, i);
+	});
+	// Strip the boilerplate from all but the first scenario, then join with separators.
+	// Each scenarioToPython emits its own imports + bot = TERM() + bot.stop().
+	// For a combined file we keep one header and one footer.
+	const header = [
+		"# T.E.R.M. scenarios \u2014 exported from Studio",
+		"from term import TERM",
+		"from term import message",
+		"import time",
+		"",
+		"bot = TERM()",
+		"bot.start(\"boot\")",
+		"",
+	].join("\n");
+	const stripBoilerplate = (code) =>
+		code
+			.replace(/^# T\.E\.R\.M\..*\n/, "")
+			.replace(/^from term import TERM\n/m, "")
+			.replace(/^from term import message\n/m, "")
+			.replace(/^import time\n/m, "")
+			.replace(/^\n*bot = TERM\(\)\n/m, "")
+			.replace(/^bot\.start\(.*\)\n/m, "")
+			.replace(/^bot\.stop\(\)\n?/m, "")
+			.replace(/^\n+/, "");
+	const body = sections
+		.map((code, i) => `# ─ scenario ${i + 1} ────\n` + stripBoilerplate(code))
+		.join("\n");
+	const footer = "\nbot.stop()\n";
+	const blob = new Blob([header + body + footer], { type: "text/x-python" });
+	const url = URL.createObjectURL(blob);
+	const a = Object.assign(document.createElement("a"), { href: url, download: "term_scenarios.py" });
+	a.click();
+	URL.revokeObjectURL(url);
+	toast("Downloaded term_scenarios.py");
+}
+
 function exportStatesFile() {
 	const json = JSON.stringify(exportStatesToJSON(), null, 2);
 	const blob = new Blob([json], { type: "application/json" });
