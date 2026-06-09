@@ -17,8 +17,7 @@ Types
 import threading
 import time
 
-from . import colors as _c
-from .richtext import Cell, RichText
+from .richtext import RichText
 
 # ─── PLAIN ──────────────────────────────────────────────────────────────────────
 
@@ -164,8 +163,8 @@ def typewriter(
     underline: bool = False,
     reverse: bool = False,
     end_delay_ms: int = 800,
-    total_duration_ms: int = None,
-) -> None:
+    total_duration_ms: int | None = None,
+) -> "threading.Thread":
     """
     Type text character by character directly into the bot's message.
 
@@ -214,7 +213,7 @@ def typewriter(
 
     t = threading.Thread(target=_type, daemon=True)
     t.start()
-    return t
+    return t  # type: ignore[return-value]
 
 
 # ─── LOADER ─────────────────────────────────────────────────────────────────────
