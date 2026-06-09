@@ -902,6 +902,7 @@ function _defaultScenario() {
 		duration: 1800,
 		msgCells: [],
 		sel: new Set(),
+		loaderOpts: { width: 12, filled_char: "=", empty_char: "-", tip_char: ">", fg_filled: "br_grn", fg_empty: "gray", fg_pct: "white", show_pct: true, bold: false },
 	};
 }
 
@@ -983,6 +984,33 @@ function updateTestScenario(i, key, value) {
 	renderTestStageStatic(i);
 }
 
+function _fgOptions(selected) {
+	return FG.filter((c) => c.n !== "default")
+		.map((c) => `<option value="${c.n}" ${c.n === selected ? "selected" : ""}>${c.lbl || c.n}</option>`)
+		.join("");
+}
+
+function updateLoaderOpt(i, key, value) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	if (!sc.loaderOpts) sc.loaderOpts = {};
+	if (key === "width") {
+		sc.loaderOpts.width = Math.max(1, parseInt(value) || 12);
+	} else if (key === "show_pct" || key === "bold") {
+		sc.loaderOpts[key] = !!value;
+	} else {
+		sc.loaderOpts[key] = value;
+	}
+	renderTestStageStatic(i);
+}
+
+function toggleLoaderOpts(i, mode) {
+	const loaderEl = document.getElementById(`loader-opts-${i}`);
+	const editorEl = document.getElementById(`test-scenario-editor-${i}`);
+	if (loaderEl) loaderEl.style.display = mode === "loading" ? "block" : "none";
+	if (editorEl) editorEl.style.display = mode === "loading" ? "none" : "block";
+}
+
 function renderTestScenarios() {
 	const wrap = document.getElementById("test-scenarios");
 	if (!wrap) return;
@@ -997,10 +1025,14 @@ function renderTestScenarios() {
 		const options = stateNames
 			.map((name) => `<option value="${esc(name)}" ${name === sc.state ? "selected" : ""}>${esc(name)}</option>`)
 			.join("");
+		const lo = sc.loaderOpts || {};
 		row.innerHTML = `
 			<div class="test-scenario-head">
 				<span>Scenario ${i + 1}</span>
-				<button class="btn danger" onclick="removeTestScenario(${i})">✕ remove</button>
+				<div style="display:flex;gap:5px">
+					<button class="btn" onclick="downloadScenarioPy(${i})" title="Download as Python file">&#8595; .py</button>
+					<button class="btn danger" onclick="removeTestScenario(${i})">✕ remove</button>
+				</div>
 			</div>
 			<div class="test-scenario-grid">
 				<label>State</label>
@@ -1008,7 +1040,7 @@ function renderTestScenarios() {
 				<label>Message</label>
 				<input type="text" value="${esc(sc.message)}" placeholder="Type message here..." oninput="updateTestScenario(${i}, 'message', this.value)">
 				<label>Mode</label>
-				<select onchange="updateTestScenario(${i}, 'mode', this.value)">
+				<select onchange="updateTestScenario(${i}, 'mode', this.value); toggleLoaderOpts(${i}, this.value)">
 					<option value="plain" ${sc.mode === "plain" ? "selected" : ""}>Plain</option>
 					<option value="typewriter" ${sc.mode === "typewriter" ? "selected" : ""}>Typewriter</option>
 					<option value="loading" ${sc.mode === "loading" ? "selected" : ""}>Loading bar</option>
@@ -1016,7 +1048,30 @@ function renderTestScenarios() {
 				<label>Duration (ms)</label>
 				<input type="number" min="200" step="100" value="${sc.duration}" oninput="updateTestScenario(${i}, 'duration', this.value)">
 			</div>
-			<div class="test-scenario-editor">
+			<div class="loader-opts" id="loader-opts-${i}" style="display:${sc.mode === 'loading' ? 'block' : 'none'}; margin-top:8px; padding-top:8px; border-top:0.5px solid var(--bord2)">
+				<div class="sh" style="margin-bottom:6px">Loader Options</div>
+				<div class="test-scenario-grid">
+					<label>Width</label>
+					<input type="number" min="4" max="40" value="${lo.width ?? 12}" oninput="updateLoaderOpt(${i}, 'width', this.value)" />
+					<label>Filled char</label>
+					<input type="text" maxlength="1" value="${esc(lo.filled_char ?? '=')}" oninput="updateLoaderOpt(${i}, 'filled_char', this.value)" style="width:40px" />
+					<label>Empty char</label>
+					<input type="text" maxlength="1" value="${esc(lo.empty_char ?? '-')}" oninput="updateLoaderOpt(${i}, 'empty_char', this.value)" style="width:40px" />
+					<label>Tip char</label>
+					<input type="text" maxlength="1" value="${esc(lo.tip_char ?? '>')}" oninput="updateLoaderOpt(${i}, 'tip_char', this.value)" style="width:40px" />
+					<label>Fill color</label>
+					<select onchange="updateLoaderOpt(${i}, 'fg_filled', this.value)">${_fgOptions(lo.fg_filled ?? 'br_grn')}</select>
+					<label>Empty color</label>
+					<select onchange="updateLoaderOpt(${i}, 'fg_empty', this.value)">${_fgOptions(lo.fg_empty ?? 'gray')}</select>
+					<label>% color</label>
+					<select onchange="updateLoaderOpt(${i}, 'fg_pct', this.value)">${_fgOptions(lo.fg_pct ?? 'white')}</select>
+					<label>Show %</label>
+					<input type="checkbox" ${(lo.show_pct !== false) ? 'checked' : ''} onchange="updateLoaderOpt(${i}, 'show_pct', this.checked)" />
+					<label>Bold</label>
+					<input type="checkbox" ${lo.bold ? 'checked' : ''} onchange="updateLoaderOpt(${i}, 'bold', this.checked)" />
+				</div>
+			</div>
+			<div class="test-scenario-editor" id="test-scenario-editor-${i}" style="display:${sc.mode === 'loading' ? 'none' : 'block'}">
 				<div class="sh" style="margin: 8px 0 6px">Message Style (Per Character)</div>
 				<div class="char-row" id="test-msg-row-${i}"></div>
 				<div class="sel-info" id="test-sel-info-${i}">— click a character to select | shift+click = multi-selection</div>
@@ -1319,16 +1374,42 @@ function _stateFrameAtElapsed(stateName, elapsedMs) {
 	return parsed[parsed.length - 1].frame;
 }
 
-function _loadingBar(pct, width = 14) {
+function _loadingBar(pct, opts = {}) {
+	const width = Math.max(1, parseInt(opts.width) || 12);
+	const filledChar = (opts.filled_char || "=")[0] || "=";
+	const emptyChar = (opts.empty_char || "-")[0] || "-";
+	const tipChar = (opts.tip_char || ">")[0] || ">";
+	const fgFilled = opts.fg_filled || "br_grn";
+	const fgEmpty = opts.fg_empty || "gray";
+	const fgPct = opts.fg_pct || "white";
+	const showPct = opts.show_pct !== false;
+	const bold = !!opts.bold;
+
 	const clamped = Math.max(0, Math.min(100, pct));
-	const pos = Math.floor((clamped / 100) * width);
-	let body = "";
-	for (let i = 0; i < width; i++) {
-		if (i < pos) body += "=";
-		else if (i === pos && clamped < 100) body += ">";
-		else body += " ";
+	const filledN = Math.round((clamped / 100) * width);
+	const emptyN = width - filledN;
+
+	const cells = [];
+	const addCell = (ch, fg, isBold = false, dim = false) => {
+		const c = mkCell(ch);
+		c.fg = fg;
+		c.bold = isBold;
+		c.dim = dim;
+		return c;
+	};
+
+	cells.push(addCell("[", fgEmpty, false, true));
+	if (filledN > 0) {
+		for (let j = 0; j < filledN - 1; j++) cells.push(addCell(filledChar, fgFilled, bold));
+		cells.push(addCell(clamped < 100 ? tipChar : filledChar, fgFilled, bold));
 	}
-	return `[${body}] ${clamped}%`;
+	for (let j = 0; j < emptyN; j++) cells.push(addCell(emptyChar, fgEmpty, false, true));
+	cells.push(addCell("]", fgEmpty, false, true));
+	if (showPct) {
+		const pctStr = ` ${String(Math.round(clamped)).padStart(3)}%`;
+		for (const ch of pctStr) cells.push(addCell(ch, fgPct, bold));
+	}
+	return cells;
 }
 
 function _scenarioMessage(sc, elapsedMs) {
@@ -1342,10 +1423,45 @@ function _scenarioMessage(sc, elapsedMs) {
 	}
 	if (sc.mode === "loading") {
 		const pct = Math.max(0, Math.min(100, Math.floor((elapsedMs / duration) * 100)));
-		const label = text || "Loading";
-		return Array.from(`${label} ${_loadingBar(pct)}`, (ch) => mkCell(ch));
+		return _loadingBar(pct, sc.loaderOpts || {});
 	}
 	return sc.msgCells.map(cloneCell);
+}
+
+// ─── MARKUP SERIALIZER ────────────────────────────────────────────────────────
+// Convert an array of styled cells to the T.E.R.M. markup string understood
+// by `markup <text>` and `RichText.markup()`.
+// Adjacent cells with identical style are merged into one run.
+// Color names are denormalized from editor abbreviations (br_cyn → br_cyan).
+function cellsToMarkup(cells) {
+	if (!cells || !cells.length) return "";
+
+	// group consecutive cells sharing the same style
+	const runs = [];
+	let cur = null;
+	for (const cell of cells) {
+		const key = `${cell.fg}|${cell.bg}|${+!!cell.bold}${+!!cell.dim}${+!!cell.underline}${+!!cell.reverse}`;
+		if (cur && cur.key === key) {
+			cur.text += cell.char;
+		} else {
+			cur = { key, text: cell.char, cell };
+			runs.push(cur);
+		}
+	}
+
+	return runs.map(({ text, cell }) => {
+		const flags = [];
+		const pyFg = denormFg(cell.fg);   // "default" → ""
+		const pyBg = denormBg(cell.bg);   // "none" → ""
+		if (pyFg) flags.push(pyFg);
+		if (pyBg) flags.push("bg:" + pyBg);
+		if (cell.bold) flags.push("bold");
+		if (cell.dim) flags.push("dim");
+		if (cell.underline) flags.push("underline");
+		if (cell.reverse) flags.push("reverse");
+		if (!flags.length) return text;
+		return `[${flags.join(" ")}]${text}[/]`;
+	}).join("");
 }
 
 function renderTestStage(faceCells, msgCells, metaText = "") {
@@ -1413,7 +1529,7 @@ async function runTestChain() {
 	}
 	testIsRunning = true;
 	const runBtn = document.getElementById("test-run-btn");
-	if (runBtn) runBtn.textContent = "⏹ running";
+	if (runBtn) runBtn.textContent = "⏹ stop";
 	const token = ++testRunToken;
 	for (let i = 0; i < testScenarios.length; i++) {
 		if (token !== testRunToken) return;
@@ -1455,6 +1571,96 @@ function onImportFileChange(input) {
 	};
 	reader.readAsText(file);
 	input.value = ""; // reset so the same file can be re-imported
+}
+
+// ─── SCENARIO → PYTHON EXPORT ───────────────────────────────────────────────
+// Generates a self-contained .py snippet that reproduces the scenario using
+// the TERM Python API.  No daemon/stdin needed — caller just runs the file.
+function scenarioToPython(sc, idx) {
+	const lines = [];
+	const state = sc.state || "idle";
+	const duration = Math.max(200, parseInt(sc.duration) || 1800);
+	const durationS = (duration / 1000).toFixed(2);
+	const mode = sc.mode || "plain";
+
+	lines.push(`# T.E.R.M. scenario ${idx + 1} — exported from Studio`);
+	lines.push(`from term import TERM`);
+	lines.push(`from term import message`);
+	lines.push(`import time`);
+	lines.push(``);
+	lines.push(`bot = TERM()`);
+	lines.push(`bot.start("${state}")`);
+	lines.push(``);
+
+	if (mode === "plain") {
+		const markup = cellsToMarkup(sc.msgCells || []);
+		const hasStyle = (markup.includes("["));
+		if (!markup) {
+			lines.push(`# no message`);
+		} else if (hasStyle) {
+			lines.push(`bot.markup(${_pyStr(markup)})`);
+		} else {
+			lines.push(`bot.set_msg(${_pyStr(markup)})`);
+		}
+		lines.push(`time.sleep(${durationS})`);
+
+	} else if (mode === "typewriter") {
+		const markup = cellsToMarkup(sc.msgCells || []);
+		const hasStyle = markup.includes("[");
+		// typewriter with per-char style must use markup + say won't help;
+		// fall back to markup + sleep when styled, say() when plain.
+		if (hasStyle) {
+			lines.push(`# styled typewriter — uses markup (instant, no char-by-char delay)`);
+			lines.push(`bot.markup(${_pyStr(markup)})`);
+		} else {
+			lines.push(`bot.say(${_pyStr(sc.message || "")}, total_duration_ms=${duration})`);
+		}
+		lines.push(`time.sleep(${durationS})`);
+
+	} else if (mode === "loading") {
+		const lo = sc.loaderOpts || {};
+		const kwParts = [];
+		if ((lo.width ?? 12) !== 12) kwParts.push(`width=${lo.width}`);
+		if ((lo.filled_char ?? "=") !== "=") kwParts.push(`filled_char=${_pyStr(lo.filled_char)}`);
+		if ((lo.empty_char ?? "-") !== "-") kwParts.push(`empty_char=${_pyStr(lo.empty_char)}`);
+		if ((lo.tip_char ?? ">") !== ">") kwParts.push(`tip_char=${_pyStr(lo.tip_char)}`);
+		if ((lo.fg_filled ?? "br_grn") !== "br_grn") kwParts.push(`fg_filled=${_pyStr(denormFg(lo.fg_filled))}`);
+		if ((lo.fg_empty ?? "gray") !== "gray") kwParts.push(`fg_empty=${_pyStr(denormFg(lo.fg_empty))}`);
+		if ((lo.fg_pct ?? "white") !== "white") kwParts.push(`fg_pct=${_pyStr(denormFg(lo.fg_pct))}`);
+		if (lo.show_pct === false) kwParts.push(`show_pct=False`);
+		if (lo.bold) kwParts.push(`bold=True`);
+		const kwStr = kwParts.length ? ", " + kwParts.join(", ") : "";
+		const steps = 20;
+		const sleepS = (duration / 1000 / steps).toFixed(3);
+		lines.push(`steps = ${steps}`);
+		lines.push(`for i in range(steps + 1):`);
+		lines.push(`    bot.progress(i * 100 / steps${kwStr})`);
+		lines.push(`    time.sleep(${sleepS})`);
+	}
+
+	lines.push(``);
+	lines.push(`bot.stop()`);
+	return lines.join("\n");
+}
+
+function _pyStr(s) {
+	// Produce a Python string literal, preferring single quotes.
+	const escaped = String(s).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+	return `'${escaped}'`;
+}
+
+function downloadScenarioPy(i) {
+	const sc = testScenarios[i];
+	if (!sc) return;
+	_syncScenarioMsgCells(sc);
+	const code = scenarioToPython(sc, i);
+	const blob = new Blob([code], { type: "text/x-python" });
+	const url = URL.createObjectURL(blob);
+	const fname = `term_scenario_${i + 1}.py`;
+	const a = Object.assign(document.createElement("a"), { href: url, download: fname });
+	a.click();
+	URL.revokeObjectURL(url);
+	toast(`Downloaded ${fname}`);
 }
 
 function exportStatesFile() {

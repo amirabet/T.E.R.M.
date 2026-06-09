@@ -18,7 +18,10 @@ Protocol (one command per line, UTF-8)
   msg    <text>             update message (plain)
   markup <text>             update message (markup syntax)
   say    <text>             typewriter effect
-  progress <0-100> [label]  show progress bar
+  progress <0-100> [label] [{json}]  show progress bar
+                                     optional JSON: width filled_char empty_char
+                                       tip_char fg_filled fg_empty fg_pct
+                                       show_pct bold
   bubble <text>             show speech bubble
   badge  <ok|error|warn|info> [label]
   list                      print available states to stderr
@@ -27,6 +30,7 @@ Protocol (one command per line, UTF-8)
 Lines starting with # are comments and are ignored.
 """
 
+import json
 import signal
 import sys
 
@@ -86,8 +90,17 @@ def run(animations=None):
                 elif cmd == "progress":
                     parts = args.split(" ", 1)
                     pct = float(parts[0])
-                    label = parts[1] if len(parts) > 1 else ""
-                    bot.progress(pct, label=label)
+                    rest = parts[1] if len(parts) > 1 else ""
+                    loader_kw: dict = {}
+                    label = ""
+                    if rest.startswith("{"):
+                        loader_kw = json.loads(rest)
+                    elif " {" in rest:
+                        label, json_part = rest.split(" {", 1)
+                        loader_kw = json.loads("{" + json_part)
+                    else:
+                        label = rest
+                    bot.progress(pct, label=label, **loader_kw)
 
                 elif cmd == "bubble":
                     bot.bubble(args)
