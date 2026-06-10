@@ -11,16 +11,57 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
 from term import TERM
 
+# ── helpers ──────────────────────────────────────────────────────────────────
+
+RESET = "\033[0m"
+GRAY = "\033[90m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+CYAN = "\033[96m"
+WHITE = "\033[97m"
+RED = "\033[91m"
+
+
+def log(color, prefix, text, delay=0.04):
+    """Print a styled terminal log line, character by character."""
+    line = f"{color}[{prefix}]{RESET} {WHITE}{text}{RESET}"
+    for ch in line:
+        sys.stdout.write(ch)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+
+
+def rule(title=""):
+    width = 60
+    if title:
+        pad = (width - len(title) - 2) // 2
+        print(f"\n{GRAY}{'─' * pad} {CYAN}{title}{GRAY} {'─' * pad}{RESET}\n")
+    else:
+        print(f"\n{GRAY}{'─' * width}{RESET}\n")
+
+
+def pause(s):
+    time.sleep(s)
+
+
 # ─── 1. BOOT + STATE TRANSITIONS ────────────────────────────────────────────────
 print("── 1. Boot sequence + state transitions ──")
 
 term = TERM()
-term.start("boot")
+term.start("idle")
 time.sleep(2.2)
+
+log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
+pause(0.5)
+log(GRAY, "sys", "Loading configuration from ~/.termrc", delay=0.03)
+pause(0.4)
+log(GREEN, "ok ", "Runtime ready.", delay=0.03)
+pause(1.2)
 
 term.set_msg("Analyzing your project...")
 term.think()
-time.sleep(1.5)
+time.sleep(3)
 
 term.work()
 term.set_msg("Processing files... (1/4)")
@@ -35,7 +76,7 @@ time.sleep(0.5)
 term.ok()
 term.set_msg("Completed in 3.2s")
 time.sleep(1.5)
-term.stop()
+# term.stop()
 
 # ─── 2. PROGRESS BAR ────────────────────────────────────────────────────────────
 print("── 2. Progress bar ──")

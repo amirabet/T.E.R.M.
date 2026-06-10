@@ -51,8 +51,8 @@ def pause(s):
 
 rule("Boot Sequence")
 
-bot = TERM()
-bot.start("boot")
+term = TERM()
+term.start("boot")
 pause(0.6)
 
 log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
@@ -61,14 +61,14 @@ log(GRAY, "sys", "Loading configuration from ~/.termrc", delay=0.03)
 pause(0.4)
 log(GREEN, "ok ", "Runtime ready.", delay=0.03)
 pause(1.2)
-bot.stop()
+term.stop()
 
 # ── Scene 2: Thinking + analysis output ──────────────────────────────────────
 
 rule("Code Analysis")
 
-bot = TERM()
-bot.think("Scanning project files...")
+term = TERM()
+term.think("Scanning project files...")
 pause(0.5)
 
 files = [
@@ -82,16 +82,16 @@ for fname, info in files:
     pause(0.18)
 
 pause(0.6)
-bot.markup("[br_cyan bold]4[/][cyan] files indexed — [/][white]1 125 lines total[/]")
+term.markup("[br_cyan bold]4[/][cyan] files indexed — [/][white]1 125 lines total[/]")
 pause(1.2)
-bot.stop()
+term.stop()
 
 # ── Scene 3: Working + progress ───────────────────────────────────────────────
 
 rule("Build & Upload")
 
-bot = TERM()
-bot.work("Compiling...")
+term = TERM()
+term.work("Compiling...")
 pause(0.3)
 
 steps = [
@@ -108,21 +108,21 @@ pause(0.3)
 log(GREEN, "ok ", "Build succeeded — dist/ (48 kB)", delay=0.03)
 pause(0.4)
 
-bot.set_msg("Uploading to CDN...")
+term.set_msg("Uploading to CDN...")
 for pct in range(0, 101, 5):
-    bot.progress(pct, label="Uploading")
+    term.progress(pct, label="Uploading")
     pause(0.07)
 
-bot.ok("Upload complete!")
+term.ok("Upload complete!")
 pause(1.0)
-bot.stop()
+term.stop()
 
 # ── Scene 4: Error state ──────────────────────────────────────────────────────
 
 rule("Error Handling")
 
-bot = TERM()
-bot.work("Running test suite...")
+term = TERM()
+term.work("Running test suite...")
 pause(0.5)
 
 tests = [
@@ -138,46 +138,46 @@ for passed, name in tests:
     pause(0.25)
 
 pause(0.3)
-bot.error()
-bot.badge("error", "1 TEST FAILED")
+term.error()
+term.badge("error", "1 TEST FAILED")
 pause(1.5)
-bot.stop()
+term.stop()
 
 # ── Scene 5: Speak + bubble ───────────────────────────────────────────────────
 
 rule("Agent Response")
 
-bot = TERM()
-bot.start("speak")
+term = TERM()
+term.start("speak")
 pause(0.4)
 
-bot.say(
+term.say(
     "I spotted the issue — animation_loop uses a race condition on line 87.",
     fg="br_blue",
     delay_ms=45,
 )
 pause(0.3)
-bot.bubble("Try wrapping the loop in a threading.Lock() — should fix it!")
+term.bubble("Try wrapping the loop in a threading.Lock() — should fix it!")
 pause(2.0)
-bot.stop()
+term.stop()
 
 # ── Scene 6: Recovery ─────────────────────────────────────────────────────────
 
 rule("Recovery & Done")
 
-bot = TERM()
-bot.think("Applying patch...")
+term = TERM()
+term.think("Applying patch...")
 pause(0.7)
 log(YELLOW, "fix", "threading.Lock() added to animation_loop()", delay=0.03)
 pause(0.5)
-bot.work("Re-running tests...")
+term.work("Re-running tests...")
 pause(0.8)
 log(GREEN, "pass", "test_animation_loop", delay=0.02)
 pause(0.4)
-bot.ok("All tests passing")
-bot.markup("[br_green bold] PASS [/][white] 4 / 4 tests[/]")
+term.ok("All tests passing")
+term.markup("[br_green bold] PASS [/][white] 4 / 4 tests[/]")
 pause(1.5)
-bot.stop()
+term.stop()
 
 rule()
 print(f"{GREEN}Demo complete.{RESET}\n")
