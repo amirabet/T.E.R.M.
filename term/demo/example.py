@@ -9,7 +9,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from term import TERM, msg
+from term import TERM
 
 # ─── 1. BOOT + STATE TRANSITIONS ────────────────────────────────────────────────
 print("── 1. Boot sequence + state transitions ──")
@@ -80,8 +80,7 @@ print("── 5. Typewriter effect ──")
 
 bot = TERM()
 bot.start("speak")
-t = bot.say("Analysis complete. Found 12 files to refactor.", fg="br_blue", delay_ms=55)
-t.join()  # wait for typewriter to finish
+bot.say("Analysis complete. Found 12 files to refactor.", fg="br_blue", delay_ms=55)
 time.sleep(0.5)
 bot.stop()
 
