@@ -105,23 +105,23 @@ a:hover {
 }
 
 .code.print1 {
-	animation-delay: 0s;
+	animation-delay: 0.2s;
 }
 
 .code.print2 {
-	animation-delay: 0.6s;
+	animation-delay: 0.8s;
 }
 
 .code.print3 {
-	animation-delay: 1.6s;
+	animation-delay: 1.8s;
 }
 
 .code.print4 {
-	animation-delay: 2s;
+	animation-delay: 2.2s;
 }
 
 .code.print5 {
-	animation-delay: 2.4s;
+	animation-delay: 2.6s;
 }
 
 .cursor {
