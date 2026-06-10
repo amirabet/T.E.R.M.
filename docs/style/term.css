@@ -3,12 +3,14 @@
 	--crt-red: rgb(218, 49, 49);
 	--crt-green: rgb(112, 159, 115);
 	--crt-blue: rgb(40, 129, 206);
+	--mono: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
 }
 
 /* Global */
 html {
 	font-size: 1.5rem;
-	font-family: "Courier New", monospace;
+	font-family: var(--mono);
+	font-weight: 300;
 	min-height: 100%;
 }
 
@@ -18,14 +20,21 @@ main {
 	color: rgba(255, 255, 255, 0.75);
 }
 
+h1 {
+	line-height: 2;
+	font-weight: 400;
+}
 
 h2 {
-	font-weight: 300
+
+	color: #999;
+	line-height: 1.5;
+	font-weight: 300;
 }
 
 a {
 	text-decoration: none;
-	line-height: 1;
+	line-height: 1.5;
 }
 
 a:hover {
@@ -90,11 +99,29 @@ a:hover {
 .code {
 	color: attr(data-color);
 	animation: typewriter 1s steps(14) 1s 1 normal both;
-	line-height: 1;
-	margin: 0;
-	display: inline-block;
+	display: block;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+.code.print1 {
+	animation-delay: 0s;
+}
+
+.code.print2 {
+	animation-delay: 0.6s;
+}
+
+.code.print3 {
+	animation-delay: 1.6s;
+}
+
+.code.print4 {
+	animation-delay: 2s;
+}
+
+.code.print5 {
+	animation-delay: 2.4s;
 }
 
 .cursor {

@@ -6,8 +6,8 @@
 	--border: #252525;
 	--bord2: #333333;
 	--text: #cccccc;
-	--text2: #777777;
-	--text3: #444444;
+	--text2: #999;
+	--text3: #777;
 	--acc: #39ff14;
 	--acc2: #1eaa00;
 	--sel: #0a1f0a;
@@ -674,14 +674,8 @@ header {
 header h1 {
 	font-size: 18px;
 	letter-spacing: 0.2em;
-	color: var(--text3);
+	color: var(--text);
 	text-transform: uppercase;
-}
-
-header span {
-	font-size: 9px;
-	color: var(--text3);
-	opacity: 0.5;
 }
 
 /* ─── TOAST ─── */

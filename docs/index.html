@@ -4,8 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>>_ T.E.R.M.</title>
-	<title>>_$ T.E.R.M. studio</title>
+	<title>T.E.R.M. >_$ </title>
 	<link rel="icon" type="image/png" href="./assets/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
 	<link rel="shortcut icon" href="./assets/favicon.ico" />
@@ -16,16 +15,14 @@
 
 <body class="crt">
 	<main class="wrapper">
-		<h1>T.E.R.M. ><span class="cursor">_</span>$ </h1>
-		<h2 class="code">Type or click an option:</h2>
-		<ol>
-			<li><span class="code"><a href="studio/term-studio.html" class="lightblue">Studio</a></span></li>
-			<li><span class="code"><a href="#" class="pink">Demo</a></span></li>
-			<li><span class="code"><a href="../wiki/Home.md" class="yellow">Wiki</a></span></li>
-		</ol>
+		<h1 class="code print1">T.E.R.M. ><span class="cursor">_</span>$ </h1>
+		<h2 class="code print2">Type or click an option:</h2>
+		<span class="code print3"><a href="#" class="pink">1.Demo</a></span>
+		<span class="code print4"><a href="studio/term-studio.html" class="lightblue">2.Studio</a></span>
+		<span class="code print5"><a href="../wiki/Home.md" class="yellow">3.Wiki</a></span>
 	</main>
 	<script>
-		const optionLinks = Array.from(document.querySelectorAll("ol li a"));
+		const optionLinks = Array.from(document.querySelectorAll(".code a"));
 
 		document.addEventListener("keydown", (event) => {
 			if (event.ctrlKey || event.altKey || event.metaKey) return;
