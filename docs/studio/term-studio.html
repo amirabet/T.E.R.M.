@@ -23,8 +23,8 @@
 		</header>
 
 		<div class="tab-row">
-			<button class="tab on" id="tab-face" onclick="switchTab('face', this)">STATES</button>
-			<button class="tab" id="tab-test" onclick="switchTab('test', this)">SCENARIOS</button>
+			<button class="tab on" id="tab-face" onclick="switchTab('face', this)">STATE</button>
+			<button class="tab" id="tab-test" onclick="switchTab('test', this)">SCENARIO</button>
 		</div>
 
 		<!-- =================== FACE =================== -->
@@ -166,7 +166,14 @@
 		<!-- =================== SCENARIOS =================== -->
 		<div id="tp-test" class="tp">
 			<div class="sec" style="margin-bottom: 30px">
-				<div class="sh" style="margin-bottom: 8px">CHAINED SCENARIOS</div>
+				<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px">
+					<div class="sh" style="margin-bottom: 0">CHAINED SCENARIOS</div>
+					<div style="flex: 1"></div>
+					<button class="btn" onclick="downloadScenariosJson()"
+						title="Download all scenarios as a JSON file">&#8595; export .json</button>
+					<button class="btn acc" onclick="downloadAllScenariosPy()"
+						title="Download all scenarios as a single Python file">&#8595; export .py</button>
+				</div>
 				<div style="font-size: 10px; color: var(--text3); margin-bottom: 7px">
 					Configure up to 5 scenarios. Each one has state, message, message mode, and duration.
 					The stage below plays them sequentially.
@@ -181,10 +188,8 @@
 					<button class="btn acc" onclick="runTestChain()" id="test-run-btn">▶ run chain</button>
 					<button class="btn " onclick="stopTestChain()">|◀ rewind</button>
 					<div style="flex: 1"></div>
-					<span id="test-count" style="font-size: 10px; color: var(--text3)">1/5</span> <button class="btn"
-						onclick="downloadAllScenariosPy()"
-						title="Download all scenarios as a single Python file">&#8595; all .py</button> <button
-						class="btn acc" onclick="addTestScenario()">+ Add scenario</button>
+					<span id="test-count" style="font-size: 10px; color: var(--text3)">1/5</span>
+					<button class="btn acc" onclick="addTestScenario()">+ Add scenario</button>
 				</div>
 				<div id="test-scenarios" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px"></div>
 

@@ -4,7 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [0.4.0] - 2026-06-11
+
+### Added
+
+- Added Scenario JSON export in Studio (`term-scenarios.json`) for chained scenario definitions, including message style data and loader options.
+
+### Changed
+
+- Updated Studio tab labels to singular names: **STATE** and **SCENARIO**.
+- Added explicit Scenario export actions in the Scenario tab header for `.json` and full-chain `.py` downloads.
+- Updated `wiki/Studio.md` to document the current two-tab workflow and Scenario export options.
+- Updated studio colors to default terminal color scheme
 
 ## [0.3.0] - 2026-06-03
 

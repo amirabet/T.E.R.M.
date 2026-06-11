@@ -1666,6 +1666,44 @@ function downloadScenarioPy(i) {
 	toast(`Downloaded ${fname}`);
 }
 
+function exportScenariosToJSON() {
+	return {
+		scenarios: testScenarios.map((sc) => {
+			_syncScenarioMsgCells(sc);
+			return {
+				state: sc.state,
+				message: sc.message,
+				mode: sc.mode,
+				duration: sc.duration,
+				msg: (sc.msgCells || []).map((c) => ({
+					[K_CHAR]: c.char,
+					fg: denormFg(c.fg),
+					bg: denormBg(c.bg),
+					[K_BOLD]: c.bold,
+					[K_DIM]: c.dim,
+					[K_UNDERLINE]: c.underline,
+					[K_REVERSE]: c.reverse,
+				})),
+				loaderOpts: { ...(sc.loaderOpts || {}) },
+			};
+		}),
+	};
+}
+
+function downloadScenariosJson() {
+	if (!testScenarios.length) {
+		toast("No scenarios to export");
+		return;
+	}
+	const json = JSON.stringify(exportScenariosToJSON(), null, 2);
+	const blob = new Blob([json], { type: "application/json" });
+	const url = URL.createObjectURL(blob);
+	const a = Object.assign(document.createElement("a"), { href: url, download: "term-scenarios.json" });
+	a.click();
+	URL.revokeObjectURL(url);
+	toast("Downloaded term-scenarios.json");
+}
+
 function downloadAllScenariosPy() {
 	if (!testScenarios.length) return;
 	const sections = testScenarios.map((sc, i) => {
