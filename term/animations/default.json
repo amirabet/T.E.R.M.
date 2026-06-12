@@ -8,46 +8,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -58,46 +42,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -108,46 +76,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -158,46 +110,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -208,46 +144,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -258,46 +178,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -308,46 +213,29 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
-                        "fg": "",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -358,46 +246,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -408,46 +281,29 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
-                        "fg": "",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -458,46 +314,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             }
@@ -512,46 +353,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -562,46 +388,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -612,46 +422,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -662,46 +457,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -712,46 +491,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -762,46 +526,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -812,46 +560,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -862,46 +595,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -912,46 +630,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -962,46 +665,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -1012,46 +699,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1062,46 +734,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -1112,46 +768,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1162,46 +803,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1212,46 +838,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1262,46 +873,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "v",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1312,46 +908,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1362,46 +943,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1412,46 +978,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             }
@@ -1466,46 +1017,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1516,46 +1052,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1566,46 +1087,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1616,46 +1122,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1666,46 +1157,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1716,46 +1192,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1766,46 +1227,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "v",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1816,46 +1262,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1866,46 +1297,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1916,46 +1332,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -1966,46 +1367,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2016,46 +1402,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2066,46 +1437,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2116,46 +1472,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2166,46 +1507,31 @@
                         "ch": " ",
                         "fg": "blue",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "blue",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2216,46 +1542,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2266,46 +1577,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2316,46 +1612,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2366,46 +1647,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2416,46 +1682,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "blue",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "blue"
                     }
                 ]
             },
@@ -2466,46 +1716,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             }
@@ -2520,46 +1755,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2570,46 +1790,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2620,46 +1825,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2670,46 +1860,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2720,46 +1895,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2770,46 +1930,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -2820,46 +1964,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -2870,46 +1999,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "+",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -2920,46 +2033,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "+",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -2970,46 +2067,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -3020,46 +2101,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -3070,46 +2135,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "O",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -3120,46 +2169,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "0",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "O",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -3170,46 +2203,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "@",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "0",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -3220,46 +2237,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "@",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "@",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             },
@@ -3270,46 +2271,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "@",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "magenta"
                     }
                 ]
             }
@@ -3324,46 +2309,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3374,46 +2344,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3424,46 +2379,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3474,46 +2414,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3524,46 +2449,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3574,46 +2484,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3624,46 +2519,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "m",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3674,46 +2554,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "w",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3724,46 +2589,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "w",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3774,46 +2624,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3824,46 +2659,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3874,46 +2694,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
                         "fg": "black",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             }
@@ -3928,46 +2733,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -3978,46 +2768,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4028,46 +2803,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "cyan",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "cyan"
                     }
                 ]
             },
@@ -4078,46 +2837,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "cyan",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "cyan"
                     }
                 ]
             },
@@ -4128,46 +2871,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4178,46 +2906,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "-",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4228,46 +2941,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "v",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "cyan",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "cyan"
                     }
                 ]
             },
@@ -4278,46 +2975,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "V",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "cyan",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "cyan"
                     }
                 ]
             },
@@ -4328,46 +3009,30 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "W",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_green",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
-                        "bg": "cyan",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "cyan"
                     }
                 ]
             }
@@ -4383,45 +3048,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4433,45 +3084,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4483,45 +3120,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "0",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "0",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4533,45 +3156,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "=",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "0",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4583,45 +3192,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "=",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "=",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4633,45 +3228,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "X",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "X",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4683,45 +3264,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "#",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "#",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4733,45 +3300,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "T",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "T",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4783,45 +3336,31 @@
                         "fg": "black",
                         "bg": "red",
                         "bo": true,
-                        "di": true,
-                        "un": false,
-                        "rv": false
+                        "di": true
                     },
                     {
                         "ch": "U",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "U",
                         "fg": "black",
                         "bg": "br_red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "red",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             }
@@ -4836,46 +3375,31 @@
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "o",
                         "fg": "black",
                         "bg": "br_cyan",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": " ",
                         "fg": "black",
                         "bg": "blue",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -4885,65 +3409,35 @@
                     {
                         "ch": "<",
                         "fg": "green",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "(",
                         "fg": "green",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "green",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "v",
                         "fg": "br_yellow",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "green",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ")",
-                        "fg": "green",
-                        "bg": "",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "fg": "green"
                     },
                     {
                         "ch": ">",
-                        "fg": "green",
-                        "bg": "",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "fg": "green"
                     }
                 ]
             },
@@ -4954,46 +3448,31 @@
                         "ch": "C",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "u",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "*",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "D",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -5002,48 +3481,33 @@
                 "fa": [
                     {
                         "ch": ">",
-                        "fg": "br_white",
+                        "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "·",
-                        "fg": "br_white",
+                        "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
-                        "fg": "br_white",
+                        "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "·",
-                        "fg": "br_white",
+                        "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "<",
-                        "fg": "br_white",
+                        "fg": "black",
                         "bg": "yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -5054,46 +3518,31 @@
                         "ch": "=",
                         "fg": "br_yellow",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "br_yellow",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ",",
                         "fg": "br_yellow",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "br_yellow",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "=",
                         "fg": "br_yellow",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     }
                 ]
             },
@@ -5104,64 +3553,41 @@
                         "ch": "(",
                         "fg": "yellow",
                         "bg": "white",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "#",
                         "fg": "br_red",
                         "bg": "white",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "white",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "red",
                         "bg": "white",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "white",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "#",
                         "fg": "br_red",
-                        "bg": "white",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "white"
                     },
                     {
                         "ch": ")",
                         "fg": "yellow",
-                        "bg": "white",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "white"
                     }
                 ]
             },
@@ -5171,65 +3597,35 @@
                     {
                         "ch": "(",
                         "fg": "br_magenta",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ">",
                         "fg": "br_magenta",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "'",
                         "fg": "br_magenta",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "br_magenta",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "'",
                         "fg": "br_magenta",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ")",
-                        "fg": "br_magenta",
-                        "bg": "",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "fg": "br_magenta"
                     },
                     {
                         "ch": ">",
-                        "fg": "br_magenta",
-                        "bg": "",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "fg": "br_magenta"
                     }
                 ]
             },
@@ -5238,66 +3634,43 @@
                 "fa": [
                     {
                         "ch": "=",
-                        "fg": "black",
+                        "fg": "blue",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "(",
-                        "fg": "black",
+                        "fg": "blue",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
-                        "fg": "black",
+                        "fg": "blue",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
-                        "fg": "black",
+                        "fg": "blue",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
-                        "fg": "black",
+                        "fg": "blue",
                         "bg": "br_yellow",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ")",
-                        "fg": "black",
-                        "bg": "br_yellow",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "fg": "blue",
+                        "bg": "br_yellow"
                     },
                     {
                         "ch": "=",
-                        "fg": "black",
-                        "bg": "br_yellow",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "fg": "blue",
+                        "bg": "br_yellow"
                     }
                 ]
             },
@@ -5307,29 +3680,16 @@
                     {
                         "ch": "@",
                         "fg": "cyan",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "red",
-                        "bg": "",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "@",
-                        "fg": "cyan",
-                        "bg": "",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "fg": "cyan"
                     }
                 ]
             },
@@ -5340,55 +3700,36 @@
                         "ch": "(",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "/",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "/",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "black",
                         "bg": "br_magenta",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ")",
                         "fg": "black",
-                        "bg": "br_magenta",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "br_magenta"
                     }
                 ]
             },
@@ -5399,100 +3740,61 @@
                         "ch": "~",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "~",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "(",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "^",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": ".",
                         "fg": "gray",
                         "bg": "black",
-                        "bo": true,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bo": true
                     },
                     {
                         "ch": "_",
                         "fg": "gray",
-                        "bg": "black",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "black"
                     },
                     {
                         "ch": ".",
                         "fg": "gray",
-                        "bg": "black",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "black"
                     },
                     {
                         "ch": "^",
                         "fg": "gray",
-                        "bg": "black",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "black"
                     },
                     {
                         "ch": ")",
                         "fg": "gray",
-                        "bg": "black",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "black"
                     },
                     {
                         "ch": "~",
                         "fg": "gray",
-                        "bg": "black",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "black"
                     },
                     {
                         "ch": "~",
                         "fg": "gray",
-                        "bg": "black",
-                        "bo": false,
-                        "di": false,
-                        "un": false,
-                        "rv": false
+                        "bg": "black"
                     }
                 ]
             }
