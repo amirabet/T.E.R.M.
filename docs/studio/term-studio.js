@@ -1132,7 +1132,7 @@ function buildScenarioPalette(i) {
 			d.id = `test-${i}-bg-${c.n}`;
 			d.style.background = c.css === "transparent" ? "#1a1a1a" : c.css;
 			d.style.color = c.css === "transparent" ? "#555" : "#ccc";
-			d.innerHTML = `<span style="font-size:9px;">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
+			d.innerHTML = `<span style="font-size:9px;text-shadow:1px 1px 0 #1a1a1a,-1px -1px 0 #1a1a1a,1px -1px 0 #1a1a1a,-1px 1px 0 #1a1a1a">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
 			d.onclick = () => applyTestBg(i, c.n);
 			bgEl.appendChild(d);
 		});
@@ -1856,7 +1856,7 @@ function buildUI() {
 		d.id = "bg-" + c.n;
 		d.style.background = c.css === "transparent" ? "#1a1a1a" : c.css;
 		d.style.color = c.css === "transparent" ? "#555" : "#ccc";
-		d.innerHTML = `<span style="font-size:9px;">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
+		d.innerHTML = `<span style="font-size:9px;text-shadow:1px 1px 0 #1a1a1a,-1px -1px 0 #1a1a1a,1px -1px 0 #1a1a1a,-1px 1px 0 #1a1a1a">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
 		d.onclick = () => applyBg(c.n);
 		bgEl.appendChild(d);
 	});
