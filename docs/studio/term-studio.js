@@ -163,12 +163,11 @@ function renderStageChar(cell) {
 	const isSpace = cell.char === " " || cell.char === "\u00a0" || cell.char === "&nbsp;";
 	const ch = isSpace ? "&nbsp;" : esc(cell.char);
 	const inner = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
-	if (!bg) return inner;
 	// space needs min-width so BG is visible; others get a small padding
 	const spaceStyle =
-		isSpace
-			? `background:${bg};min-width:1ch;`
-			: `background:${bg};padding:0 2px;`;
+		bg
+			? `background:${bg};min-width:1ch;padding:0 2px;`
+			: `min-width:1ch;padding:0 2px;`;
 	return `<span style="${spaceStyle}">${inner}</span>`;
 }
 // Legacy alias (used in renderFrames / renderLib previews)
