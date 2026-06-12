@@ -209,10 +209,31 @@ class TERM:
         if self._thread:
             self._thread.join(timeout=1.0)
             self._thread = None
-        if clear:
+        if renderer._sticky:
+            renderer.exit_sticky()
+        elif clear:
             renderer.clear()
         if self._auto_nl:
             renderer.newline()
+        return self
+
+    def sticky(self, enabled: bool = True) -> "TERM":
+        """
+        Pin the bot frame to the bottom of the terminal so that any output
+        printed above it scrolls normally without overwriting the animation.
+
+        Can be called before or after start(), and toggled at any time.
+
+        Example
+        -------
+            bot.start().sticky()          # enable immediately
+            print("some log line")        # scrolls above the bot
+            bot.sticky(False)             # back to normal inline mode
+        """
+        if enabled and not renderer._sticky:
+            renderer.enter_sticky()
+        elif not enabled and renderer._sticky:
+            renderer.exit_sticky()
         return self
 
     # ─── CONTEXT MANAGER ────────────────────────────────────────────────────────

@@ -131,4 +131,20 @@ term.ok("Scan complete — 0 vulnerabilities")
 time.sleep(1.0)
 term.stop()
 
+# ─── 9. STICKY BOTTOM ───────────────────────────────────────────────────────────
+print("── 9. Sticky bottom — bot stays pinned while logs scroll above ──")
+
+term = TERM()
+term.start("work", "Deploying services...").sticky()
+
+services = ["auth-service", "api-gateway", "worker", "scheduler", "frontend"]
+for svc in services:
+    time.sleep(0.6)
+    print(f"  ✓ deployed {svc}")
+    term.set_msg(f"Deploying services... ({services.index(svc) + 1}/{len(services)})")
+
+term.ok("All services deployed")
+time.sleep(1.2)
+term.stop()
+
 print("── All done ──")
