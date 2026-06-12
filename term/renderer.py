@@ -8,13 +8,14 @@ import os
 import sys
 import threading
 from typing import Optional
-from .richtext import RichText
-from . import colors
 
-_SEP        = "  < "
+from . import colors
+from .richtext import RichText
+
+_SEP = "  < "
 _FALLBACK_W = 80
 _FALLBACK_H = 24
-_lock       = threading.Lock()
+_lock = threading.Lock()
 IS_TTY: bool = sys.stdout.isatty()
 
 # ── Sticky-bottom state ──────────────────────────────────────────────────────
@@ -38,7 +39,7 @@ def terminal_height() -> int:
 def _build_line(face: RichText, msg: Optional[RichText], w: int) -> tuple:
     """Return (ansi_line_str, raw_display_len)."""
     face_plain = face.plain()
-    face_ansi  = face.render()
+    face_ansi = face.render()
 
     if msg and msg.width() > 0:
         available = w - len(face_plain) - len(_SEP) - 1
@@ -62,10 +63,10 @@ def enter_sticky() -> None:
         try:
             rows = terminal_height()
             sys.stdout.write(
-                "\n"                        # push current content up one line
-                f"\033[{rows - 1}A"        # move cursor back up
-                f"\033[1;{rows - 1}r"      # set scroll region: rows 1 … (N-1)
-                "\033[s"                    # save cursor position inside scroll region
+                "\n"  # push current content up one line
+                f"\033[{rows - 1}A"  # move cursor back up
+                f"\033[1;{rows - 1}r"  # set scroll region: rows 1 … (N-1)
+                "\033[s"  # save cursor position inside scroll region
             )
             sys.stdout.flush()
             _sticky = True
@@ -82,13 +83,14 @@ def exit_sticky() -> None:
     with _lock:
         try:
             rows = terminal_height()
-            w    = terminal_width()
-            # Clear the sticky row, reset scroll region, restore cursor.
+            w = terminal_width()
+            # Clear the sticky row, reset scroll region, then park the cursor
+            # at the last content row so newline() lands the prompt at the bottom.
             sys.stdout.write(
-                f"\033[{rows};1H"          # jump to last row
-                f"\r{' ' * (w - 1)}\r"    # clear it
-                "\033[r"                   # reset scroll region to full terminal
-                "\033[u"                   # restore saved cursor
+                f"\033[{rows};1H"  # jump to last row
+                f"\r{' ' * (w - 1)}\r"  # clear it
+                "\033[r"  # reset scroll region to full terminal
+                f"\033[{rows - 1};1H"  # move to last content row (not saved pos)
             )
             sys.stdout.flush()
         except OSError:
@@ -97,7 +99,9 @@ def exit_sticky() -> None:
             _sticky = False
 
 
-def write(face: RichText, msg: Optional[RichText] = None, width: Optional[int] = None) -> None:
+def write(
+    face: RichText, msg: Optional[RichText] = None, width: Optional[int] = None
+) -> None:
     """
     Write one frame to stdout.
     TTY mode  → \r overwrite (no scroll); sticky mode pins frame to last row.
@@ -114,10 +118,10 @@ def write(face: RichText, msg: Optional[RichText] = None, width: Optional[int] =
             elif _sticky:
                 rows = terminal_height()
                 sys.stdout.write(
-                    "\033[s"                            # save cursor (inside scroll region)
-                    f"\033[{rows};1H"                   # jump to last row, col 1
-                    f"\r{line}{' ' * padding}"          # overwrite sticky row
-                    "\033[u"                            # restore cursor
+                    "\033[s"  # save cursor (inside scroll region)
+                    f"\033[{rows};1H"  # jump to last row, col 1
+                    f"\r{line}{' ' * padding}"  # overwrite sticky row
+                    "\033[u"  # restore cursor
                 )
             else:
                 sys.stdout.write(f"\r{line}{' ' * padding}")
@@ -134,11 +138,7 @@ def clear() -> None:
             w = terminal_width()
             if _sticky:
                 rows = terminal_height()
-                sys.stdout.write(
-                    f"\033[{rows};1H"
-                    f"\r{' ' * (w - 1)}\r"
-                    "\033[u"
-                )
+                sys.stdout.write(f"\033[{rows};1H\r{' ' * (w - 1)}\r\033[u")
             else:
                 sys.stdout.write(f"\r{' ' * (w - 1)}\r")
             sys.stdout.flush()

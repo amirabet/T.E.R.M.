@@ -148,7 +148,11 @@ class TERM:
     # ─── RICH MESSAGE SHORTCUTS ─────────────────────────────────────────────────
 
     def say(
-        self, text: str, delay_ms: int = 60, total_duration_ms: int = None, **style
+        self,
+        text: str,
+        delay_ms: int = 60,
+        total_duration_ms: int | None = None,
+        **style,
     ) -> "TERM":
         """
         Type a message character by character (typewriter effect).
@@ -181,7 +185,7 @@ class TERM:
         """Show a speech bubble message."""
         return self.set_rich_msg(msg_module.bubble(text, **kw))
 
-    def badge(self, kind: str = "ok", label: str = None) -> "TERM":
+    def badge(self, kind: str = "ok", label: str | None = None) -> "TERM":
         """Show a status badge. kind: ok | error | warn | info"""
         badge_fn = getattr(msg_module.badge, kind, msg_module.badge.ok)
         rt = badge_fn(label) if label else badge_fn()
@@ -241,7 +245,7 @@ class TERM:
     def __enter__(self) -> "TERM":
         return self.start()
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
         if exc_type is not None:
             try:
                 self.set_state("error", str(exc_val)[:60] if exc_val else None)
