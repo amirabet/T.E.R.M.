@@ -10,9 +10,9 @@ const FG = [
 	},
 	{
 		n: "black",
-		css: "#000000",
+		css: "#808080",
 		code: "30",
-		lbl: "black invisible on dark terminal",
+		lbl: "gray on Windows · invisible on dark Linux",
 	},
 	{ n: "gray", css: "#808080", code: "90", lbl: "gray (bright black)" },
 	{ n: "red", css: "#CD3131", code: "31", lbl: "red" },
