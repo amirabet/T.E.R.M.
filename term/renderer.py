@@ -62,11 +62,13 @@ def enter_sticky() -> None:
     with _lock:
         try:
             rows = terminal_height()
+            w = terminal_width()
             sys.stdout.write(
-                "\n"  # push current content up one line
-                f"\033[{rows - 1}A"  # move cursor back up
-                f"\033[1;{rows - 1}r"  # set scroll region: rows 1 … (N-1)
-                "\033[s"  # save cursor position inside scroll region
+                f"\033[{rows};1H"  # jump to last row
+                f"\r{' ' * (w - 1)}\r"  # clear it (reserve for bot)
+                f"\033[1;{rows - 1}r"  # set scroll region 1…N-1 (cursor resets to 1,1)
+                f"\033[{rows - 1};1H"  # move cursor to row N-1 AFTER setting region
+                "\033[s"  # save cursor here (row N-1, just above bot)
             )
             sys.stdout.flush()
             _sticky = True
