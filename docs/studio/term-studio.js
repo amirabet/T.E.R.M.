@@ -1550,7 +1550,18 @@ function exportStatesToJSON() {
 		out[name] = {
 			[K_FRAMES]: frs.map((f) => ({
 				ms: f.ms,
-				[K_FACE]: f.face.map((c) => ({ [K_CHAR]: c.char, fg: denormFg(c.fg), bg: denormBg(c.bg), [K_BOLD]: c.bold, [K_DIM]: c.dim, [K_UNDERLINE]: c.underline, [K_REVERSE]: c.reverse })),
+				[K_FACE]: f.face.map((c) => {
+					const fg = denormFg(c.fg);
+					const bg = denormBg(c.bg);
+					const cell = { [K_CHAR]: c.char };
+					if (fg) cell.fg = fg;
+					if (bg) cell.bg = bg;
+					if (c.bold) cell[K_BOLD] = true;
+					if (c.dim) cell[K_DIM] = true;
+					if (c.underline) cell[K_UNDERLINE] = true;
+					if (c.reverse) cell[K_REVERSE] = true;
+					return cell;
+				}),
 			})),
 		};
 	}

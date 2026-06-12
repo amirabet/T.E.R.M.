@@ -44,29 +44,37 @@ Rendering
 """
 
 from __future__ import annotations
+
 from dataclasses import dataclass, field
 from typing import List, Union
+
 from . import colors as _c
 
 # ─── CELL ───────────────────────────────────────────────────────────────────────
 
+
 @dataclass
 class Cell:
     """One styled character."""
-    char:      str  = " "
-    fg:        str  = ""
-    bg:        str  = ""
-    bold:      bool = False
-    dim:       bool = False
+
+    char: str = " "
+    fg: str = ""
+    bg: str = ""
+    bold: bool = False
+    dim: bool = False
     underline: bool = False
-    reverse:   bool = False
+    reverse: bool = False
 
     def attrs(self) -> list:
         result = []
-        if self.bold:      result.append("bold")
-        if self.dim:       result.append("dim")
-        if self.underline: result.append("underline")
-        if self.reverse:   result.append("reverse")
+        if self.bold:
+            result.append("bold")
+        if self.dim:
+            result.append("dim")
+        if self.underline:
+            result.append("underline")
+        if self.reverse:
+            result.append("reverse")
         return result
 
     def render(self) -> str:
@@ -77,54 +85,89 @@ class Cell:
         return f"{prefix}{self.char}{_c.RESET}"
 
     def to_dict(self) -> dict:
-        """Serialize to editor-compatible dict."""
-        return {
-            "char":      self.char,
-            "fg":        self.fg,
-            "bg":        self.bg,
-            "bold":      self.bold,
-            "dim":       self.dim,
-            "underline": self.underline,
-            "reverse":   self.reverse,
-        }
+        """Serialize to editor-compatible dict. False booleans are omitted."""
+        d: dict = {"char": self.char}
+        if self.fg:
+            d["fg"] = self.fg
+        if self.bg:
+            d["bg"] = self.bg
+        if self.bold:
+            d["bold"] = self.bold
+        if self.dim:
+            d["dim"] = self.dim
+        if self.underline:
+            d["underline"] = self.underline
+        if self.reverse:
+            d["reverse"] = self.reverse
+        return d
 
     @staticmethod
     def from_dict(d: dict) -> "Cell":
         """Deserialize from editor-exported dict."""
         return Cell(
-            char      = d.get("char",      " "),
-            fg        = d.get("fg",        ""),
-            bg        = d.get("bg",        ""),
-            bold      = bool(d.get("bold",      False)),
-            dim       = bool(d.get("dim",       False)),
-            underline = bool(d.get("underline", False)),
-            reverse   = bool(d.get("reverse",   False)),
+            char=d.get("char", " "),
+            fg=d.get("fg", ""),
+            bg=d.get("bg", ""),
+            bold=bool(d.get("bold", False)),
+            dim=bool(d.get("dim", False)),
+            underline=bool(d.get("underline", False)),
+            reverse=bool(d.get("reverse", False)),
         )
 
 
 # ─── RICH TEXT ──────────────────────────────────────────────────────────────────
 
+
 class RichText:
     """Sequence of styled cells. Immutable after construction."""
 
-    def __init__(self, text: str = "", fg: str = "", bg: str = "",
-                 bold: bool = False, dim: bool = False,
-                 underline: bool = False, reverse: bool = False):
+    def __init__(
+        self,
+        text: str = "",
+        fg: str = "",
+        bg: str = "",
+        bold: bool = False,
+        dim: bool = False,
+        underline: bool = False,
+        reverse: bool = False,
+    ):
         self._cells: List[Cell] = []
         if text:
-            self.add(text, fg=fg, bg=bg, bold=bold, dim=dim,
-                     underline=underline, reverse=reverse)
+            self.add(
+                text,
+                fg=fg,
+                bg=bg,
+                bold=bold,
+                dim=dim,
+                underline=underline,
+                reverse=reverse,
+            )
 
     # ─── BUILDER ────────────────────────────────────────────────────────────────
 
-    def add(self, text: str, fg: str = "", bg: str = "",
-            bold: bool = False, dim: bool = False,
-            underline: bool = False, reverse: bool = False) -> "RichText":
+    def add(
+        self,
+        text: str,
+        fg: str = "",
+        bg: str = "",
+        bold: bool = False,
+        dim: bool = False,
+        underline: bool = False,
+        reverse: bool = False,
+    ) -> "RichText":
         """Append styled characters. Returns self for chaining."""
         for ch in text:
-            self._cells.append(Cell(
-                char=ch, fg=fg, bg=bg,
-                bold=bold, dim=dim, underline=underline, reverse=reverse))
+            self._cells.append(
+                Cell(
+                    char=ch,
+                    fg=fg,
+                    bg=bg,
+                    bold=bold,
+                    dim=dim,
+                    underline=underline,
+                    reverse=reverse,
+                )
+            )
         return self
 
     def add_cell(self, cell: Cell) -> "RichText":
@@ -150,12 +193,19 @@ class RichText:
         return rt
 
     @staticmethod
-    def from_str(text: str, fg: str = "", bg: str = "",
-                 bold: bool = False, dim: bool = False,
-                 underline: bool = False, reverse: bool = False) -> "RichText":
+    def from_str(
+        text: str,
+        fg: str = "",
+        bg: str = "",
+        bold: bool = False,
+        dim: bool = False,
+        underline: bool = False,
+        reverse: bool = False,
+    ) -> "RichText":
         """Build from a plain string with uniform style."""
-        return RichText(text, fg=fg, bg=bg, bold=bold, dim=dim,
-                        underline=underline, reverse=reverse)
+        return RichText(
+            text, fg=fg, bg=bg, bold=bold, dim=dim, underline=underline, reverse=reverse
+        )
 
     @staticmethod
     def markup(text: str) -> "RichText":
@@ -181,31 +231,63 @@ class RichText:
             if text[i] == "[":
                 end = text.find("]", i)
                 if end == -1:
-                    rt.add(text[i], fg=fg, bg=bg, bold=bold, dim=dim,
-                           underline=underline, reverse=reverse)
+                    rt.add(
+                        text[i],
+                        fg=fg,
+                        bg=bg,
+                        bold=bold,
+                        dim=dim,
+                        underline=underline,
+                        reverse=reverse,
+                    )
                     i += 1
                     continue
-                tag = text[i+1:end].strip()
+                tag = text[i + 1 : end].strip()
                 if tag == "/":
                     # reset
-                    fg, bg, bold, dim, underline, reverse = "", "", False, False, False, False
+                    fg, bg, bold, dim, underline, reverse = (
+                        "",
+                        "",
+                        False,
+                        False,
+                        False,
+                        False,
+                    )
                 else:
                     # parse flags
-                    fg, bg, bold, dim, underline, reverse = "", "", False, False, False, False
+                    fg, bg, bold, dim, underline, reverse = (
+                        "",
+                        "",
+                        False,
+                        False,
+                        False,
+                        False,
+                    )
                     for token in tag.split():
                         tl = token.lower()
-                        if tl == "bold":      bold = True
-                        elif tl == "dim":     dim = True
-                        elif tl == "underline": underline = True
-                        elif tl == "reverse": reverse = True
+                        if tl == "bold":
+                            bold = True
+                        elif tl == "dim":
+                            dim = True
+                        elif tl == "underline":
+                            underline = True
+                        elif tl == "reverse":
+                            reverse = True
                         elif tl.startswith("bg:"):
                             bg = tl[3:]
                         elif tl in _c.FG:
                             fg = tl
                 i = end + 1
             else:
-                rt.add(text[i], fg=fg, bg=bg, bold=bold, dim=dim,
-                       underline=underline, reverse=reverse)
+                rt.add(
+                    text[i],
+                    fg=fg,
+                    bg=bg,
+                    bold=bold,
+                    dim=dim,
+                    underline=underline,
+                    reverse=reverse,
+                )
                 i += 1
 
         return rt
@@ -245,7 +327,7 @@ class RichText:
         if self.width() <= max_width:
             return self
         rt = RichText()
-        rt._cells = list(self._cells[:max_width - 1])
+        rt._cells = list(self._cells[: max_width - 1])
         rt._cells.append(Cell(char=ellipsis))
         return rt
 
