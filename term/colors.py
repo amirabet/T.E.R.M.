@@ -87,7 +87,7 @@ def _detect_theme() -> str:
 
 # ─── HELPERS ────────────────────────────────────────────────────────────────────
 
-def build_ansi(fg: str = "", bg: str = "", attrs: list = None) -> str:
+def build_ansi(fg: str = "", bg: str = "", attrs: list | None = None) -> str:
     if not COLOR_ENABLED:
         return ""
     parts = [ATTR[a] for a in (attrs or []) if a in ATTR]
@@ -97,7 +97,7 @@ def build_ansi(fg: str = "", bg: str = "", attrs: list = None) -> str:
     if bg_code: parts.append(bg_code)
     return "".join(parts)
 
-def style(text: str, fg: str = "", bg: str = "", attrs: list = None) -> str:
+def style(text: str, fg: str = "", bg: str = "", attrs: list | None = None) -> str:
     prefix = build_ansi(fg, bg, attrs)
     return f"{prefix}{text}{RESET}" if prefix else text
 

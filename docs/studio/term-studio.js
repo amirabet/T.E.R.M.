@@ -10,9 +10,9 @@ const FG = [
 	},
 	{
 		n: "black",
-		css: "#000000",
+		css: "#808080",
 		code: "30",
-		lbl: "black invisible on dark terminal",
+		lbl: "gray on Windows · invisible on dark Linux",
 	},
 	{ n: "gray", css: "#808080", code: "90", lbl: "gray (bright black)" },
 	{ n: "red", css: "#CD3131", code: "31", lbl: "red" },
@@ -163,12 +163,11 @@ function renderStageChar(cell) {
 	const isSpace = cell.char === " " || cell.char === "\u00a0" || cell.char === "&nbsp;";
 	const ch = isSpace ? "&nbsp;" : esc(cell.char);
 	const inner = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
-	if (!bg) return inner;
 	// space needs min-width so BG is visible; others get a small padding
 	const spaceStyle =
-		isSpace
-			? `background:${bg};min-width:1ch;`
-			: `background:${bg};padding:0 2px;`;
+		bg
+			? `background:${bg};min-width:1ch;padding:0 2px;`
+			: `min-width:1ch;padding:0 2px;`;
 	return `<span style="${spaceStyle}">${inner}</span>`;
 }
 // Legacy alias (used in renderFrames / renderLib previews)
@@ -1132,7 +1131,7 @@ function buildScenarioPalette(i) {
 			d.id = `test-${i}-bg-${c.n}`;
 			d.style.background = c.css === "transparent" ? "#1a1a1a" : c.css;
 			d.style.color = c.css === "transparent" ? "#555" : "#ccc";
-			d.innerHTML = `<span style="font-size:9px;">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
+			d.innerHTML = `<span style="font-size:9px;text-shadow:1px 1px 0 #1a1a1a,-1px -1px 0 #1a1a1a,1px -1px 0 #1a1a1a,-1px 1px 0 #1a1a1a">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
 			d.onclick = () => applyTestBg(i, c.n);
 			bgEl.appendChild(d);
 		});
@@ -1550,7 +1549,18 @@ function exportStatesToJSON() {
 		out[name] = {
 			[K_FRAMES]: frs.map((f) => ({
 				ms: f.ms,
-				[K_FACE]: f.face.map((c) => ({ [K_CHAR]: c.char, fg: denormFg(c.fg), bg: denormBg(c.bg), [K_BOLD]: c.bold, [K_DIM]: c.dim, [K_UNDERLINE]: c.underline, [K_REVERSE]: c.reverse })),
+				[K_FACE]: f.face.map((c) => {
+					const fg = denormFg(c.fg);
+					const bg = denormBg(c.bg);
+					const cell = { [K_CHAR]: c.char };
+					if (fg) cell.fg = fg;
+					if (bg) cell.bg = bg;
+					if (c.bold) cell[K_BOLD] = true;
+					if (c.dim) cell[K_DIM] = true;
+					if (c.underline) cell[K_UNDERLINE] = true;
+					if (c.reverse) cell[K_REVERSE] = true;
+					return cell;
+				}),
 			})),
 		};
 	}
@@ -1894,7 +1904,7 @@ function buildUI() {
 		d.id = "bg-" + c.n;
 		d.style.background = c.css === "transparent" ? "#1a1a1a" : c.css;
 		d.style.color = c.css === "transparent" ? "#555" : "#ccc";
-		d.innerHTML = `<span style="font-size:9px;">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
+		d.innerHTML = `<span style="font-size:9px;text-shadow:1px 1px 0 #1a1a1a,-1px -1px 0 #1a1a1a,1px -1px 0 #1a1a1a,-1px 1px 0 #1a1a1a">${c.n === "none" ? "∅" : "■"}</span><span class="sw-tip">${c.lbl}</span>`;
 		d.onclick = () => applyBg(c.n);
 		bgEl.appendChild(d);
 	});

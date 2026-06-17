@@ -1,0 +1,59 @@
+name: Build and Publish Package
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  publish:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract version and release notes from CHANGELOG
+        id: meta
+        run: |
+          VERSION=$(grep -m1 -oP '(?<=## \[)[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          # Extract the notes block for this version (lines between its header and the next ## header)
+          awk "/^## \[$VERSION\]/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md > release_notes.md
+
+      - name: Check release does not already exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh release view "v${{ steps.meta.outputs.version }}" > /dev/null 2>&1; then
+            echo "::error::Release v${{ steps.meta.outputs.version }} already exists. Update the version in CHANGELOG.md before merging."
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build tools
+        run: pip install build
+
+      - name: Sync pyproject.toml version with CHANGELOG
+        run: |
+          sed -i 's/^version = .*/version = "${{ steps.meta.outputs.version }}"/' pyproject.toml
+
+      - name: Build sdist and wheel
+        run: python -m build
+
+      - name: Create GitHub Release and upload artifacts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "v${{ steps.meta.outputs.version }}" \
+            dist/*.whl dist/*.tar.gz \
+            --title "v${{ steps.meta.outputs.version }}" \
+            --notes-file release_notes.md

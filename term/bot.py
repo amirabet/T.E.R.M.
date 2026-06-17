@@ -148,19 +148,25 @@ class TERM:
     # ─── RICH MESSAGE SHORTCUTS ─────────────────────────────────────────────────
 
     def say(
-        self, text: str, delay_ms: int = 60, total_duration_ms: int = None, **style
+        self,
+        text: str,
+        delay_ms: int = 60,
+        total_duration_ms: int | None = None,
+        **style,
     ) -> "TERM":
         """
         Type a message character by character (typewriter effect).
+        Blocks until all characters are typed and any hold time has elapsed.
         Keeps the current animation state.
         """
-        msg_module.typewriter(
+        t = msg_module.typewriter(
             self,
             text,
             delay_ms=delay_ms,
             total_duration_ms=total_duration_ms,
             **style,
         )
+        t.join()
         return self
 
     def progress(self, pct: float, label: str = "", **loader_kw) -> "TERM":
@@ -181,7 +187,7 @@ class TERM:
         """Show a speech bubble message."""
         return self.set_rich_msg(msg_module.bubble(text, **kw))
 
-    def badge(self, kind: str = "ok", label: str = None) -> "TERM":
+    def badge(self, kind: str = "ok", label: str | None = None) -> "TERM":
         """Show a status badge. kind: ok | error | warn | info"""
         badge_fn = getattr(msg_module.badge, kind, msg_module.badge.ok)
         rt = badge_fn(label) if label else badge_fn()
@@ -209,10 +215,31 @@ class TERM:
         if self._thread:
             self._thread.join(timeout=1.0)
             self._thread = None
-        if clear:
+        if renderer._sticky:
+            renderer.exit_sticky()
+        elif clear:
             renderer.clear()
         if self._auto_nl:
             renderer.newline()
+        return self
+
+    def sticky(self, enabled: bool = True) -> "TERM":
+        """
+        Pin the bot frame to the bottom of the terminal so that any output
+        printed above it scrolls normally without overwriting the animation.
+
+        Can be called before or after start(), and toggled at any time.
+
+        Example
+        -------
+            bot.start().sticky()          # enable immediately
+            print("some log line")        # scrolls above the bot
+            bot.sticky(False)             # back to normal inline mode
+        """
+        if enabled and not renderer._sticky:
+            renderer.enter_sticky()
+        elif not enabled and renderer._sticky:
+            renderer.exit_sticky()
         return self
 
     # ─── CONTEXT MANAGER ────────────────────────────────────────────────────────
@@ -220,7 +247,7 @@ class TERM:
     def __enter__(self) -> "TERM":
         return self.start()
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
         if exc_type is not None:
             try:
                 self.set_state("error", str(exc_val)[:60] if exc_val else None)
