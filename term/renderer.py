@@ -9,7 +9,6 @@ import sys
 import threading
 from typing import Optional
 
-from . import colors
 from .richtext import RichText
 
 _SEP = "  < "
