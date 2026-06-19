@@ -12,7 +12,7 @@ const FG = [
 		n: "black",
 		css: "#808080",
 		code: "30",
-		lbl: "gray on Windows · invisible on dark Linux",
+		lbl: "black invisible on dark terminal",
 	},
 	{ n: "gray", css: "#808080", code: "90", lbl: "gray (bright black)" },
 	{ n: "red", css: "#CD3131", code: "31", lbl: "red" },
@@ -163,11 +163,12 @@ function renderStageChar(cell) {
 	const isSpace = cell.char === " " || cell.char === "\u00a0" || cell.char === "&nbsp;";
 	const ch = isSpace ? "&nbsp;" : esc(cell.char);
 	const inner = `<span style="${cellFgStyle(cell)}">${ch}</span>`;
+	if (!bg) return inner;
 	// space needs min-width so BG is visible; others get a small padding
 	const spaceStyle =
-		bg
-			? `background:${bg};min-width:1ch;padding:0 2px;`
-			: `min-width:1ch;padding:0 2px;`;
+		isSpace
+			? `background:${bg};min-width:1ch;`
+			: `background:${bg};padding:0 2px;`;
 	return `<span style="${spaceStyle}">${inner}</span>`;
 }
 // Legacy alias (used in renderFrames / renderLib previews)
@@ -332,6 +333,13 @@ function renderFrames() {
 
 		row.appendChild(d);
 	});
+
+	const durationEl = document.getElementById("state-duration");
+	if (durationEl) {
+		const totalMs = frames.reduce((sum, f) => sum + parseFrameMs(f.ms), 0);
+		const hasInfiniteFrame = frames.some((f) => parseFrameMs(f.ms) === 0);
+		durationEl.innerHTML = `total: <strong>${totalMs}ms</strong>${hasInfiniteFrame ? "" : ' <span class="loop-tag">loop</span>'}`;
+	}
 }
 
 // ═══════════════════════════════════════════════════════════

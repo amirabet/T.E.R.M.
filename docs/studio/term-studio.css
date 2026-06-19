@@ -551,6 +551,30 @@ select {
 	color: var(--text3);
 }
 
+.state-duration {
+	margin-top: 8px;
+	font-size: 10px;
+	color: var(--text2);
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.state-duration strong {
+	color: var(--text);
+	font-weight: 600;
+}
+
+.loop-tag {
+	display: inline-block;
+	padding: 1px 5px;
+	margin-left: 6px;
+	border: 0.5px solid var(--acc2);
+	border-radius: 999px;
+	color: var(--acc);
+	font-size: 9px;
+	letter-spacing: 0.08em;
+}
+
 /* ─── QUICK FACES ─── */
 .face-grid {
 	display: flex;
