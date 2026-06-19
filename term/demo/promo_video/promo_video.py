@@ -13,6 +13,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
 from term import TERM
 
+""" Wrong path """
+
 # ── helpers ──────────────────────────────────────────────────────────────────
 
 RESET = "\033[0m"
