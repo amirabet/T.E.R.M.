@@ -7,16 +7,27 @@ Run: python docs/demo/promo_video.py
 
 import os
 import sys
+
+sys.stdout.reconfigure(encoding="utf-8")
 import time
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
 from fakeprompt import Prompt
-from writer import generate_random_text, write_chars, write_chars_async, write_text
+from writer import write_chars, write_chars_async
 
 from term import TERM
 
 # ── helpers ──────────────────────────────────────────────────────────────────
+
+art = r"""
+████████╗███████╗   ██████╗    ███╗   ███╗       ██╗         ▄▄███▄▄·
+╚══██╔══╝██╔════╝   ██╔══██╗   ████╗ ████║       ╚██╗        ██╔════╝
+   ██║   █████╗     ██████╔╝   ██╔████╔██║        ╚██╗       ███████╗
+   ██║   ██╔══╝     ██╔══██╗   ██║╚██╔╝██║        ██╔╝       ╚════██║
+   ██║██╗███████╗██╗██║  ██║██╗██║ ╚═╝ ██║██╗    ██╔╝███████╗███████║
+   ╚═╝╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚═╝    ╚═╝ ╚══════╝╚═▀▀▀══╝
+"""
 
 RESET = "\033[0m"
 GRAY = "\033[90m"
@@ -66,6 +77,7 @@ SCENE0 = False
 SCENE1 = False
 SCENE2 = False
 SCENE3 = True
+SCENE4 = True
 
 # ── Scene 0: Fake Prompt ─────────────────────────────────────────────────────
 term = TERM()
@@ -143,28 +155,79 @@ if SCENE3:
     term.sticky(True)
     term.start("speak")
     noise = write_chars_async(2000, None, "gray", 1)
-    term.say("My mission is to make the terminal easier for users")
+    term.say(
+        "My mission is to make the terminal [br_cyan]easier for users[/]", markup=True
+    )
     noise.join()
+    pause(0.5)
 
     term.think(None)
     noise = write_chars_async(2000, None, "gray", 1)
-    term.say("And help developers communicate more effectively")
+    term.say(
+        "And [br_magenta]help developers[/] communicate more effectively", markup=True
+    )
     noise.join()
-    # log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
-    # pause(0.5)
-    # log(GRAY, "sys", "Loading configuration from ~/.termrc", delay=0.03)
-    # pause(0.4)
-    # log(GREEN, "ok ", "Runtime ready.", delay=0.03)
-    # pause(1.2)
+    pause(0.5)
 
-    # pause(4)
-    # term.stop()
+    term.speak(None)
+    noise = write_chars_async(2000, None, "gray", 1)
+    term.say(
+        "I can display useful and [br_white bg:green bold]C[/][red bold]U[/][black bg:br_yellow bold]S[/][blue bold]T[/][magenta bg:white bold]O[/][br_white bold]M[/][br_yellow bg:br_blue bold]I[/][br_green bold]Z[/][br_cyan bg:br_magenta bold]E[/][br_yellow bold]D[/] messages",
+        markup=True,
+    )
+    noise.join()
+    pause(0.5)
+
+    term.ok(None)
+    noise = write_chars_async(2000, None, "gray", 1)
+    term.say("When everything goes [br_green]smoothly[/]...", markup=True)
+    noise.join()
+    pause(0.5)
+
+    term.error(None)
+    noise = write_chars_async(2000, None, "gray", 1)
+    term.say("...or when it goes [br_red]bananas[/]", markup=True)
+    noise.join()
+    pause(0.5)
+
+    term.speak(None)
+    term.say(
+        "I'm compatible with all major terminals and operating systems",
+    )
+    pause(0.5)
+
+    term.set_state("demo")
+    term.say(
+        "and fully customizable via [magenta]T.E.R.M. STUDIO![/]",
+        markup=True,
+    )
+    pause(4)
+    term.stop()
+
+if SCENE4:
+    term.start("work")
+    steps = 20
+    for i in range(steps + 1):
+        term.progress(i * 100 / steps, "DEMO COMPLETED")
+        time.sleep(0.1)
+    pause(2)
+
+    term.ok(None)
+    term.say("[br_green]Let me help with your next project![/]", markup=True)
+    pause(2.2)
+
+    term.stop()
+
+    write_chars(422, art, "cyan", 10)
+    term.sticky(True)
+    term.start("idle")
+    term.say("[br_cyan]Find me on GitHub![/]", markup=True)
+    pause(10)
 
 
 # ── The End ──────────────────────────────────────────────────────────────────
 
-rule()
 # print(f"{GREEN}Demo complete.{RESET}\n")
 
 # ALWAYS finish stopping TERM!
-term.stop()
+# term.stop()
