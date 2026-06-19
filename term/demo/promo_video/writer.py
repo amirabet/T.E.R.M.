@@ -3,6 +3,8 @@ import random
 import string
 import time
 
+from term import renderer
+
 DEFAULT_TEXT = "Ami fenestro paroli lerni biciklo ŝati arbo cent malgranda dimanĉo komputilo ruĝa ridi, knabino strato pomo lumo lundo alta nubo monato kun mateno lundo seĝo vesto malrapida tri super suno leono trajno paroli. Purpura rapida doni homo strato ĉapelo dudek sep malfermi tri aviadilo herbo kapro bruna — urbo forta mardo griza vojo sidi skribi unu, malrapida — ŝuo urbo unu fermi dudek ili veni. Memori ses skribi urso akvo semajno: flava malfermi ĉemizo morti infano li verda telefono nubo vojo griza nubo semajno, neĝo tempo."
 
 COLORS = {
@@ -27,7 +29,7 @@ def write_text(count=None, duration=None, text=None, color="white", delay=0):
 
     if count is not None:
         for _ in range(count):
-            print(f"{color_code}{text}{COLORS['reset']}")
+            renderer.stream_write(f"{color_code}{text}{COLORS['reset']}\n")
             if delay:
                 time.sleep(delay)
 
@@ -38,20 +40,19 @@ def write_text(count=None, duration=None, text=None, color="white", delay=0):
             if time.time() >= end_time:
                 break
 
-            print(f"{color_code}{text}{COLORS['reset']}")
+            renderer.stream_write(f"{color_code}{text}{COLORS['reset']}\n")
             if delay:
                 time.sleep(delay)
 
 
-def write_chars(num_chars, text=None, color="white"):
+def write_chars(num_chars, text=None, color="white", delay=0):
     text = text or DEFAULT_TEXT
     color_code = COLORS.get(color, COLORS["white"])
+    full_text = (text * ((num_chars // len(text)) + 1))[:num_chars]
 
-    remaining = num_chars
+    for ch in full_text:
+        renderer.stream_write(f"{color_code}{ch}{COLORS['reset']}")
+        if delay:
+            time.sleep(delay / 1000)
 
-    while remaining > 0:
-        chunk = text[:remaining]
-        print(f"{color_code}{chunk}{COLORS['reset']}", end="")
-        remaining -= len(chunk)
-
-    print()
+    renderer.stream_write("\n")

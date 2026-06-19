@@ -9,11 +9,12 @@ import os
 import sys
 import time
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+
+from fakeprompt import Prompt
+from writer import generate_random_text, write_chars, write_text
 
 from term import TERM
-
-""" Wrong path """
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -49,137 +50,78 @@ def pause(s):
     time.sleep(s)
 
 
+def lines(n=1):
+    sys.stdout.write("\n" * n)
+    sys.stdout.flush()
+
+
+def clear_screen():
+    sys.stdout.write("\033[2J\033[H")
+    sys.stdout.flush()
+
+
+# ── Scenes Activation ────────────────────────────────────────────────────────
+
+SCENE0 = True
+SCENE1 = True
+SCENE2 = True
+
+# ── Scene 0: Fake Prompt ─────────────────────────────────────────────────────
+term = TERM()
+term.stop()
+
+if SCENE0:
+    clear_screen()
+    # lines(50)
+    pause(2)
+
+    p = Prompt(user="dev", host="term", path_style="static")
+
+    # 1. Prompt appears with blinking cursor
+    p.show(blink=False, cycles=24)
+    pause(1.2)
+
+    # 2. User "types" a command
+    p.type("start T.E.R.M. demo", delay_ms=60)
+    lines(1)
+    pause(1)
+
+
 # ── Scene 1: Boot sequence ────────────────────────────────────────────────────
+DEFAULT_TEXT = "Ami fenestro paroli lerni biciklo ŝati arbo cent malgranda dimanĉo komputilo ruĝa ridi, knabino strato pomo lumo lundo alta nubo monato kun mateno lundo seĝo vesto malrapida tri super suno leono trajno paroli. Purpura rapida doni homo strato ĉapelo dudek sep malfermi tri aviadilo herbo kapro bruna — urbo forta mardo griza vojo sidi skribi unu, malrapida — ŝuo urbo unu fermi dudek ili veni. Memori ses skribi urso akvo semajno: flava malfermi ĉemizo morti infano li verda telefono nubo vojo griza nubo semajno, neĝo tempo."
 
-rule("Boot Sequence")
+if SCENE1:
+    # The video starts with an huge and fast terminal text flow (randomly generated)
+    # write_chars(5000, None, "gray")
 
-term = TERM()
-term.start("boot")
-pause(0.6)
+    # Boot
+    term.sticky(False)
+    term.start("boot")
+    pause(3.4)
+    term.say("Hi!")
+    pause(0.5)
+    # term.stop()
 
-log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
-pause(0.5)
-log(GRAY, "sys", "Loading configuration from ~/.termrc", delay=0.03)
-pause(0.4)
-log(GREEN, "ok ", "Runtime ready.", delay=0.03)
-pause(1.2)
-term.stop()
+    # Suddenly gets overflowed by terminal text again.
 
-# ── Scene 2: Thinking + analysis output ──────────────────────────────────────
+    term.work("")
+    write_chars(5000, DEFAULT_TEXT, "gray", 1)
 
-rule("Code Analysis")
+    # log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
+    # pause(0.5)
+    # log(GRAY, "sys", "Loading configuration from ~/.termrc", delay=0.03)
+    # pause(0.4)
+    # log(GREEN, "ok ", "Runtime ready.", delay=0.03)
+    # pause(1.2)
 
-term = TERM()
-term.think("Scanning project files...")
-pause(0.5)
+    # pause(4)
+    # term.stop()
 
-files = [
-    ("src/main.py", "512 loc"),
-    ("src/renderer.py", "278 loc"),
-    ("src/utils.py", "134 loc"),
-    ("tests/test_core.py", "201 loc"),
-]
-for fname, info in files:
-    log(CYAN, "idx", f"{fname:<30} {GRAY}{info}", delay=0.02)
-    pause(0.18)
 
-pause(0.6)
-term.markup("[br_cyan bold]4[/][cyan] files indexed — [/][white]1 125 lines total[/]")
-pause(1.2)
-term.stop()
-
-# ── Scene 3: Working + progress ───────────────────────────────────────────────
-
-rule("Build & Upload")
-
-term = TERM()
-term.work("Compiling...")
-pause(0.3)
-
-steps = [
-    "Resolving imports",
-    "Type-checking",
-    "Bundling assets",
-    "Minifying output",
-]
-for i, step in enumerate(steps, 1):
-    log(GRAY, f"{i}/{len(steps)}", step, delay=0.025)
-    pause(0.35)
-
-pause(0.3)
-log(GREEN, "ok ", "Build succeeded — dist/ (48 kB)", delay=0.03)
-pause(0.4)
-
-term.set_msg("Uploading to CDN...")
-for pct in range(0, 101, 5):
-    term.progress(pct, label="Uploading")
-    pause(0.07)
-
-term.ok("Upload complete!")
-pause(1.0)
-term.stop()
-
-# ── Scene 4: Error state ──────────────────────────────────────────────────────
-
-rule("Error Handling")
-
-term = TERM()
-term.work("Running test suite...")
-pause(0.5)
-
-tests = [
-    (True, "test_renderer_basic"),
-    (True, "test_color_parser"),
-    (False, "test_animation_loop"),
-    (True, "test_markup_roundtrip"),
-]
-for passed, name in tests:
-    color = GREEN if passed else RED
-    prefix = "pass" if passed else "FAIL"
-    log(color, prefix, name, delay=0.02)
-    pause(0.25)
-
-pause(0.3)
-term.error()
-term.badge("error", "1 TEST FAILED")
-pause(1.5)
-term.stop()
-
-# ── Scene 5: Speak + bubble ───────────────────────────────────────────────────
-
-rule("Agent Response")
-
-term = TERM()
-term.start("speak")
-pause(0.4)
-
-term.say(
-    "I spotted the issue — animation_loop uses a race condition on line 87.",
-    fg="br_blue",
-    delay_ms=45,
-)
-pause(0.3)
-term.bubble("Try wrapping the loop in a threading.Lock() — should fix it!")
-pause(2.0)
-term.stop()
-
-# ── Scene 6: Recovery ─────────────────────────────────────────────────────────
-
-rule("Recovery & Done")
-
-term = TERM()
-term.think("Applying patch...")
-pause(0.7)
-log(YELLOW, "fix", "threading.Lock() added to animation_loop()", delay=0.03)
-pause(0.5)
-term.work("Re-running tests...")
-pause(0.8)
-log(GREEN, "pass", "test_animation_loop", delay=0.02)
-pause(0.4)
-term.ok("All tests passing")
-term.markup("[br_green bold] PASS [/][white] 4 / 4 tests[/]")
-pause(1.5)
-term.stop()
+# ── The End ──────────────────────────────────────────────────────────────────
 
 rule()
 print(f"{GREEN}Demo complete.{RESET}\n")
+
+# ALWAYS finish stopping TERM!
+term.stop()
