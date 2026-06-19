@@ -12,7 +12,7 @@ import time
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
 from fakeprompt import Prompt
-from writer import generate_random_text, write_chars, write_text
+from writer import generate_random_text, write_chars, write_chars_async, write_text
 
 from term import TERM
 
@@ -140,15 +140,16 @@ if SCENE2:
     term.stop()
 
 if SCENE3:
-    write_chars(100, None, "gray", 1)
     term.sticky(True)
     term.start("speak")
-    write_chars(100, None, "gray", 1)
+    noise = write_chars_async(2000, None, "gray", 1)
     term.say("My mission is to make the terminal easier for users")
-    write_chars(100, None, "gray", 1)
+    noise.join()
+
     term.think(None)
+    noise = write_chars_async(2000, None, "gray", 1)
     term.say("And help developers communicate more effectively")
-    write_chars(100, None, "gray", 1)
+    noise.join()
     # log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
     # pause(0.5)
     # log(GRAY, "sys", "Loading configuration from ~/.termrc", delay=0.03)

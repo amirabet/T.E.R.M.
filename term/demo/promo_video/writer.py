@@ -1,6 +1,7 @@
 import itertools
 import random
 import string
+import threading
 import time
 
 from term import renderer
@@ -56,3 +57,19 @@ def write_chars(num_chars, text=None, color="white", delay=0):
             time.sleep(delay / 1000)
 
     renderer.stream_write("\n")
+
+
+def write_chars_async(num_chars, text=None, color="white", delay=0):
+    """Run write_chars in a daemon thread and return the thread object."""
+    t = threading.Thread(
+        target=write_chars,
+        kwargs={
+            "num_chars": num_chars,
+            "text": text,
+            "color": color,
+            "delay": delay,
+        },
+        daemon=True,
+    )
+    t.start()
+    return t
