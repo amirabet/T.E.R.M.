@@ -231,3 +231,6 @@ if SCENE4:
 
 # ALWAYS finish stopping TERM!
 # term.stop()
+
+# TODO: add all scenes
+# TODO: change demo frames duration
