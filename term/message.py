@@ -156,6 +156,7 @@ def typewriter(
     bot,
     text,
     delay_ms: int = 60,
+    markup: bool = False,
     fg: str = "",
     bg: str = "",
     bold: bool = False,
@@ -176,6 +177,7 @@ def typewriter(
     bot          : TERM instance (must be started)
     text         : string to type
     delay_ms     : milliseconds between each character (default 60)
+    markup       : parse text as RichText markup before typing
     fg / bg / bold / dim / underline / reverse : style applied to each char
     end_delay_ms : pause at end before returning control
     total_duration_ms : if provided, keep the fully typed message visible
@@ -190,18 +192,41 @@ def typewriter(
     def _type():
         started = time.time()
         buf = RichText()
-        for ch in text:
+        if markup:
+            cells = RichText.markup(text).to_cells()
+        else:
+            cells = [
+                {
+                    "char": ch,
+                    "fg": fg,
+                    "bg": bg,
+                    "bold": bold,
+                    "dim": dim,
+                    "underline": underline,
+                    "reverse": reverse,
+                }
+                for ch in text
+            ]
+
+        for c in cells:
+            ch = c.get("char", "")
             buf.add(
                 ch,
-                fg=fg,
-                bg=bg,
-                bold=bold,
-                dim=dim,
-                underline=underline,
-                reverse=reverse,
+                fg=c.get("fg", ""),
+                bg=c.get("bg", ""),
+                bold=bool(c.get("bold", False)),
+                dim=bool(c.get("dim", False)),
+                underline=bool(c.get("underline", False)),
+                reverse=bool(c.get("reverse", False)),
             )
             bot.set_rich_msg(buf)
-            time.sleep(delay_ms / 1000)
+            try:
+                bot._render_once()
+            except Exception:
+                pass
+            # Pace only visible printable characters; do not delay on control chars.
+            if ch and ch.isprintable():
+                time.sleep(delay_ms / 1000)
         if total_duration_ms is not None:
             total_s = max(0.0, float(total_duration_ms) / 1000.0)
             elapsed_s = max(0.0, time.time() - started)
@@ -326,9 +351,9 @@ class badge:
     def ok(label: str = "OK") -> RichText:
         return (
             RichText()
-            .add(" ", fg="br_green")
-            .add(label, fg="br_green", bold=True)
-            .add(" ", fg="br_green")
+            .add(" ", fg="br_white", bg="green")
+            .add(label, fg="br_white", bg="green", bold=True)
+            .add(" ", fg="br_white", bg="green")
         )
 
     @staticmethod

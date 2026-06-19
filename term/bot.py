@@ -154,6 +154,7 @@ class TERM:
         text: str,
         delay_ms: int = 60,
         total_duration_ms: int | None = None,
+        markup: bool = False,
         **style,
     ) -> "TERM":
         """
@@ -166,6 +167,7 @@ class TERM:
             text,
             delay_ms=delay_ms,
             total_duration_ms=total_duration_ms,
+            markup=markup,
             **style,
         )
         t.join()
@@ -293,6 +295,16 @@ class TERM:
                 self._frame_idx += 1
 
             time.sleep(frame_ms / 1000)
+
+    def _render_once(self) -> None:
+        """Render current face+message immediately without advancing animation."""
+        with self._lock:
+            state = self._state
+            override = self._msg
+            idx = self._frame_idx
+
+        frame = _anim_module.get_frame(self._anims, state, idx)
+        renderer.write(face=frame["face"], msg=override)
 
     # ─── ANIMATION MANAGEMENT ───────────────────────────────────────────────────
 

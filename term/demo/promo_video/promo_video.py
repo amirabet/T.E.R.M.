@@ -62,8 +62,8 @@ def clear_screen():
 
 # ── Scenes Activation ────────────────────────────────────────────────────────
 
-SCENE0 = True
-SCENE1 = True
+SCENE0 = False
+SCENE1 = False
 SCENE2 = True
 
 # ── Scene 0: Fake Prompt ─────────────────────────────────────────────────────
@@ -72,7 +72,7 @@ term.stop()
 
 if SCENE0:
     clear_screen()
-    # lines(50)
+    lines(50)
     pause(2)
 
     p = Prompt(user="dev", host="term", path_style="static")
@@ -88,14 +88,13 @@ if SCENE0:
 
 
 # ── Scene 1: Boot sequence ────────────────────────────────────────────────────
-DEFAULT_TEXT = "Ami fenestro paroli lerni biciklo ŝati arbo cent malgranda dimanĉo komputilo ruĝa ridi, knabino strato pomo lumo lundo alta nubo monato kun mateno lundo seĝo vesto malrapida tri super suno leono trajno paroli. Purpura rapida doni homo strato ĉapelo dudek sep malfermi tri aviadilo herbo kapro bruna — urbo forta mardo griza vojo sidi skribi unu, malrapida — ŝuo urbo unu fermi dudek ili veni. Memori ses skribi urso akvo semajno: flava malfermi ĉemizo morti infano li verda telefono nubo vojo griza nubo semajno, neĝo tempo."
 
 if SCENE1:
     # The video starts with an huge and fast terminal text flow (randomly generated)
     # write_chars(5000, None, "gray")
 
     # Boot
-    term.sticky(False)
+    term.sticky(True)
     term.start("boot")
     pause(3.4)
     term.say("Hi!")
@@ -103,9 +102,39 @@ if SCENE1:
     # term.stop()
 
     # Suddenly gets overflowed by terminal text again.
-
     term.work("")
-    write_chars(5000, DEFAULT_TEXT, "gray", 1)
+    write_chars(1000, None, "gray", 1)
+
+    term.speak(None)
+    term.say("The terminal can be overwhelming, right?")
+
+    term.idle("")
+    pause(2)
+
+if SCENE2:
+    if not SCENE1:
+        term.start("boot")
+
+    term.speak(None)
+    term.say(
+        "My name is [br_cyan]T[/].[br_cyan]E[/].[br_cyan]R[/].[br_cyan]M[/]., which stands for:",
+        markup=True,
+    )
+    pause(0.4)
+
+    term.idle(None)
+
+    term.say("[br_cyan]T[/] E R M I N A L ", delay_ms=100, markup=True)
+
+    term.say("[br_cyan]E[/] M P A T H E T I C ", delay_ms=100, markup=True)
+
+    term.say("[br_cyan]R[/] E S O U R C E F U L ", delay_ms=100, markup=True)
+
+    term.say("[br_cyan]M[/] A T E ", delay_ms=100, markup=True)
+
+    term.ok()
+    term.badge("ok", "NICE TO MEET YOU!")
+    pause(10)
 
     # log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
     # pause(0.5)
@@ -121,7 +150,7 @@ if SCENE1:
 # ── The End ──────────────────────────────────────────────────────────────────
 
 rule()
-print(f"{GREEN}Demo complete.{RESET}\n")
+# print(f"{GREEN}Demo complete.{RESET}\n")
 
 # ALWAYS finish stopping TERM!
 term.stop()
