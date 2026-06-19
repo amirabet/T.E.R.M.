@@ -64,7 +64,8 @@ def clear_screen():
 
 SCENE0 = False
 SCENE1 = False
-SCENE2 = True
+SCENE2 = False
+SCENE3 = True
 
 # ── Scene 0: Fake Prompt ─────────────────────────────────────────────────────
 term = TERM()
@@ -91,8 +92,6 @@ if SCENE0:
 
 if SCENE1:
     # The video starts with an huge and fast terminal text flow (randomly generated)
-    # write_chars(5000, None, "gray")
-
     # Boot
     term.sticky(True)
     term.start("boot")
@@ -134,8 +133,22 @@ if SCENE2:
 
     term.ok()
     term.badge("ok", "NICE TO MEET YOU!")
-    pause(10)
+    pause(1)
+    term.work(None)
+    term.say("Now, let's get to work!")
+    pause(1)
+    term.stop()
 
+if SCENE3:
+    write_chars(100, None, "gray", 1)
+    term.sticky(True)
+    term.start("speak")
+    write_chars(100, None, "gray", 1)
+    term.say("My mission is to make the terminal easier for users")
+    write_chars(100, None, "gray", 1)
+    term.think(None)
+    term.say("And help developers communicate more effectively")
+    write_chars(100, None, "gray", 1)
     # log(GRAY, "sys", "Initialising T.E.R.M. runtime...", delay=0.03)
     # pause(0.5)
     # log(GRAY, "sys", "Loading configuration from ~/.termrc", delay=0.03)
