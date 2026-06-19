@@ -78,6 +78,8 @@ class TERM:
             self._frame_idx = 0
             if msg is not None:
                 self._msg = RichText.coerce(msg)
+            elif not renderer._sticky:
+                self._msg = RichText()
         return self
 
     def set_msg(self, msg) -> "TERM":

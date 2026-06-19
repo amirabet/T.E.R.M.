@@ -125,8 +125,26 @@ def write(
                     "\033[u"  # restore cursor
                 )
             else:
-                sys.stdout.write(f"\r{line}{' ' * padding}")
+                # Non-sticky cooperative mode: draw bot one line below the current
+                # cursor so foreground text and bot frames do not compete for a row.
+                sys.stdout.write(
+                    "\033[s"  # save current text cursor
+                    "\033[1E"  # move to next line, col 1
+                    f"\r{line}{' ' * padding}"
+                    "\033[u"  # restore text cursor
+                )
             sys.stdout.flush()
+        except OSError:
+            pass
+
+
+def stream_write(text: str, flush: bool = True) -> None:
+    """Write raw text to stdout while sharing the renderer lock."""
+    with _lock:
+        try:
+            sys.stdout.write(text)
+            if flush:
+                sys.stdout.flush()
         except OSError:
             pass
 
@@ -141,7 +159,12 @@ def clear() -> None:
                 rows = terminal_height()
                 sys.stdout.write(f"\033[{rows};1H\r{' ' * (w - 1)}\r\033[u")
             else:
-                sys.stdout.write(f"\r{' ' * (w - 1)}\r")
+                sys.stdout.write(
+                    "\033[s"  # save current text cursor
+                    "\033[1E"  # clear bot row (one line below text cursor)
+                    f"\r{' ' * (w - 1)}\r"
+                    "\033[u"  # restore text cursor
+                )
             sys.stdout.flush()
         except OSError:
             pass
