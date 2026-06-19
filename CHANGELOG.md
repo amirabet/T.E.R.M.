@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Changed
+
+- Updated `TERM.say(...)` and `term.message.typewriter(...)` to support `markup=True`, so inline markup tags are parsed during typewriter output instead of being shown as raw text.
+- Updated typewriter pacing so per-character delay is applied to visible printable characters only.
+- Updated typewriter rendering to repaint immediately per typed character, improving visual continuity when animation frame rate is lower than typing speed.
+- Updated wiki/API docs to reflect new `say` and typewriter markup/timing behavior and current renderer truncation notes.
+
 ## [0.4.0] - 2026-06-11
 
 ### Added
