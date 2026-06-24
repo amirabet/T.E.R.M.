@@ -12,17 +12,20 @@
 	<link rel="manifest" href="../assets/site.webmanifest" />
 	<link rel="stylesheet" href="./term-studio.css" />
 	<link rel="stylesheet" href="../style/term.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.css" />
 </head>
 
 <body>
 	<main>
 		<div id="toast"></div>
 
-		<header class="crt">
-			<h1>T.E.R.M. studio ><span class="cursor">_</span>$</h1>
+		<header class="crt" style="display:flex; align-items:center; gap:12px;">
+			<h1 style="flex:1">T.E.R.M. studio ><span class="cursor">_</span>$</h1>
+			<button class="btn acc" id="tour-btn" onclick="startTour()" title="Take a guided tour of the studio">? help
+				/ tour</button>
 		</header>
 
-		<div class="tab-row">
+		<div class="tab-row" data-tour="tab-row">
 			<button class="tab on" id="tab-face" onclick="switchTab('face', this)">STATE</button>
 			<button class="tab" id="tab-test" onclick="switchTab('test', this)">SCENARIO</button>
 		</div>
@@ -31,7 +34,7 @@
 		<div id="tp-face" class="tp on">
 
 			<!-- STATES MANAGER -->
-			<div class="sec" style="margin-bottom: 8px">
+			<div class="sec" style="margin-bottom: 8px" data-tour="states-sec">
 				<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 7px">
 					<div class="sh">STATES</div>
 					<div style="flex: 1"></div>
@@ -62,8 +65,7 @@
 					<!-- TIMELINE -->
 					<div class="sec">
 						<div class="row" style="gap: 16px; align-items: flex-start; vertical-align: top">
-							<div style="flex: 1">
-								<div class="sh">FRAMES</div>
+							<div style="flex: 1" data-tour="frames-sec">
 								<div id="frames-row" style="margin-bottom: 8px"></div>
 								<div class="row">
 									<button class="btn acc" onclick="addFrame()">+ frame</button>
@@ -73,8 +75,7 @@
 								</div>
 								<div id="state-duration" class="state-duration"></div>
 							</div>
-							<div style="flex: 1">
-								<div class="sh">STAGE</div>
+							<div style="flex: 1" data-tour="stage-sec">
 								<!-- STAGE -->
 								<div id="stage-wrap" class="crt">
 									<div id="stage-face"></div>
@@ -101,7 +102,7 @@
 					</div>
 
 					<!-- CHARACTER EDITOR -->
-					<div class="sec">
+					<div class="sec" data-tour="edit-frame-sec">
 						<div class="sh">EDIT FRAME</div>
 
 						<!-- FACE -->
@@ -133,7 +134,8 @@
 							<button class="btn danger" onclick="clearAllStyles()">clear all</button>
 						</div>
 						<!-- Character attribute-->
-						<div class="row" style="margin-top: 8px; gap: 12px; align-items: flex-start;">
+						<div class="row" style="margin-top: 8px; gap: 12px; align-items: flex-start;"
+							data-tour="attrs-sec">
 							<div class="sec" style="flex: 1">
 								<label>TEXT COLOR</label>
 								<div class="palette" id="fg-pal"></div>
@@ -152,7 +154,7 @@
 					</div>
 
 					<!-- EXPRESSIONS -->
-					<div class="sec" style="margin-bottom: 30px">
+					<div class="sec" style="margin-bottom: 30px" data-tour="expr-sec">
 						<div class="sh">EXPRESSIONS</div>
 						<div class="face-grid" id="face-grid"></div>
 					</div>
@@ -166,7 +168,7 @@
 
 		<!-- =================== SCENARIOS =================== -->
 		<div id="tp-test" class="tp">
-			<div class="sec" style="margin-bottom: 30px">
+			<div class="sec" style="margin-bottom: 30px" data-tour="scenarios-sec">
 				<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px">
 					<div class="sh" style="margin-bottom: 0">CHAINED SCENARIOS</div>
 					<div style="flex: 1"></div>
@@ -201,8 +203,9 @@
 		<!-- /tp-test -->
 	</main>
 
+	<script src="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.js.iife.js"></script>
 	<script src="./term-studio.js"></script>
-</body>
+
 
 </html>
 

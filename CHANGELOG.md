@@ -13,6 +13,10 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Updated typewriter rendering to repaint immediately per typed character, improving visual continuity when animation frame rate is lower than typing speed.
 - Updated wiki/API docs to reflect new `say` and typewriter markup/timing behavior and current renderer truncation notes.
 
+### Added
+
+- [Driver.js](https://driverjs.com/) to Term Studio
+
 ## [0.4.0] - 2026-06-11
 
 ### Added

@@ -1958,3 +1958,134 @@ async function initStudio() {
 }
 
 initStudio();
+
+
+// ═══════════════════════════════════════════════════════════
+//  Guided tour (driver.js) explaining T.E.R.M. studio
+// ═══════════════════════════════════════════════════════════
+
+// ---- Cookie helpers ----
+const cookieName = "term_tour_seen"
+function setCookie(name, value, days) {
+	const maxAge = days * 24 * 60 * 60;
+	document.cookie = `${name}=${value}; max-age=${maxAge}; path=/; SameSite=Lax`;
+}
+function getCookie(name) {
+	const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+	return match ? decodeURIComponent(match[1]) : null;
+}
+
+// ---- Own diver.js ----
+function startTour() {
+	if (typeof window.driver === "undefined") {
+		console.warn("driver.js failed to load");
+		return;
+	}
+
+	// Make sure we start on the STATE tab so all anchors exist on screen.
+	const faceTab = document.getElementById("tab-face");
+	if (faceTab && !faceTab.classList.contains("on") && typeof switchTab === "function") {
+		switchTab("face", faceTab);
+	}
+
+	const driverObj = window.driver.js.driver({
+		showProgress: true,
+		animate: true,
+		allowClose: true,
+		overlayOpacity: 0.65,
+		stagePadding: 6,
+		popoverClass: "term-tour-popover",
+		steps: [
+			{
+				popover: {
+					title: "Welcome to T.E.R.M. studio",
+					description: "This tool lets you design ASCII/text-based character faces, animate them as frame-by-frame states, and chain them into test scenarios. Let's walk through the main parts."
+				}
+			},
+			{
+				element: '[data-tour="tab-row"]',
+				popover: {
+					title: "STATE vs SCENARIO",
+					description: "Two main tabs: <b>STATE</b> is where you design and animate a single character (its faces, frames, colors). <b>SCENARIO</b> is where you chain multiple states together with messages into a sequential test."
+				}
+			},
+			{
+				element: '[data-tour="states-sec"]',
+				popover: {
+					title: "States manager",
+					description: "A 'state' is a named animation (e.g. 'idle', 'happy'). Add new states, switch between them, delete the selected one, or import/export your whole state library as a JSON file."
+				}
+			},
+			{
+				element: '[data-tour="frames-sec"]',
+				popover: {
+					title: "Frames timeline",
+					description: "Each state is made of frames played in sequence. Add, duplicate, or delete frames here. The total animation duration for the state is shown below the row."
+				}
+			},
+			{
+				element: '[data-tour="stage-sec"]',
+				popover: {
+					title: "Stage & playback",
+					description: "Preview the current frame/animation here. Use the transport controls to jump to the first/last frame, step frame-by-frame, or play the full animation. The slider controls playback speed."
+				}
+			},
+			{
+				element: '[data-tour="edit-frame-sec"]',
+				popover: {
+					title: "Edit the current frame",
+					description: "Type the characters for this frame and set how long it stays on screen (ms; 0 = infinite). Click a character below to select it for styling — shift+click to select multiple at once."
+				}
+			},
+			{
+				element: '[data-tour="attrs-sec"]',
+				popover: {
+					title: "Color & attributes",
+					description: "With characters selected, choose a text color, background color, and terminal attributes (bold, blink, etc.) to apply to just those characters."
+				}
+			},
+			{
+				element: '[data-tour="expr-sec"]',
+				popover: {
+					title: "Expression presets",
+					description: "Quick-pick common expressions to instantly fill the frame editor above, instead of typing characters by hand."
+				}
+			},
+			{
+				element: '#tab-test',
+				popover: {
+					title: "Scenarios tab",
+					description: "Click here next to chain up to 5 states together — each with its own message, message mode, and duration — and play them back as one continuous test sequence.",
+					side: "bottom"
+				},
+				onHighlightStarted: () => {
+					const testTab = document.getElementById("tab-test");
+					if (testTab && typeof switchTab === "function") switchTab("test", testTab);
+				}
+			},
+			{
+				element: '[data-tour="scenarios-sec"]',
+				popover: {
+					title: "Build & run the chain",
+					description: "Configure each scenario card, then hit 'run chain' to play them in order on the test stage, or 'rewind' to reset. Export the whole chain as JSON or as a ready-to-use Python file."
+				},
+				onDeselected: () => {
+					// Return to the STATE tab when the tour ends/moves on
+					const faceTab = document.getElementById("tab-face");
+					if (faceTab && typeof switchTab === "function") switchTab("face", faceTab);
+				}
+			}
+		]
+	});
+
+	driverObj.drive();
+	setCookie(cookieName, "1", 365);
+}
+
+// Auto-launch the tour the first time this page is ever opened (per browser, via cookie).
+document.addEventListener("DOMContentLoaded", () => {
+	if (!getCookie(cookieName)) {
+		// small delay so the rest of the page (term-studio.js) finishes initializing first
+		setTimeout(startTour, 400);
+	}
+});
