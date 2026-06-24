@@ -10,6 +10,8 @@
 	--text3: #777;
 	--acc: #39ff14;
 	--acc2: #1eaa00;
+	--acc3: #c8ffcf;
+	--acc4: #2f5d3a;
 	--sel: #0a1f0a;
 	--mono: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
 }
@@ -758,9 +760,9 @@ header h1 {
 
 /* DRIVER.js styles */
 .driver-popover.term-tour-popover {
-	background: #0d0f0d !important;
-	color: #c8ffcf !important;
-	border: 1px solid #2f5d3a !important;
+	background: var(--bg2) !important;
+	color: var(--acc) !important;
+	border: 1px solid var(--acc) !important;
 	border-radius: 4px !important;
 }
 
@@ -769,21 +771,21 @@ header h1 {
 }
 
 .term-tour-popover .driver-popover-title {
-	color: #7CFC7C !important;
+	color: var(--acc) !important;
 }
 
 .term-tour-popover .driver-popover-description {
-	color: #b9e6bd !important;
+	color: var(--acc3) !important;
 }
 
 .term-tour-popover .driver-popover-progress-text {
-	color: #6fae73 !important;
+	color: var(--acc2) !important;
 }
 
 .term-tour-popover button {
-	background: #143018 !important;
-	color: #c8ffcf !important;
-	border: 1px solid #2f5d3a !important;
+	background: var(--bg4) !important;
+	color: var(--acc3) !important;
+	border: 1px solid var(--acc4) !important;
 	text-shadow: none !important;
 	border-radius: 3px;
 }
@@ -792,24 +794,20 @@ header h1 {
 	background: #1d4624 !important;
 }
 
-.driver-active-element {
-	border: 1px solid #7CFC7C !important
-}
-
 .term-tour-popover .driver-popover-arrow-side-left {
-	border-left-color: #2f5d3a
+	border-left-color: var(--acc)
 }
 
 .term-tour-popover .driver-popover-arrow-side-right {
-	border-right-color: #2f5d3a
+	border-right-color: var(--acc)
 }
 
 .term-tour-popover .driver-popover-arrow-side-top {
-	border-top-color: #2f5d3a
+	border-top-color: var(--acc)
 }
 
 .term-tour-popover .driver-popover-arrow-side-bottom {
-	border-bottom-color: #2f5d3a
+	border-bottom-color: var(--acc)
 }
 
 .term-tour-popover .driver-popover-close-btn {

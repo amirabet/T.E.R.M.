@@ -1989,6 +1989,7 @@ function startTour() {
 	}
 
 	const driverObj = window.driver.js.driver({
+		overlayColor: 'green',
 		showProgress: true,
 		animate: true,
 		allowClose: true,
