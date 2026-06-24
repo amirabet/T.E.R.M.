@@ -1999,7 +1999,7 @@ function startTour() {
 		steps: [
 			{
 				popover: {
-					title: "Welcome to T.E.R.M. studio",
+					title: "T.E.R.M. studio",
 					description: "This tool lets you design ASCII/text-based character faces, animate them as frame-by-frame states, and chain them into test scenarios. Let's walk through the main parts."
 				}
 			},
