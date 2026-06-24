@@ -779,7 +779,7 @@ header h1 {
 }
 
 .term-tour-popover .driver-popover-progress-text {
-	color: var(--acc2) !important;
+	color: var(--acc) !important;
 }
 
 .term-tour-popover button {
@@ -788,6 +788,12 @@ header h1 {
 	border: 1px solid var(--acc4) !important;
 	text-shadow: none !important;
 	border-radius: 3px;
+}
+
+.term-tour-popover button.driver-popover-next-btn {
+	color: var(--acc) !important;
+	border: 1px solid var(--acc) !important;
+
 }
 
 .term-tour-popover button:hover {
