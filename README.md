@@ -7,6 +7,10 @@ T.E.R.M. is an animated ASCII terminal companion for CLI tools and LLM-powered p
 This project is searching for collaborators, feel free to contact me.
 You can also [buy me a cofee](https://ko-fi.com/amirabet_dev) to support my projects.
 
+## Pages
+
+Check [the pages](https://amirabet.github.io/T.E.R.M./) to find out help and examples
+
 ## Install
 
 ```bash
