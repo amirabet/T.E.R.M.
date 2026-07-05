@@ -73,9 +73,9 @@ def clear_screen():
 
 # ── Scenes Activation ────────────────────────────────────────────────────────
 
-SCENE0 = False
-SCENE1 = False
-SCENE2 = False
+SCENE0 = True
+SCENE1 = True
+SCENE2 = True
 SCENE3 = True
 SCENE4 = True
 
