@@ -1,570 +1,3879 @@
 {
-  "_meta": {
-    "version": "2.0",
-    "project": "T.E.R.M. — Terminal Empathetic Resourceful Mate",
-    "face_width": "variable — any number of characters",
-    "format": "each char in face/msg is a cell: {char, fg, bg, bold, dim, underline, reverse}",
-    "shorthand": "face_str + face_style applies one style to all chars; cells[] overrides per-char"
-  },
-
-  "idle": {
-    "frames": [
-      {
-        "ms": 600,
-        "face": [
-          {"char": ".", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "_", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "W", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "a", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "n", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "g", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false}
+    "boot": {
+        "fr": [
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 500,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 500,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 500,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 500,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 1000,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 0,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "ms": 900,
-        "face": [
-          {"char": ".", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": " ", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "W", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "a", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "n", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "g", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false}
+    },
+    "idle": {
+        "fr": [
+            {
+                "ms": 500,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 800,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 1000,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 600,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "v",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 500,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  },
-
-  "think": {
-    "frames": [
-      {
-        "ms": 120,
-        "face": [
-          {"char": "o", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "A", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "a", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "l", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "y", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "z", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "g", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
+    },
+    "speak": {
+        "fr": [
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "v",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "ms": 120,
-        "face": [
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "A", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "a", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "l", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "y", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "z", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "g", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
+    },
+    "think": {
+        "fr": [
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "+",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "+",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "O",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "0",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "O",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "@",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "0",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 600,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "@",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "@",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "@",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "magenta"
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "ms": 120,
-        "face": [
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "A", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "a", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "l", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "y", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "z", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "g", "fg": "cyan",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
+    },
+    "work": {
+        "fr": [
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "m",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "w",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "w",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  },
-
-  "work": {
-    "frames": [
-      {
-        "ms": 80,
-        "face": [
-          {"char": "-", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "-", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "W", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "k", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "g", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "yellow", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "yellow", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "yellow", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
+    },
+    "ok": {
+        "fr": [
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "bg": "green"
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "bg": "green"
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "-",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "v",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "bg": "green"
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "V",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "bg": "green"
+                    }
+                ]
+            },
+            {
+                "ms": 0,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "W",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_green",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "bg": "green"
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "ms": 80,
-        "face": [
-          {"char": ">", "fg": "br_yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "-", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "W", "fg": "br_yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "k", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "g", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "yellow",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "yellow",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
+    },
+    "error": {
+        "fr": [
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 100,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "0",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "0",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "=",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "0",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 200,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "=",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "=",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "X",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "X",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "#",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "#",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 300,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "T",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "T",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 0,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": "U",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "U",
+                        "fg": "br_red",
+                        "bo": true
+                    },
+                    {
+                        "ch": " "
+                    },
+                    {
+                        "ch": " ",
+                        "bg": "red",
+                        "bo": true
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "ms": 160,
-        "face": [
-          {"char": ">", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "<", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "W", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "br_yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "k", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "g", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_yellow", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false}
+    },
+    "demo": {
+        "fr": [
+            {
+                "ms": 1000,
+                "fa": [
+                    {
+                        "ch": " ",
+                        "fg": "black",
+                        "bg": "blue",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "o",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": " ",
+                        "fg": "black",
+                        "bg": "blue",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "\u003c",
+                        "fg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "(",
+                        "fg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": "v",
+                        "fg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "green",
+                        "bo": true
+                    },
+                    {
+                        "ch": ")",
+                        "fg": "green"
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "green"
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "C",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "u",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "*",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "D",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "\u003e",
+                        "fg": "black",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "·",
+                        "fg": "black",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "black",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "·",
+                        "fg": "black",
+                        "bg": "yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003c",
+                        "fg": "black",
+                        "bg": "yellow",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "=",
+                        "fg": "br_yellow",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_yellow",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": ",",
+                        "fg": "br_yellow",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_yellow",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "=",
+                        "fg": "br_yellow",
+                        "bg": "black",
+                        "bo": true
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "(",
+                        "fg": "yellow",
+                        "bg": "white",
+                        "bo": true
+                    },
+                    {
+                        "ch": "#",
+                        "fg": "br_red",
+                        "bg": "white",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "black",
+                        "bg": "white",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "red",
+                        "bg": "white",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "black",
+                        "bg": "white",
+                        "bo": true
+                    },
+                    {
+                        "ch": "#",
+                        "fg": "br_red",
+                        "bg": "white"
+                    },
+                    {
+                        "ch": ")",
+                        "fg": "yellow",
+                        "bg": "white"
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "(",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u0027",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "\u0027",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": ")",
+                        "fg": "br_magenta"
+                    },
+                    {
+                        "ch": "\u003e",
+                        "fg": "br_magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "=",
+                        "fg": "blue",
+                        "bg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "(",
+                        "fg": "blue",
+                        "bg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "blue",
+                        "bg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "blue",
+                        "bg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "blue",
+                        "bg": "br_yellow",
+                        "bo": true
+                    },
+                    {
+                        "ch": ")",
+                        "fg": "blue",
+                        "bg": "br_yellow"
+                    },
+                    {
+                        "ch": "=",
+                        "fg": "blue",
+                        "bg": "br_yellow"
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "@",
+                        "fg": "cyan",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "red",
+                        "bo": true
+                    },
+                    {
+                        "ch": "@",
+                        "fg": "cyan"
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "(",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "/",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "/",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "br_magenta",
+                        "bo": true
+                    },
+                    {
+                        "ch": ")",
+                        "fg": "black",
+                        "bg": "br_magenta"
+                    }
+                ]
+            },
+            {
+                "ms": 2000,
+                "fa": [
+                    {
+                        "ch": "~",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "~",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "(",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "gray",
+                        "bg": "black",
+                        "bo": true
+                    },
+                    {
+                        "ch": "_",
+                        "fg": "gray",
+                        "bg": "black"
+                    },
+                    {
+                        "ch": ".",
+                        "fg": "gray",
+                        "bg": "black"
+                    },
+                    {
+                        "ch": "^",
+                        "fg": "gray",
+                        "bg": "black"
+                    },
+                    {
+                        "ch": ")",
+                        "fg": "gray",
+                        "bg": "black"
+                    },
+                    {
+                        "ch": "~",
+                        "fg": "gray",
+                        "bg": "black"
+                    },
+                    {
+                        "ch": "~",
+                        "fg": "gray",
+                        "bg": "black"
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "ms": 80,
-        "face": [
-          {"char": "-", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "<", "fg": "br_yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "W", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "br_yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "k", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "g", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "yellow",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "yellow",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      }
-    ]
-  },
-
-  "ok": {
-    "frames": [
-      {
-        "ms": 100,
-        "face": [
-          {"char": "o", "fg": "green",    "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "green",    "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "green",    "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "D", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "e", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "!", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 100,
-        "face": [
-          {"char": "^", "fg": "br_green", "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "green",    "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_green", "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "D", "fg": "br_green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "green",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "green",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "e", "fg": "green",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "!", "fg": "br_green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "^", "fg": "br_green", "bg": "green", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "br_green", "bg": "green", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "^", "fg": "br_green", "bg": "green", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "D", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "e", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "!", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 300,
-        "face": [
-          {"char": "^", "fg": "br_green", "bg": "",      "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "v", "fg": "br_green", "bg": "",      "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "^", "fg": "br_green", "bg": "",      "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "D", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "e", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "!", "fg": "br_green", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 500,
-        "face": [
-          {"char": "^", "fg": "green",    "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "green",    "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "^", "fg": "green",    "bg": "",      "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "D", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "n", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "e", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "!", "fg": "green", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ]
-      }
-    ]
-  },
-
-  "error": {
-    "frames": [
-      {
-        "ms": 60,
-        "face": [
-          {"char": "o", "fg": "",        "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "",        "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "",        "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "E", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "o", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 60,
-        "face": [
-          {"char": "o", "fg": "yellow",  "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "yellow",  "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "O", "fg": "yellow",  "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "E", "fg": "yellow", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "o", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 80,
-        "face": [
-          {"char": "O", "fg": "br_yellow","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "br_yellow","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "O", "fg": "br_yellow","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "E", "fg": "br_yellow", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "yellow",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 80,
-        "face": [
-          {"char": "@", "fg": "br_red",  "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "br_red",  "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "@", "fg": "br_red",  "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "E", "fg": "br_red", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "br_red", "bg": "", "bold": true, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "red",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "red",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "red",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "x", "fg": "white",   "bg": "red", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "white",   "bg": "red", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "x", "fg": "white",   "bg": "red", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "E", "fg": "br_red", "bg": "", "bold": true, "dim": false, "underline": true,  "reverse": false},
-          {"char": "r", "fg": "br_red", "bg": "", "bold": true, "dim": false, "underline": true,  "reverse": false},
-          {"char": "r", "fg": "br_red", "bg": "", "bold": true, "dim": false, "underline": true,  "reverse": false},
-          {"char": "o", "fg": "br_red", "bg": "", "bold": true, "dim": false, "underline": true,  "reverse": false},
-          {"char": "r", "fg": "br_red", "bg": "", "bold": true, "dim": false, "underline": true,  "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "x", "fg": "br_red",  "bg": "",    "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "br_red",  "bg": "",    "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "x", "fg": "br_red",  "bg": "",    "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "E", "fg": "br_red", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "br_red", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "br_red", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_red", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "br_red", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 600,
-        "face": [
-          {"char": "x", "fg": "red",     "bg": "",    "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "_", "fg": "red",     "bg": "",    "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "x", "fg": "red",     "bg": "",    "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "E", "fg": "red", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "r", "fg": "red", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "r", "fg": "red", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "o", "fg": "red", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "r", "fg": "red", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false}
-        ]
-      }
-    ]
-  },
-
-  "speak": {
-    "frames": [
-      {
-        "ms": 120,
-        "face": [
-          {"char": "^", "fg": "blue",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "-", "fg": "blue",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "^", "fg": "blue",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": ".", "fg": "blue", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "blue", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "blue", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "^", "fg": "br_blue", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "br_blue", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "^", "fg": "br_blue", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": ".", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "blue",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "blue",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 120,
-        "face": [
-          {"char": "^", "fg": "blue",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "-", "fg": "blue",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "^", "fg": "blue",    "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": ".", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "blue",    "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "^", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "u", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "^", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": ".", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_blue", "bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ]
-      }
-    ]
-  },
-
-  "boot": {
-    "frames": [
-      {
-        "ms": 300,
-        "face": [
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "S", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "a", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "n", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": "g", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true, "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "o", "fg": "gray",  "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "S", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "a", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "n", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "g", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "o", "fg": "cyan",  "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "gray",  "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",  "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "S", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "t", "fg": "cyan", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "a", "fg": "gray", "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "n", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "g", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray", "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 200,
-        "face": [
-          {"char": "o", "fg": "br_cyan","bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "cyan",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "o", "fg": "gray",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "S", "fg": "br_cyan","bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "t", "fg": "cyan",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "a", "fg": "cyan",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "t", "fg": "gray",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "i", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "n", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "g", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": ".", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      },
-      {
-        "ms": 400,
-        "face": [
-          {"char": ".", "fg": "br_cyan","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": "_", "fg": "br_cyan","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "br_cyan","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false}
-        ],
-        "msg": [
-          {"char": "T", "fg": "br_cyan","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "E", "fg": "br_cyan","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "R", "fg": "br_cyan","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "M", "fg": "br_cyan","bg": "", "bold": true,  "dim": false, "underline": false, "reverse": false},
-          {"char": ".", "fg": "cyan",   "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": " ", "fg": "",       "bg": "", "bold": false, "dim": false, "underline": false, "reverse": false},
-          {"char": "r", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "e", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "a", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "d", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false},
-          {"char": "y", "fg": "gray",   "bg": "", "bold": false, "dim": true,  "underline": false, "reverse": false}
-        ]
-      }
-    ]
-  }
+    }
 }

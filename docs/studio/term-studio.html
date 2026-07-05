@@ -4,174 +4,212 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>>_ T.E.R.M. studio</title>
+	<title>T.E.R.M. studio >_$ </title>
+	<link rel="icon" type="image/png" href="../assets/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+	<link rel="shortcut icon" href="../assets/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+	<link rel="manifest" href="../assets/site.webmanifest" />
 	<link rel="stylesheet" href="./term-studio.css" />
 	<link rel="stylesheet" href="../style/term.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.css" />
 </head>
 
-<body class="crt_2">
+<body>
 	<main>
 		<div id="toast"></div>
 
-		<header>
-			<h1>>_ T.E.R.M. studio <span class="cursor">_</span></h1>
-			<span>per-character color · bg · attrs · animation</span>
+		<header class="crt" style="display:flex; align-items:center; gap:12px;">
+			<h1 style="flex:1">T.E.R.M. studio ><span class="cursor">_</span>$</h1>
+			<button class="btn acc" id="tour-btn" onclick="startTour()" title="Take a guided tour of the studio">? help
+				/ tour</button>
 		</header>
 
-		<!-- =================== EDITOR =================== -->
-		<div id="tp-editor">
+		<div class="tab-row" data-tour="tab-row">
+			<button class="tab on" id="tab-face" onclick="switchTab('face', this)">STATE</button>
+			<button class="tab" id="tab-test" onclick="switchTab('test', this)">SCENARIO</button>
+		</div>
+
+		<!-- =================== FACE =================== -->
+		<div id="tp-face" class="tp on">
 
 			<!-- STATES MANAGER -->
-			<div class="sec" style="margin-bottom: 8px">
+			<div class="sec" style="margin-bottom: 8px" data-tour="states-sec">
 				<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 7px">
-					<div class="sh" style="margin: 0">STATES</div>
+					<div class="sh">STATES</div>
 					<div style="flex: 1"></div>
 					<button class="btn" onclick="importStatesFile()" title="Load states from a JSON file">&#8593;
 						import</button>
 					<button class="btn acc" onclick="exportStatesFile()" title="Save all states to a JSON file">&#8595;
 						export</button>
 				</div>
+
+				<label>current states</label>
 				<div class="states-bar" id="states-bar"></div>
-				<div class="row" style="margin-top: 6px; gap: 5px">
-					<input type="text" id="new-state-in" placeholder="new state name…"
-						style="font-size: 11px; width: 160px; text-align: left" />
-					<button class="btn acc" onclick="addNewState()">+ add</button>
-					<div style="flex: 1"></div>
-					<button class="btn danger" onclick="deleteCurrentState()">&#10005; delete state</button>
+				<div class="row" style="gap: 5px; align-items: flex-end; vertical-align: bottom; margin-bottom: 6px">
+					<div>
+						<label for="new-state-in">add new state</label>
+						<input type="text" id="new-state-in" placeholder="new state name…"
+							style="font-size: 11px; width: 160px; text-align: left" />
+					</div>
+					<button class="btn " onclick="addNewState()">+ add</button>
 				</div>
+				<button class="btn danger" onclick="deleteCurrentState()">&#10005; delete selected state</button>
 				<input type="file" id="import-json-input" accept=".json" style="display: none"
 					onchange="onImportFileChange(this)" />
 			</div>
 
-			<div class="layout">
+			<div class="">
 				<div class="left">
 
 					<!-- TIMELINE -->
 					<div class="sec">
-						<div class="sh">FRAMES</div>
-						<div id="frames-row" style="margin-bottom: 8px"></div>
-						<div class="row">
-							<button class="btn acc" onclick="addFrame()">+ frame</button>
-							<button class="btn" onclick="dupFrame()">⎘ dup</button>
-							<button class="btn danger" onclick="delFrame()">✕ del</button>
-							<div style="flex: 1"></div>
-							<button class="btn" onclick="stepFrame(-1)">◀</button>
-							<button class="btn on" id="play-btn" onclick="togglePlay()">
-								▶
-							</button>
-							<button class="btn" onclick="stepFrame(1)">▶|</button>
-							<input type="range" id="speed-r" min="20" max="300" value="100"
-								oninput="setSpeed(this.value)" />
-							<span id="speed-lbl" style="font-size: 10px; color: var(--text3); width: 28px">x1</span>
+						<div class="row" style="gap: 16px; align-items: flex-start; vertical-align: top">
+							<div style="flex: 1" data-tour="frames-sec">
+								<div id="frames-row" style="margin-bottom: 8px"></div>
+								<div class="row">
+									<button class="btn acc" onclick="addFrame()">+ frame</button>
+									<button class="btn" onclick="dupFrame()">⎘ dup</button>
+									<button class="btn danger" onclick="delFrame()">✕ del</button>
+									<div style="flex: 1"></div>
+								</div>
+								<div id="state-duration" class="state-duration"></div>
+							</div>
+							<div style="flex: 1" data-tour="stage-sec">
+								<!-- STAGE -->
+								<div id="stage-wrap" class="crt">
+									<div id="stage-face"></div>
+								</div>
+								<div class="row"
+									style="margin-top: 8px; gap: 4px; justify-content: center; align-items: center; vertical-align: top">
+									<button class="btn" onclick="goFirstFrame()">|◀</button>
+									<button class="btn" onclick="stepFrame(-1)">◀</button>
+									<button class="btn acc" style="width: 32px; height: 26px;" id="play-btn"
+										onclick="togglePlay()">
+										▶
+									</button>
+									<button class="btn" onclick="stepFrame(1)">▶</button>
+									<button class="btn" onclick="goLastFrame()">▶|</button>
+									<input type="range" id="speed-r" min="0" max="5000" value="100" step="100"
+										oninput="setSpeed(this.value)" />
+									<span id="speed-lbl"
+										style="font-size: 10px; color: var(--text3); width: 28px">x1</span>
+								</div>
+							</div>
 						</div>
+
+
 					</div>
 
 					<!-- CHARACTER EDITOR -->
-					<div class="sec">
-						<div class="tgt-row">
-							<button class="tgt on" id="tgt-face" onclick="setTarget('face', this)">
-								FACE
-							</button>
-							<button class="tgt" id="tgt-msg" onclick="setTarget('msg', this)">
-								MESSAGE
-							</button>
-						</div>
+					<div class="sec" data-tour="edit-frame-sec">
+						<div class="sh">EDIT FRAME</div>
 
 						<!-- FACE -->
 						<div id="wrap-face">
 							<div class="row" style="margin-bottom: 6px">
-								<input type="text" id="face-in" value="._." maxlength="9" placeholder="o_o"
-									style="width: 110px" oninput="onFaceInput()" />
-								<span style="font-size: 10px; color: var(--text3)">ms</span>
-								<input type="number" id="ms-in" value="300" min="40" max="3000" step="10"
-									oninput="onMsInput()" />
+								<div style="flex:1">
+									<label for="face-in">characters</label>
+									<input type="text" id="face-in" value="._." placeholder="face goes here..."
+										oninput="onFaceInput()" />
+								</div>
+								<div style="flex:1">
+									<label for="ms-in">frame
+										duration</label>
+									<input type="number" id="ms-in" min="0" max="10000" value="300" step="100"
+										oninput="onMsInput()" />
+									<span style="font-size: 10px; color: var(--text3)">ms. | 0 = infinite</span>
+								</div>
 							</div>
+							<label>Edit Chars</label>
 							<div class="char-row" id="face-row"></div>
 						</div>
 
-						<!-- MSG -->
-						<div id="wrap-msg" style="display: none">
-							<div class="row" style="margin-bottom: 6px">
-								<input type="text" id="msg-in" value="" placeholder="Working on..." class="msg-in"
-									style="width: 100%" oninput="onMsgInput()" />
-							</div>
-							<div class="char-row" id="msg-row"></div>
-						</div>
-
 						<div class="sel-info" id="sel-info">
-							— click a character to select · shift+click = multi —
+							— click a character to select | shift+click = multiselection
+						</div>
+						<div style="display: flex; gap: 6px;">
+							<button class="btn" onclick="selectAll('face')">select all</button>
+							<button class="btn danger" onclick="clearSelStyle()">clear selected</button>
+							<button class="btn danger" onclick="clearAllStyles()">clear all</button>
+						</div>
+						<!-- Character attribute-->
+						<div class="row" style="margin-top: 8px; gap: 12px; align-items: flex-start;"
+							data-tour="attrs-sec">
+							<div class="sec" style="flex: 1">
+								<label>TEXT COLOR</label>
+								<div class="palette" id="fg-pal"></div>
+							</div>
+
+							<div class="sec" style="flex: 1">
+								<label>BACKGROUND COLOR</label>
+								<div class="palette" id="bg-pal"></div>
+							</div>
+
+							<div class="sec">
+								<label>ATTRIBUTES</label>
+								<div class="attr-row" id="attr-row"></div>
+							</div>
 						</div>
 					</div>
 
-					<!-- QUICK ACTIONS + EXPRESSIONS (two-col) -->
-					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
-						<div class="sec">
-							<div class="sh">QUICK ACTIONS</div>
-							<button class="btn block" onclick="selectAll('face')">select all (face)</button>
-							<button class="btn block" onclick="selectAll('msg')">select all (message)</button>
-							<button class="btn block danger" onclick="clearSelStyle()">clear style (sel.)</button>
-							<button class="btn block danger" onclick="clearAllStyles()">clear entire frame</button>
-						</div>
-						<div class="sec">
-							<div class="sh">EXPRESSIONS</div>
-							<div class="face-grid" id="face-grid"></div>
-						</div>
+					<!-- EXPRESSIONS -->
+					<div class="sec" style="margin-bottom: 30px" data-tour="expr-sec">
+						<div class="sh">EXPRESSIONS</div>
+						<div class="face-grid" id="face-grid"></div>
 					</div>
 
-					<!-- STAGE -->
-					<div id="stage-wrap">
-						<div id="stage-face"></div>
-						<div id="stage-msg"></div>
-					</div>
 				</div>
-				<!-- /left -->
 
-				<!-- ─── RIGHT COLUMN ─── -->
-				<div class="right">
-					<div class="sec">
-						<div class="sh">TEXT COLOR</div>
-						<div class="palette" id="fg-pal"></div>
-					</div>
-
-					<div class="sec">
-						<div class="sh">BACKGROUND COLOR</div>
-						<div class="palette" id="bg-pal"></div>
-					</div>
-
-					<div class="sec">
-						<div class="sh">ATTRIBUTES</div>
-						<div class="attr-row" id="attr-row"></div>
-					</div>
-
-					<div class="sec">
-						<div class="sh">COLOR NOTES</div>
-						<div style="font-size: 10px; color: var(--text3); line-height: 1.9">
-							<span style="color: #666">&#9632;</span>
-							<span style="color: var(--text2)">default</span> inherits the
-							user's terminal color &mdash; changes with their theme.<br />
-							<span style="
-							color: #111;
-							background: #aaa;
-							padding: 0 3px;
-							border-radius: 2px;
-							">&#9632;</span>
-							<span style="color: var(--text2)">black</span>
-							<code style="font-size: 9px"></code> &mdash; invisible on
-							dark background. Use only on light BG.<br />
-							<span style="color: var(--text2)">&#9632; Reverse</span> swaps
-							FG&harr;BG in the terminal. For a fixed BG, use explicit FG+BG
-							without reverse.
-						</div>
-					</div>
-					<!-- /right -->
-				</div>
 				<!-- /layout -->
 			</div>
 		</div>
-		<!-- /tp-editor -->
+		<!-- /tp-face -->
+
+		<!-- =================== SCENARIOS =================== -->
+		<div id="tp-test" class="tp">
+			<div class="sec" style="margin-bottom: 30px" data-tour="scenarios-sec">
+				<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px">
+					<div class="sh" style="margin-bottom: 0">CHAINED SCENARIOS</div>
+					<div style="flex: 1"></div>
+					<button class="btn" onclick="downloadScenariosJson()"
+						title="Download all scenarios as a JSON file">&#8595; export .json</button>
+					<button class="btn acc" onclick="downloadAllScenariosPy()"
+						title="Download all scenarios as a single Python file">&#8595; export .py</button>
+				</div>
+				<div style="font-size: 10px; color: var(--text3); margin-bottom: 7px">
+					Configure up to 5 scenarios. Each one has state, message, message mode, and duration.
+					The stage below plays them sequentially.
+				</div>
+				<div id="test-stage-wrap" class="crt">
+					<div id="test-stage-face"></div>
+					<div id="test-stage-msg"></div>
+
+				</div>
+				<div id="test-stage-meta"></div>
+				<div class="row" style="margin: 8px 0">
+					<button class="btn acc" onclick="runTestChain()" id="test-run-btn">▶ run chain</button>
+					<button class="btn " onclick="stopTestChain()">|◀ rewind</button>
+					<div style="flex: 1"></div>
+					<span id="test-count" style="font-size: 10px; color: var(--text3)">1/5</span>
+					<button class="btn acc" onclick="addTestScenario()">+ Add scenario</button>
+				</div>
+				<div id="test-scenarios" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px"></div>
+
+			</div>
+
+
+		</div>
+		<!-- /tp-test -->
 	</main>
 
+	<script src="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.js.iife.js"></script>
 	<script src="./term-studio.js"></script>
-</body>
+
 
 </html>
+
+<!-- 
+- Default text color by state
+- Fix terminal colors: https://jvns.ca/blog/2024/10/01/terminal-colours/
+-->

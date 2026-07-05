@@ -4,7 +4,7 @@ build-backend = "setuptools.backends.legacy:build"
 
 [project]
 name            = "term-mate"
-version         = "0.1.0"
+version         = "0.3.0"
 description     = "T.E.R.M. — Terminal Empathetic Resourceful Mate"
 readme          = "README.md"
 license         = { text = "MIT" }
