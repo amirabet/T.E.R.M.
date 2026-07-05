@@ -2,6 +2,11 @@
 
 T.E.R.M. is an animated ASCII terminal companion for CLI tools and LLM-powered programs. It runs in-place on a single terminal line and supports per-character styling, JSON-driven animations, and cross-language control over stdin.
 
+## Collaborate
+
+This project is searching for collaborators, feel free to contact me.
+You can also [buy me a cofee](https://ko-fi.com/amirabet_dev) to support my prjects.
+
 ## Install
 
 ```bash
