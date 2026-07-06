@@ -2,38 +2,15 @@
 
 T.E.R.M. is an animated ASCII terminal companion for CLI tools and LLM-powered programs. It runs in-place on a single terminal line and supports per-character styling, JSON-driven animations, and cross-language control over stdin.
 
-## Collaborate
+## Work in progress
 
-This project is searching for collaborators, feel free to contact me.
+This project is unfinished and searching for collaborators, feel free to contact me.
+
 You can also [buy me a cofee](https://ko-fi.com/amirabet_dev) to support my projects.
 
-## Pages
+## More info
 
 Check [the pages](https://amirabet.github.io/T.E.R.M./) to find out help and examples
-
-## Install
-
-```bash
-pip install -e /path/to/term
-```
-
-Python 3.8 or newer is required.
-
-## Quick Start
-
-```python
-import time
-from term import TERM
-
-bot = TERM()
-bot.start("boot")
-time.sleep(1.5)
-bot.think("Analyzing your project...")
-time.sleep(2.0)
-bot.ok("Done in 2.1s")
-time.sleep(1.0)
-bot.stop()
-```
 
 ## Documentation
 
@@ -55,26 +32,6 @@ The full documentation now lives in the wiki submodule under `wiki/` and in the 
 - Roadmap: `wiki/Roadmap.md`
 - License: `wiki/License.md`
 - Wiki editing and publishing: `wiki/Editing-and-Publishing.md`
-
-## Wiki Workflow
-
-Initialize the wiki submodule:
-
-```bash
-git submodule update --init --recursive
-```
-
-Publish local wiki changes to the GitHub wiki:
-
-```powershell
-.\publish-wiki.ps1 -Message "Update wiki pages"
-```
-
-Publish wiki changes and update the main repo submodule pointer too:
-
-```powershell
-.\publish-wiki.ps1 -Message "Update wiki pages" -UpdateMainRepoPointer
-```
 
 ## License
 
